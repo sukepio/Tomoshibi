@@ -42,13 +42,8 @@
 - 支援物資要請（optional)
 
 ## 設計書
-- UI Flows
-  - 管理者側: https://drive.google.com/file/d/1hXxgBWXwGWFlVoITXfCGTJowtsNye4un/view?usp=sharing
-  - 住民さん側: https://drive.google.com/file/d/1FqzJsPn54GND6Av42XUpqO9J4dAACLDz/view?usp=sharing
 
-- ER図（未完成）: https://drive.google.com/file/d/1EJG1znwu6eiJZlfAxAONdP-MH_X5miXe/view?usp=sharing
-
-## チャレンジ要素一覧
+## 機能一覧
 
 https://docs.google.com/spreadsheets/d/1yRvz7K_TcK8flEND_ogDKc6u7fAo_7pFnXaiycGL-2M/edit#gid=382966821
 
