@@ -1,8 +1,9 @@
-<h2>Log in</h2>
+<h2>管理者ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
   <div class="field">
-    <%= f.label :login_id, 'ログインID' %><br />
+    <%= f.label :login_id %><br />
     <%= f.text_field :login_id, autofocus: true, autocomplete: "login_id" %>
   </div>
 
@@ -19,8 +20,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
-<%= render "admin/shared/links" %>
