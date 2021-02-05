@@ -19,4 +19,8 @@ html
           li.nav-item= link_to 'ログアウト', destroy_admin_session_path, method: :delete
         - else
           li.nav-item= link_to 'ログイン', new_admin_session_path
-    = yield
+
+    .container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield

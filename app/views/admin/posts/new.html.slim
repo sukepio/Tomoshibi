@@ -1,5 +1,10 @@
 h1 避難所通信の新規投稿
 
+- if @post.errors.present?
+  ul#error_explanation
+    - @post.errors.full_messages.each do |message|
+      li= message
+
 = form_with model: [:admin, @post], local: true do |f|
   .form-group
     = f.label :title
