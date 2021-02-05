@@ -1,87 +1,85 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2>管理者新規登録</h2>
+  <div class="row justify-content-center">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "admin/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "admin/shared/error_messages", resource: resource %>
+      <div class="form-row">
+        <%= f.label :first_name, "（姓）" %><br />
+        <%= f.text_field :first_name, autofocus: true, class:'form-control' %>
 
-  <div class="field">
-    <%= f.label :first_name, "（姓）" %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
+        <%= f.label :last_name, "（名）" %><br />
+        <%= f.text_field :last_name, autofocus: true, class:'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :last_name, "（名）" %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
+      <div class="form-row">
+        <%= f.label :first_name_kana, "（セイ）" %><br />
+        <%= f.text_field :first_name_kana, autofocus: true, class:'form-control' %>
 
-  <div class="field">
-    <%= f.label :first_name_kana, "（セイ）" %><br />
-    <%= f.text_field :first_name_kana, autofocus: true %>
-  </div>
+        <%= f.label :last_name_kana, "（メイ）" %><br />
+        <%= f.text_field :last_name_kana, autofocus: true, class:'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :last_name_kana, "（メイ）" %><br />
-    <%= f.text_field :last_name_kana, autofocus: true %>
-  </div>
+      <div class="form-row">
+        <%= f.label :phone_number, "電話番号" %><br />
+        <%= f.text_field :phone_number, autofocus: true, class:'form-control' %>
 
-  <div class="field">
-    <%= f.label :phone_number, "電話番号" %><br />
-    <%= f.text_field :phone_number, autofocus: true %>
-  </div>
+        <%= f.label :login_id, "ログインID" %><br />
+        <%= f.text_field :login_id, autofocus: true, class:'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :login_id, "ログインID" %><br />
-    <%= f.text_field :login_id, autofocus: true %>
-  </div>
+      <div class="form-row">
+        <%= f.label :date_of_birth, "生年月日" %><br />
+        <%= f.date_select :date_of_birth, use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1), class:'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :date_of_birth, "生年月日" %><br />
-    <%= f.date_select :date_of_birth, use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1) %>
-  </div>
+      <div class="form-row">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="form-row">
+        <%= f.label :password, 'パスワード' %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class:'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="form-row">
+        <%= f.label :password_confirmation, 'パスワード確認' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "admin/shared/links" %>
-
-<table class="table">
-  <tbody>
-    <tr>
-      <th>名前</th>
-      <th>フリガナ</th>
-      <th>電話番号</th>
-      <th>メールアドレス</th>
-      <th>ログインID</th>
-      <th>生年月日</th>
-    </tr>
-    <% @admins.each do |admin| %>
-    <tr>
-      <td><%= admin.last_name %><%= admin.first_name %></td>
-      <td><%= admin.last_name_kana %><%= admin.first_name_kana %></td>
-      <td><%= admin.phone_number %></td>
-      <td><%= admin.email %></td>
-      <td><%= admin.login_id %></td>
-      <td><%= admin.date_of_birth %></td>
-    </tr>
+      <div class="actions">
+        <%= f.submit "新規登録", class: 'btn btn-success' %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+
+  </div>
+
+  <div class="row mt-5">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>名前</th>
+          <th>フリガナ</th>
+          <th>電話番号</th>
+          <th>メールアドレス</th>
+          <th>ログインID</th>
+          <th>生年月日</th>
+        </tr>
+        <% @admins.each do |admin| %>
+        <tr>
+          <td><%= admin.last_name %><%= admin.first_name %></td>
+          <td><%= admin.last_name_kana %><%= admin.first_name_kana %></td>
+          <td><%= admin.phone_number %></td>
+          <td><%= admin.email %></td>
+          <td><%= admin.login_id %></td>
+          <td><%= admin.date_of_birth %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
