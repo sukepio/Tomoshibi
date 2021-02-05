@@ -8,4 +8,14 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+      .navbar-brand ともしび
+
+      ul.navbar-nav.ml-auto
+        - if admin_signed_in?
+          li.nav-item.mr-5= current_admin
+          li.nav-item.mr-3= link_to '管理者新規登録', new_admin_registration_path
+          li.nav-item= link_to 'ログアウト', destroy_admin_session_path, method: :delete
+        - else
+          li.nav-item= link_to 'ログイン', new_admin_session_path
     = yield
