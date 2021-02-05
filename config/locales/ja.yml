@@ -11,6 +11,7 @@ ja:
     attributes:
       post:
       id: ID
+      admin_id: 管理者ID
       title: タイトル
       body: 内容
       created_at: 登録日時
