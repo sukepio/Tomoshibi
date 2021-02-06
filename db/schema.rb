@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_013023) do
+ActiveRecord::Schema.define(version: 2021_02_06_060720) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2021_02_05_013023) do
     t.index ["last_name"], name: "index_admins_on_last_name"
     t.index ["last_name_kana"], name: "index_admins_on_last_name_kana"
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "admin_id", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+    t.index ["title"], name: "index_posts_on_title"
   end
 
 end

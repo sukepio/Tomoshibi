@@ -1,0 +1,19 @@
+h1 避難所通信一覧
+
+= link_to "新規投稿", new_admin_post_path, class: 'btn btn-primary'
+
+table.table
+  tbody
+    tr
+      td= Post.human_attribute_name(:admin_id)
+      td= Post.human_attribute_name(:title)
+      td= Post.human_attribute_name(:body)
+    - @posts.each do |post|
+      tr
+        td= post.admin.full_name
+        td= link_to post.title, admin_post_path(post)
+        td= post.body
+
+.mt-3
+  = paginate @posts
+  = page_entries_info @posts

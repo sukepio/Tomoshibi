@@ -1,0 +1,17 @@
+h1 避難所通信詳細
+
+table.table
+  tbody
+    tr
+      td= Post.human_attribute_name(:title)
+      td= Post.human_attribute_name(:body)
+      td
+    tr
+      td= @post.title
+      td= @post.body
+      - if @post.image?
+        td= image_tag @post.image.url
+    tr
+      td
+        = link_to "編集する", edit_admin_post_path(@post), class: 'btn btn-success'
+        = link_to "削除する", admin_post_path(@post), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'

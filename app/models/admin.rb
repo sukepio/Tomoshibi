@@ -11,4 +11,10 @@ class Admin < ApplicationRecord
   validates :phone_number, presence: true
   validates :login_id, presence: true
   validates :date_of_birth, presence: true
+
+  has_many :posts
+
+  def full_name
+    last_name + first_name
+  end
 end

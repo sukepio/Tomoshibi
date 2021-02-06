@@ -1,0 +1,18 @@
+h1 避難所通信の編集
+
+- if @post.errors.present?
+  ul#error_explanation
+    - @post.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: [:admin, @post], local: true do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class:'form-control'
+  .form-group
+    = f.label :body
+    = f.text_area :body, rows: 10, class:'form-control'
+  .form-group
+    = f.label :image
+    = f.file_field :image, class: 'form-control'
+  = f.submit nil, class: 'btn btn-primary'
