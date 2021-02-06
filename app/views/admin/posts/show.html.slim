@@ -10,7 +10,7 @@ table.table
       td= @post.title
       td= @post.body
       - if @post.image?
-        td= image_tag @post.image.url, width: "200px", height: "200px"
+        td= image_tag @post.image.url
     tr
       td
         = link_to "編集する", edit_admin_post_path(@post), class: 'btn btn-success'
