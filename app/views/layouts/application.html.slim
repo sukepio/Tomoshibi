@@ -8,19 +8,30 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand ともしび
 
-      ul.navbar-nav.ml-auto
+    .left-side-menu
+      p.logo ともしび
+      ul
         - if admin_signed_in?
-          li.nav-item.mr-5= current_admin.full_name
-          li.nav-item.mr-3= link_to '避難所通信一覧', admin_posts_path
-          li.nav-item.mr-3= link_to '管理者新規登録', new_admin_registration_path
-          li.nav-item= link_to 'ログアウト', destroy_admin_session_path, method: :delete
+          li.list-item
+            = link_to admin_posts_path do
+              = image_tag 'icon-news.png', width: '80px', height: '80px'
+              p.list-text 避難所通信一覧
+          li.list-item
+            = link_to new_admin_registration_path do
+              = image_tag 'icon-rice.png', width: '80px', height: '80px'
+              p.list-text 管理者新規登録
+          li.list-item
+            = link_to destroy_admin_session_path, method: :delete do
+              = image_tag 'icon-logout.png', width: '80px', height: '80px'
+              p.list-text ログアウト
         - else
-          li.nav-item= link_to 'ログイン', new_admin_session_path
+          li.list-item
+            = link_to new_admin_session_path do
+              = image_tag 'icon-login.png', width: '80px', height: '80px'
+              p.list-text 管理者ログイン
 
-    .container
+    .main
       - if flash.notice.present?
         .alert.alert-success= flash.notice
       = yield

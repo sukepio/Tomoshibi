@@ -14,3 +14,57 @@
  *= require_self
  */
 @import "bootstrap";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  font-family: メイリオ, "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Open Sans", sans-serif, osaka, Arial, Verdana, sans-serif;
+}
+
+// 左サイドメニューここから
+.left-side-menu {
+  width: 10%;
+  height: 100%;
+  border: 2px solid #666;
+  border-radius: 10px;
+
+  .logo {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .list-item {
+    list-style: none;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+    .list-text {
+      color: black;
+      font-size: 18px;
+    }
+}
+// 左サイドメニューここまで
+
+// メインここから
+.main {        //全体に適用
+  width: 90%;
+  padding: 40px;
+
+  .login-container {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
