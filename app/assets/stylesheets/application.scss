@@ -30,6 +30,7 @@ body {
   font-family: メイリオ, "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Open Sans", sans-serif, osaka, Arial, Verdana, sans-serif;
 }
 
+// 左サイドメニューここから
 .left-side-menu {
   width: 10%;
   height: 100%;
@@ -45,7 +46,6 @@ body {
   .list-item {
     list-style: none;
     margin-top: 20px;
-    // margin-left: 15%;
     text-align: center;
   }
 
@@ -54,8 +54,17 @@ body {
       font-size: 18px;
     }
 }
+// 左サイドメニューここまで
 
-.main {
+// メインここから
+.main {        //全体に適用
   width: 90%;
   padding: 40px;
+
+  .login-container {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
 }
+
