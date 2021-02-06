@@ -13,3 +13,7 @@ table.table
         td= post.admin.full_name
         td= link_to post.title, admin_post_path(post)
         td= post.body
+
+.mt-3
+  = paginate @posts
+  = page_entries_info @posts
