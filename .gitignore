@@ -31,5 +31,6 @@
 /config/master.key
 
 /public/uploads
+/.env
 
 .DS_Store
