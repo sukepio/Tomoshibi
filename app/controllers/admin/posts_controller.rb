@@ -15,7 +15,6 @@ class Admin::PostsController < ApplicationController
 
   def create
     @post = current_admin.posts.new(post_params)
-
     if @post.save
       redirect_to admin_posts_path, notice: "避難所通信「#{@post.title}」を投稿しました。"
     else

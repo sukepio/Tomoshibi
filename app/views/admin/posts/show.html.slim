@@ -5,9 +5,12 @@ table.table
     tr
       td= Post.human_attribute_name(:title)
       td= Post.human_attribute_name(:body)
+      td
     tr
       td= @post.title
       td= @post.body
+      - if @post.image?
+        td= image_tag @post.image.url, width: "200px", height: "200px"
     tr
       td
         = link_to "編集する", edit_admin_post_path(@post), class: 'btn btn-success'
