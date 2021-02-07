@@ -10,7 +10,7 @@ table.table
       td= Post.human_attribute_name(:body)
     - @posts.each do |post|
       tr
-        td= post.admin.full_name
+        td= post.admin_id
         td= link_to post.title, admin_post_path(post)
         td= post.body
 

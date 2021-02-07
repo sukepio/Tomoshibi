@@ -14,6 +14,10 @@ html
       ul
         - if admin_signed_in?
           li.list-item
+            = link_to new_resident_registration_path do
+              = image_tag 'icon-people.png', width: '80px', height: '80px'
+              p.list-text 避難者新規登録
+          li.list-item
             = link_to admin_posts_path do
               = image_tag 'icon-news.png', width: '80px', height: '80px'
               p.list-text 避難所通信一覧
@@ -30,6 +34,17 @@ html
             = link_to new_admin_session_path do
               = image_tag 'icon-login.png', width: '80px', height: '80px'
               p.list-text 管理者ログイン
+          - if resident_signed_in?
+            li.list-item
+              = link_to destroy_resident_session_path, method: :delete do
+                = image_tag 'icon-logout.png', width: '80px', height: '80px'
+                p.list-text 住民ログアウト
+          - else
+            li.list-item
+               = link_to new_resident_session_path do
+                = image_tag 'icon-login.png', width: '80px', height: '80px'
+                p.list-text 住民ログイン
+
 
     .main
       - if flash.notice.present?

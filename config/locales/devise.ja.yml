@@ -52,6 +52,7 @@ ja:
         date_of_birth: "生年月日"
         phone_number: "電話番号"
         login_id: "ログインID"
+        information: "避難者情報"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"

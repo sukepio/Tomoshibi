@@ -8,8 +8,8 @@ class Admin::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @admins = Admin.all
     super
+    @admins = Admin.all
   end
 
   # POST /resource

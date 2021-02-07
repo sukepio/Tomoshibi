@@ -2,6 +2,10 @@ h2
   | Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
+    = f.label :login_id
+    br
+    = f.text_field :login_id, autofocus: true, autocomplete: "login_id"
+  .field
     = f.label :password
     br
     = f.password_field :password, autocomplete: "current-password"
