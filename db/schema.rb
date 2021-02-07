@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_051609) do
+ActiveRecord::Schema.define(version: 2021_02_07_062219) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(version: 2021_02_07_051609) do
     t.date "date_of_birth", null: false
     t.string "phone_number", null: false
     t.string "login_id", null: false
-    t.boolean "has_left", null: false
+    t.boolean "has_left", default: false, null: false
     t.string "self_message", default: "みなさんの支えに感謝！"
     t.text "information"
-    t.boolean "photo_accepted", null: false
+    t.boolean "photo_accepted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["first_name"], name: "index_residents_on_first_name"
