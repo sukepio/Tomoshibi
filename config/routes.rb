@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :residents
   root 'homes#about'
   devise_for :admins, controllers: {
     sessions: 'admin/sessions',
