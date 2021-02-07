@@ -14,9 +14,9 @@ html
       ul
         - if admin_signed_in?
           li.list-item
-            = link_to new_resident_registration_path do
+            = link_to admin_residents_path do
               = image_tag 'icon-people.png', width: '80px', height: '80px'
-              p.list-text 避難者新規登録
+              p.list-text 避難者一覧
           li.list-item
             = link_to admin_posts_path do
               = image_tag 'icon-news.png', width: '80px', height: '80px'

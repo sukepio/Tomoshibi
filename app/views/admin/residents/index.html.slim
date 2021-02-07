@@ -1,0 +1,15 @@
+h1 避難者一覧
+
+table.table
+  tbody
+    tr
+      td 避難者名
+      td 避難者ID
+      td ログインID
+      td 性別
+    - @residents.each do |resident|
+      tr
+        td= resident.full_name
+        td= resident.id
+        td= resident.login_id
+        td= resident.gender

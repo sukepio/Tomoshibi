@@ -53,6 +53,7 @@ class Admin::Resident::RegistrationsController < Devise::RegistrationsController
       :phone_number,
       :login_id,
       :information,
+      :gender,
       ])
   end
 

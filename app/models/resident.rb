@@ -4,6 +4,9 @@ class Resident < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  enum gender: { 男: 0, 女: 1}
+
   def email_required?
     false
   end
@@ -14,5 +17,9 @@ class Resident < ApplicationRecord
 
   def will_save_change_to_email?
     false
+  end
+
+  def full_name
+    last_name + first_name
   end
 end

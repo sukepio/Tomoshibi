@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_091525) do
+ActiveRecord::Schema.define(version: 2021_02_07_113315) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_091525) do
     t.boolean "photo_accepted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "gender", default: 0, null: false
     t.index ["first_name"], name: "index_residents_on_first_name"
     t.index ["first_name_kana"], name: "index_residents_on_first_name_kana"
     t.index ["last_name"], name: "index_residents_on_last_name"
