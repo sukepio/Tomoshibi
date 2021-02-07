@@ -25,3 +25,26 @@ table.table
       td= @resident.information
     tr
       td= link_to "編集する", edit_admin_resident_path, class: 'btn btn-success'
+
+- unless @resident.household.present?
+  = link_to '世帯情報を登録する', new_admin_resident_household_path(@resident), class: 'btn btn-primary'
+
+- if @resident.household.present?
+  table.table
+    tbody
+      tr
+        th 世帯主名
+        td= @household.head_id
+      tr
+        th 住所
+        td= @household.address
+      tr
+        th 家屋被害状況
+        td= @household.house_damage_situation
+      tr
+        th 居住スペース
+        td= @household.living_space
+      tr
+        td= link_to "編集する", edit_admin_resident_path, class: 'btn btn-primary'
+
+

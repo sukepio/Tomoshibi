@@ -6,6 +6,9 @@ class Admin::ResidentsController < ApplicationController
 
   def show
     @resident = Resident.find(params[:id])
+    if @resident.household.present?
+      @household = @resident.household
+    end
   end
 
   def edit
