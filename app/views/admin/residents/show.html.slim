@@ -1,0 +1,27 @@
+h1
+  = "#{@resident.full_name}さんの詳細"
+
+table.table
+  tbody
+    tr
+      th　名前
+      td
+        = @resident.full_name
+        = @resident.full_name_kana
+    tr
+      th 性別
+      td= @resident.gender
+    tr
+      th 生年月日
+      td= @resident.date_of_birth
+    tr
+      th 連絡先
+      td= @resident.phone_number
+    tr
+      th ログインID
+      td= @resident.login_id
+    tr
+      th 避難者情報
+      td= @resident.information
+    tr
+      td= link_to "編集する", edit_admin_resident_path, class: 'btn btn-success'

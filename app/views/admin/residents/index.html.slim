@@ -1,4 +1,5 @@
 h1 避難者一覧
+= link_to "避難者新規登録へ", new_resident_registration_path, class: 'btn btn-primary'
 
 table.table
   tbody
@@ -9,7 +10,7 @@ table.table
       td 性別
     - @residents.each do |resident|
       tr
-        td= resident.full_name
+        td= link_to resident.full_name, admin_resident_path(resident)
         td= resident.id
         td= resident.login_id
         td= resident.gender
