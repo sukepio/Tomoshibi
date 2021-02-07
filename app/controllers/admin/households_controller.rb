@@ -1,4 +1,5 @@
 class Admin::HouseholdsController < ApplicationController
+
   def new
     @resident = Resident.find(params[:resident_id])
     @household = Household.new
@@ -18,7 +19,20 @@ class Admin::HouseholdsController < ApplicationController
     end
   end
 
+  def edit
+    @resident = Resident.find(params[:resident_id])
+    @household = Household.find(params[:id])
+  end
+
   def update
+    @resident = Resident.find(params[:resident_id])
+    @household = Household.find(params[:id])
+
+    if @household.update(household_params)
+      redirect_to admin_resident_path(@resident), notice: "#{@resident.full_name}さんの世帯情報を更新しました。"
+    else
+      render :edit
+    end
   end
 
   private

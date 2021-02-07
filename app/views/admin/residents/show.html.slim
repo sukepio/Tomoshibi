@@ -45,6 +45,6 @@ table.table
         th 居住スペース
         td= @household.living_space
       tr
-        td= link_to "編集する", edit_admin_resident_path, class: 'btn btn-primary'
+        td= link_to "編集する", edit_admin_resident_household_path(@resident, @household), class: 'btn btn-primary'
 
 
