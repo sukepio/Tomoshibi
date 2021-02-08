@@ -6,15 +6,18 @@ class Admin::ResidentsController < ApplicationController
 
   def show
     @resident = Resident.find(params[:id])
-    
+
     if @resident.household.present?
       @household = @resident.household
+      @residents = @household.residents
+      @household_head = @residents.find_by(id: @household.head_id)
     end
     
   end
 
   def edit
     @resident = Resident.find(params[:id])
+    @households = Household.all
   end
 
   def update
@@ -29,6 +32,6 @@ class Admin::ResidentsController < ApplicationController
   private
 
   def resident_params
-    params.require(:resident).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :login_id, :date_of_birth, :gender, :information)
+    params.require(:resident).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :login_id, :date_of_birth, :gender, :information, :household_id)
   end
 end

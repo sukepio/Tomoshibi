@@ -42,4 +42,8 @@ h1 編集する
       = f.text_area :information, rows: 5, autofocus: true, class:'form-control'
 
     .form-row
+      = f.label :household_id, '世帯登録'
+      = f.select :household_id, @households.map{ |household| [household.information, household.id] }
+
+    .form-row
       = f.submit nil, class: 'btn btn-primary'

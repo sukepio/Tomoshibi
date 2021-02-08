@@ -4,8 +4,8 @@ class Resident < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :household
-  
+  belongs_to :household, optional: true
+
   enum gender: { 男: 0, 女: 1}
 
   def email_required?
