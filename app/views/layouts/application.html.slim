@@ -14,34 +14,38 @@ html
       ul
         - if admin_signed_in?
           li.list-item
-            = link_to admin_residents_path do
+            = link_to admin_events_path, class:'header-link' do
+              = image_tag 'icon-calendar.png', width: '80px', height: '80px'
+              p.list-text 避難所カレンダー
+          li.list-item
+            = link_to admin_residents_path, class:'header-link' do
               = image_tag 'icon-people.png', width: '80px', height: '80px'
               p.list-text 避難者一覧
           li.list-item
-            = link_to admin_posts_path do
+            = link_to admin_posts_path, class:'header-link' do
               = image_tag 'icon-news.png', width: '80px', height: '80px'
               p.list-text 避難所通信一覧
           li.list-item
-            = link_to new_admin_registration_path do
+            = link_to new_admin_registration_path, class:'header-link' do
               = image_tag 'icon-rice.png', width: '80px', height: '80px'
               p.list-text 管理者新規登録
           li.list-item
-            = link_to destroy_admin_session_path, method: :delete do
+            = link_to destroy_admin_session_path, method: :delete, class:'header-link' do
               = image_tag 'icon-logout.png', width: '80px', height: '80px'
               p.list-text ログアウト
         - else
           li.list-item
-            = link_to new_admin_session_path do
+            = link_to new_admin_session_path, class:'header-link' do
               = image_tag 'icon-login.png', width: '80px', height: '80px'
               p.list-text 管理者ログイン
           - if resident_signed_in?
             li.list-item
-              = link_to destroy_resident_session_path, method: :delete do
+              = link_to destroy_resident_session_path, method: :delete, class:'header-link' do
                 = image_tag 'icon-logout.png', width: '80px', height: '80px'
                 p.list-text 住民ログアウト
           - else
             li.list-item
-               = link_to new_resident_session_path do
+               = link_to new_resident_session_path, class:'header-link' do
                 = image_tag 'icon-login.png', width: '80px', height: '80px'
                 p.list-text 住民ログイン
 
