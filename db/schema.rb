@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_08_015244) do
+ActiveRecord::Schema.define(version: 2021_02_08_062519) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,12 +36,13 @@ ActiveRecord::Schema.define(version: 2021_02_08_015244) do
   end
 
   create_table "households", force: :cascade do |t|
-    t.integer "head_id", null: false
     t.string "living_space", default: "A-1", null: false
     t.string "address", null: false
     t.string "house_damage_situation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "head_last_name"
+    t.string "head_first_name"
   end
 
   create_table "posts", force: :cascade do |t|

@@ -10,7 +10,6 @@ class Admin::ResidentsController < ApplicationController
     if @resident.household.present?
       @household = @resident.household
       @residents = @household.residents
-      @household_head = @residents.find_by(id: @household.head_id)
     end
     
   end

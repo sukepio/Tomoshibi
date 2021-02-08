@@ -32,7 +32,7 @@ table.table
     tbody
       tr
         th 世帯主名
-        td= link_to @household_head.full_name, admin_resident_path(@household_head)
+        td= @household.full_name
       tr
         th 住所
         td= @household.address

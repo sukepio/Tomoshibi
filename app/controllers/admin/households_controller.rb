@@ -3,13 +3,11 @@ class Admin::HouseholdsController < ApplicationController
   def new
     @resident = Resident.find(params[:resident_id])
     @household = Household.new
-    @household.head_id = @resident.id
   end
 
   def create
     @resident = Resident.find(params[:resident_id])
     @household = Household.new(household_params)
-    @household.head_id = @resident.id
 
     if @household.save
       @resident.update(household_id: @household.id)
@@ -38,6 +36,6 @@ class Admin::HouseholdsController < ApplicationController
   private
 
   def household_params
-    params.require(:household).permit(:head_id, :address, :living_space, :house_damage_situation)
+    params.require(:household).permit(:head_last_name, :head_first_name, :address, :living_space, :house_damage_situation)
   end
 end
