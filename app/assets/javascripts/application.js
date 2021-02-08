@@ -39,7 +39,7 @@ $(function () {
             });
             $(document).on('turbolinks:before-cache', clearCalendar);
 
-            //events: '/events.json', 以下に追加
+            //events: '/admin/events.json', 以下に追加
             $('#calendar').fullCalendar({
                 events: '/admin/events.json',
                 //カレンダー上部を年月で表示させる
@@ -75,7 +75,7 @@ $(function () {
                 eventRender: function(event, element) {
                     element.css("font-size", "0.8em");
                     element.css("padding", "5px");
-                }
+                },
             });
         }
     });
