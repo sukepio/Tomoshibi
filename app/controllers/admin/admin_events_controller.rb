@@ -10,7 +10,7 @@ class Admin::AdminEventsController < ApplicationController
   def create
     @admin_event = AdminEvent.new(admin_event_params)
     if @admin_event.save
-      redirect_to admin_events_path, notice: "#{@admin_event.title}を作成しました。"
+      redirect_to admin_events_path, notice: "「#{@admin_event.title}」を作成しました。"
     else
       render :index
     end
@@ -22,7 +22,7 @@ class Admin::AdminEventsController < ApplicationController
 
   def update
     if @admin_event.update(admin_event_params)
-      redirect_to admin_events_path, notice: "#{@admin_event.title}を更新しました。"
+      redirect_to admin_events_path, notice: "「#{@admin_event.title}」を更新しました。"
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class Admin::AdminEventsController < ApplicationController
 
   def destroy
     @admin_event.destroy
-    redirect_to admin_events_path, notice: "#{@admin_event.title}を削除しました。"
+    redirect_to admin_events_path, notice: "「#{@admin_event.title}」を削除しました。"
   end
 
   private
