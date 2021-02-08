@@ -10,12 +10,18 @@ ja:
       post: 避難所通信
     attributes:
       post:
-      id: ID
-      admin_id: 管理者ID
-      title: タイトル
-      body: 内容
-      created_at: 登録日時
-      updated_at: 更新日時
+        id: ID
+        admin_id: 管理者ID
+        title: タイトル
+        body: 内容
+        created_at: 登録日時
+        updated_at: 更新日時
+      household:
+        head_last_name: 世帯主（姓）
+        head_first_name: 世帯主（名）
+        address: 住所
+        house_damage_situation: 家屋被害状況
+        living_space: 居住
   date:
     abbr_day_names:
     - 日

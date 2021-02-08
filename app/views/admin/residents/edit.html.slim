@@ -1,0 +1,49 @@
+h1 編集する
+
+
+.row.justify-content-center
+  = form_with model: [:admin, @resident], local: true do |f|
+
+    .form-row
+      = f.label :last_name
+      = f.text_field :last_name, autofocus: true, class:'form-control'
+      = f.label :first_name
+      = f.text_field :first_name, autofocus: true, class:'form-control'
+
+    .form-row
+      = f.label :last_name_kana
+      = f.text_field :last_name_kana, autofocus: true, class:'form-control'
+      = f.label :first_name_kana
+      = f.text_field :first_name_kana, autofocus: true, class:'form-control'
+
+    .form-row
+      = f.label :phone_number
+      br
+      = f.text_field :phone_number, autofocus: true, class:'form-control'
+      = f.label :login_id
+      br
+      = f.text_field :login_id, autofocus: true, class:'form-control'
+
+    .form-row
+      = f.label :date_of_birth
+      br
+      = f.date_select :date_of_birth, use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1), class:'form-control'
+
+    .form-row
+      p 性別
+      = f.radio_button :gender, "男", :checked => true
+      = f.label :gender, "男"
+
+      = f.radio_button :gender, "女"
+      = f.label :gender, "女"
+
+    .form-row
+      = f.label :information
+      = f.text_area :information, rows: 5, autofocus: true, class:'form-control'
+
+    .form-row
+      = f.label :household_id, '世帯登録'
+      = f.select :household_id, @households.map{ |household| [household.information, household.id] }
+
+    .form-row
+      = f.submit nil, class: 'btn btn-primary'
