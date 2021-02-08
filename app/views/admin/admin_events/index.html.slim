@@ -1,0 +1,23 @@
+.row
+    = form_with model: [:admin, @admin_event], url: admin_events_path, local: true do |f|
+
+      .form-group
+        = f.text_field :title, placeholder: 'スケジュール名', class: 'form-control'
+
+      .form-group
+        = f.text_field :body, placeholder: 'スケジュール内容', class: 'form-control'
+
+      .form-group
+        = f.label :start
+        = f.datetime_select :start, {}, class: 'form-control datetime-form'
+
+      .form-group
+        = f.label :end
+        = f.datetime_select :end, {}, class: 'form-control datetime-form'
+
+      .form-group
+        = f.submit '新規登録', class: 'btn btn-success btn-block'
+
+.calendar
+  h5 避難所カレンダー
+  #calendar
