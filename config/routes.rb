@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
+    get '/events', to: 'admin_events#index', as: 'events'
+    post '/events', to: 'admin_events#create', as: 'event'
     resources :posts
     resources :residents, only: [:index, :show, :edit, :update] do
       resources :households, only: [:new, :create, :edit, :update]

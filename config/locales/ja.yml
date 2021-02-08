@@ -22,6 +22,11 @@ ja:
         address: 住所
         house_damage_situation: 家屋被害状況
         living_space: 居住
+      admin_event:
+        title: スケジュール名
+        body: スケジュール内容
+        start: 開始日時
+        end: 終了日時
   date:
     abbr_day_names:
     - 日

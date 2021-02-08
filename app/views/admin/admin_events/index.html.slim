@@ -1,0 +1,24 @@
+h1 予定
+
+= form_with model: [:admin, @admin_event], url: admin_events_path, local: true do |f|
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :body
+    = f.text_field :body, class: 'form-control'
+
+  .form-group
+    = f.label :start
+    = f.datetime_select :start, {}, class: 'form-control datetime-form'
+
+  .form-group
+    = f.label :end
+    = f.datetime_select :end, {}, class: 'form-control datetime-form'
+
+  .form-group
+    = f.submit '新規登録', class: 'btn btn-success btn-block'
+
+#calendar
