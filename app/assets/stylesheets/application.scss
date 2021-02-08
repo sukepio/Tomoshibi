@@ -75,7 +75,10 @@ body {
   width: auto;
 }
 
-#calendar {
-  width: 100%;
-  height: 500px;
+td.fc-sat {
+    background-color: #eaf4ff;
+}
+
+td.fc-sun {
+    background-color: #ffeaea;
 }

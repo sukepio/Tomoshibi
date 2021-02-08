@@ -66,6 +66,8 @@ $(function () {
                 },
                 // Drag & Drop & Resize
                 editable: true,
+                height: 700,
+                contentheight: 600,
                 //イベントの時間表示を２４時間に
                 timeFormat: "HH:mm",
                 //イベントの色を変える
