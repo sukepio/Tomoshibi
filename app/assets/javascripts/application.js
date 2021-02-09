@@ -21,3 +21,11 @@
 //= require turbolinks
 //= require_tree .
 
+// $(function(){
+//   $('.op-link').mouseover(function(){
+//     $('.hide-link').show();
+//   });
+//   $('.op-link').mouseout(function(){
+//     $('.hide-link').hide();
+//   });
+// });
