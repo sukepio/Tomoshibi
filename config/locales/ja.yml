@@ -32,6 +32,10 @@ ja:
         amount: 発注数
         detail: 備考
         start: 食事日時
+      message:
+        sender: メッセージ差出人
+        content: メッセージ内容
+        image: 写真
   date:
     abbr_day_names:
     - 日

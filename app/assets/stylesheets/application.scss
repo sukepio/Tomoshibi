@@ -34,7 +34,7 @@ body {
 // 左サイドメニューここから
 .left-side-menu {
   width: 10%;
-  height: 100%;
+  // height: 100%;
   border: 2px solid #666;
   border-radius: 10px;
   position: fixed;
@@ -111,4 +111,55 @@ td.fc-sat {
 
 td.fc-sun {
     background-color: #ffeaea;
+}
+
+// メッセージここから
+.message-container {
+  display: flex;
+
+  .messages {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+
+    .message-item {
+      width: 400px;
+      height: auto;
+      margin-bottom: 40px;
+      border: 1px dashed #444;
+      position: relative;
+
+      .message-content {
+        padding: 10px;
+      }
+
+      .sender {
+        text-align: end;
+      }
+
+      .delete-message {
+        position: absolute;
+        bottom: 6px;
+        left: 6px;
+        border: 1px solid red;
+        border-radius: 2px;
+        padding: 2px 4px;
+
+        .delete-message-link {
+          color: black;
+        }
+      }
+    }
+
+    .message-item:nth-child(odd) {
+      margin-right: 40px;
+    }
+  }
+
+  .message-form {
+    width: 400px;
+    height: 600px;
+    margin-left: auto;
+  }
+
 }
