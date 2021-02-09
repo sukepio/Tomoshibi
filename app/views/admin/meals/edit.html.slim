@@ -16,7 +16,7 @@ h1 メニュー詳細
 
       .form-group
         = f.label :start, '食事日時'
-        = f.datetime_select :start, {}, class: 'form-control datetime-form'
+        = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
 
       .form-group
         = f.submit '更新する', class: 'btn btn-success'

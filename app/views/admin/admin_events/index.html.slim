@@ -1,29 +1,53 @@
-.row
-    = form_with model: [:admin, @admin_event], url: admin_events_path, local: true do |f|
+.resident-info
+  .info-box
+    p.box-title 避難者数
+    p.box-body= "#{@residents.count}名"
 
-      .form-group
-        = f.text_field :title, placeholder: 'スケジュール名', class: 'form-control'
+  .info-box
+    p.box-title 世帯数
+    p.box-body= "#{@households.count}世帯"
 
-      .form-group
-        = f.text_field :body, placeholder: 'スケジュール内容', class: 'form-control'
+  .info-box
+    .men-box
+      p.box-title 男性
+      p.box-body= "#{@men.count}名"
+    .women-box
+      p.box-title 女性
+      p.box-body= "#{@women.count}名"
 
-      .form-group
-        = f.label :start
-        = f.datetime_select :start, {}, class: 'form-control datetime-form'
+.admin-event-container
 
-      .form-group
-        = f.label :end
-        = f.datetime_select :end, {}, class: 'form-control datetime-form'
 
-      .form-group
-        = f.submit '新規登録', class: 'btn btn-success btn-block'
+  .admin-event
+    .event-today
+      p 今日のイベント
+      - @today_events.each do |event|
+        p= event.title
+        p= event.body
 
-.event-today
-  p 今日のイベント
-  - @today_events.each do |event|
-    p= event.title
-    p= event.body
+    .admin-event-form
+      = form_with model: [:admin, @admin_event], url: admin_events_path, local: true do |f|
 
-.calendar
-  h5 避難所カレンダー
-  #admin-calendar
+        .form-group
+          = f.text_field :title, placeholder: 'スケジュール名', class: 'form-control'
+
+        .form-group
+          = f.text_field :body, placeholder: 'スケジュール内容', class: 'form-control'
+
+        .form-group
+          = f.label :start
+          br
+          = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+
+        .form-group
+          = f.label :end
+          br
+          = f.datetime_select :end, { minute_step: 30 }, class: 'form-control datetime-form'
+
+        .form-group
+          = f.submit '新規登録', class: 'btn btn-success btn-block'
+
+
+  .admin-calendar
+    h5 避難所カレンダー
+    #admin-calendar

@@ -6,6 +6,10 @@ class Admin::AdminEventsController < ApplicationController
     @admin_events = AdminEvent.all
     @admin_event = AdminEvent.new
     @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day)
+    @residents = Resident.all
+    @households = Household.all
+    @men = Resident.where(gender: 0)
+    @women = Resident.where(gender: 1)
   end
 
   def create

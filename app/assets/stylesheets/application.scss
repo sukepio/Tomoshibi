@@ -99,18 +99,63 @@ body {
   }
 }
 
-
+// カレンダーCSS
 .datetime-form {
   display: inline-block;
   width: auto;
 }
 
-td.fc-sat {
-    background-color: #eaf4ff;
+td.fc-sat {         //土曜日の色設定
+  background-color: #eaf4ff;
 }
 
-td.fc-sun {
+td.fc-sun {         //日曜日の色設定
+  background-color: #ffeaea;
+}
+
+.resident-info {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+
+  .info-box {
+    width: 200px;
+    height: 100px;
+    margin: 0 30px 30px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
     background-color: #ffeaea;
+
+    .box-title {
+      font-size: 24px;
+    }
+
+    .box-body {
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+
+  .info-box:nth-child(3) {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+    background-color: #eaf4ff;
+  }
+}
+
+.admin-event-container {
+  display: flex;
+
+  .admin-event {
+    flex-basis: 450px;
+    margin-right: 40px;
+  }
+
+  .admin-calendar {
+    flex-basis: 900px;
+  }
 }
 
 // メッセージここから
