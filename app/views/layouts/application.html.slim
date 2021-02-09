@@ -30,9 +30,9 @@ html
               = image_tag 'icon-rice.png', width: '80px', height: '80px'
               p.list-text 食事メニュー
           li.list-item
-            = link_to new_admin_registration_path, class:'header-link' do
-              = image_tag 'icon-rice.png', width: '80px', height: '80px'
-              p.list-text 管理者新規登録
+            = link_to admins_path, class:'header-link' do
+              = image_tag 'icon-admin.png', width: '80px', height: '80px'
+              p.list-text 管理者一覧
           li.list-item
             = link_to destroy_admin_session_path, method: :delete, class:'header-link' do
               = image_tag 'icon-logout.png', width: '80px', height: '80px'
