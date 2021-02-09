@@ -8,9 +8,11 @@ table.table
       td 避難者ID
       td ログインID
       td 性別
+      td 居住スペース
     - @residents.each do |resident|
       tr
         td= link_to resident.full_name, admin_resident_path(resident)
         td= resident.id
         td= resident.login_id
         td= resident.gender
+        td= resident.household.living_space
