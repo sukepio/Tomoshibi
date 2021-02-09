@@ -5,6 +5,7 @@ class Admin::AdminEventsController < ApplicationController
   def index
     @admin_events = AdminEvent.all
     @admin_event = AdminEvent.new
+    @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day)
   end
 
   def create

@@ -18,6 +18,12 @@
       .form-group
         = f.submit '新規登録', class: 'btn btn-success btn-block'
 
+.event-today
+  p 今日のイベント
+  - @today_events.each do |event|
+    p= event.title
+    p= event.body
+
 .calendar
   h5 避難所カレンダー
-  #calendar
+  #admin-calendar

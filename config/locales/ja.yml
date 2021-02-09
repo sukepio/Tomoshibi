@@ -27,6 +27,11 @@ ja:
         body: スケジュール内容
         start: 開始日時
         end: 終了日時
+      meal:
+        menu: 献立
+        amount: 発注数
+        detail: 備考
+        start: 食事日時
   date:
     abbr_day_names:
     - 日
