@@ -21,13 +21,13 @@ h1 全国からのメッセージ
   .message-form
     h5 メッセージ追加
     = form_with model: [:admin, @message], local: true do |f|
-      .form-group
-        = f.text_field :sender, placeholder: 'メッセージ差出人', class:'form-control'
-      .form-group
-        = f.text_area :content, rows: 10, placeholder: 'メッセージ内容', class:'form-control'
-      .form-group
-        = f.label :image
-        = f.file_field :image, class: 'form-control'
-      = f.submit nil, class: 'btn btn-primary'
+        .form-group
+          = f.text_field :sender, placeholder: 'メッセージ差出人', class:'form-control'
+        .form-group
+          = f.text_area :content, rows: 10, placeholder: 'メッセージ内容', class:'form-control'
+        .form-group
+          = f.label :image
+          = f.file_field :image, class: 'form-control'
+        = f.submit nil, class: 'btn btn-primary'
 
 

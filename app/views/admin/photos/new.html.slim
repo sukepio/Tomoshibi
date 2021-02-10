@@ -1,0 +1,10 @@
+h1 #{@resident.full_name}さんの写真を追加する
+
+= render 'layouts/error_messages', resource: @photo
+
+= form_with model: [:admin, @resident, @photo], local: true do |f|
+  .form-group
+    = f.label :images
+    = f.file_field :images, multiple: true, class: 'form-control', id: :resident_photo
+  - if @resident.photo
+  = f.submit nil, class: 'btn btn-primary'

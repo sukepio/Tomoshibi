@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create, :destroy]
     resources :meals, only: [:index, :create, :edit, :update, :destroy]
     resources :residents, only: [:index, :show, :edit, :update] do
+      resources :photos, only: [:index, :new, :create, :destroy]
       resources :households, only: [:new, :create, :edit, :update]
     end
   end

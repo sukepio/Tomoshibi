@@ -210,3 +210,30 @@ td.fc-sun {         //日曜日の色設定
   }
 
 }
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+
+  .delete-photo {
+    color: red;
+    margin-right: 20px;
+    border: 1px solid red;
+    border-radius: 6px;
+    height: 25px;
+  }
+
+  .photo {
+    margin: 0 10px 10px 0;
+  }
+}
+
+// post
+.post-edit-form {
+  width: 600px;
+  margin: 0 auto;
+}
+#image_prev {
+  width: auto;
+  height: 400px;
+}

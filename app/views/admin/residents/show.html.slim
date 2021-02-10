@@ -1,57 +1,74 @@
 h1
   = "#{@resident.full_name}さんの詳細"
 
-table.table
-  tbody
-    tr
-      th 名前
-      td
-        = @resident.full_name
-        = @resident.full_name_kana
-    tr
-      th 性別
-      td= @resident.gender
-    tr
-      th 生年月日
-      td= @resident.date_of_birth
-    tr
-      th 連絡先
-      td= @resident.phone_number
-    tr
-      th ログインID
-      td= @resident.login_id
-    tr
-      th 避難者情報
-      td= @resident.information
-    tr
-      td= link_to "編集する", edit_admin_resident_path, class: 'btn btn-success'
+- if @resident.photo_accepted?
+  = link_to "写真アルバムへ", admin_resident_photos_path(@resident), class: 'btn btn-primary'
 
+.resident-container
 
-- if @resident.household.present?
   table.table
     tbody
       tr
-        th 世帯主名
-        td= @household.full_name
-      tr
-        th 住所
-        td= @household.address
-      tr
-        th 家屋被害状況
-        td= @household.house_damage_situation
-      tr
-        th 居住スペース
-        td= @household.living_space
-      tr
-      tr
-        th 世帯メンバー
+        th 名前
         td
-          - @residents.each do |resident|
-            br
-            = link_to resident.full_name, admin_resident_path(resident)
+          = @resident.full_name
+          = @resident.full_name_kana
       tr
-        td= link_to "編集する", edit_admin_resident_household_path(@resident, @household), class: 'btn btn-primary'
+        th 性別
+        td= @resident.gender
+      tr
+        th 生年月日
+        td= @resident.date_of_birth
+      tr
+        th 連絡先
+        td= @resident.phone_number
+      tr
+        th ログインID
+        td= @resident.login_id
+      tr
+        th 避難者情報
+        td= @resident.information
+      tr
+        th 避難者情報
+        - if @resident.has_left?
+          td 退所済み
+        - else
+          td 入所中
+      tr
+        th 写真許可
+        - if @resident.photo_accepted?
+          td 許可する
+          td= link_to '写真追加', new_admin_resident_photo_path(@resident), class: 'btn-btn-success'
+        - else
+          td 許可しない
+      tr
+        td= link_to "編集する", edit_admin_resident_path, class: 'btn btn-success'
 
-- else
-  = link_to '世帯情報を登録する', new_admin_resident_household_path(@resident), class: 'btn btn-primary'
+  - if @resident.household.present?
+    table.table
+      tbody
+        tr
+          th 世帯主名
+          td= @household.full_name
+        tr
+          th 住所
+          td= @household.address
+        tr
+          th 家屋被害状況
+          td= @household.house_damage_situation
+        tr
+          th 居住スペース
+          td= @household.living_space
+        tr
+        tr
+          th 世帯メンバー
+          td
+            - @residents.each do |resident|
+              br
+              = link_to resident.full_name, admin_resident_path(resident)
+        tr
+          td= link_to "編集する", edit_admin_resident_household_path(@resident, @household), class: 'btn btn-primary'
+
+  - else
+    = link_to '世帯情報を登録する', new_admin_resident_household_path(@resident), class: 'btn btn-primary'
 
