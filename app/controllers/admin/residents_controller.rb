@@ -31,6 +31,6 @@ class Admin::ResidentsController < ApplicationController
   private
 
   def resident_params
-    params.require(:resident).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :login_id, :date_of_birth, :gender, :information, :household_id)
+    params.require(:resident).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :login_id, :date_of_birth, :gender, :information, :household_id, :has_left)
   end
 end

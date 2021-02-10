@@ -1,7 +1,8 @@
 h1
   = "#{@resident.full_name}さんの詳細"
 
-= link_to "写真アルバムへ", admin_resident_photos_path(@resident), class: 'btn btn-primary'
+- if @resident.photo_accepted?
+  = link_to "写真アルバムへ", admin_resident_photos_path(@resident), class: 'btn btn-primary'
 
 .resident-container
 
@@ -28,8 +29,14 @@ h1
         th 避難者情報
         td= @resident.information
       tr
+        th 避難者情報
+        - if @resident.has_left?
+          td 退所済み
+        - else
+          td 入所中
+      tr
         th 写真許可
-        - if @resident.photo_accepted
+        - if @resident.photo_accepted?
           td 許可する
           td= link_to '写真追加', new_admin_resident_photo_path(@resident), class: 'btn-btn-success'
         - else

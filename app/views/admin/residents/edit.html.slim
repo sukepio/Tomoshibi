@@ -46,4 +46,11 @@ h1 編集する
       = f.select :household_id, @households.map{ |household| [household.information, household.id] }
 
     .form-row
+      = f.radio_button :has_left, false, :checked => true
+      = f.label :has_left, "入所中"
+
+      = f.radio_button :has_left, true
+      = f.label :has_left, "退所済"
+
+    .form-row
       = f.submit nil, class: 'btn btn-primary'
