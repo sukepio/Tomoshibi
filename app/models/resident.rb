@@ -5,6 +5,7 @@ class Resident < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :household, optional: true
+  has_many :photos, dependent: :destroy
 
   enum gender: { 男: 0, 女: 1}
 

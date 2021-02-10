@@ -1,0 +1,7 @@
+h1 #{@resident.full_name}さんの写真アルバム
+
+- @photos.each do |photo|
+  .photos
+    - photo.images.each do |image|
+      .photo
+        = image_tag image.url
