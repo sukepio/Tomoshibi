@@ -15,6 +15,9 @@
       p.box-title 女性
       p.box-body= "#{@women.count}名"
 
+  .info-box
+    p.box-title= @today
+
 .admin-event-container
 
 
@@ -22,8 +25,7 @@
     .event-today
       p 今日のイベント
       - @today_events.each do |event|
-        p= event.title
-        p= event.body
+        p= "#{event.start.strftime("%H:%M")} #{event.title}"
 
     .admin-event-form
       = form_with model: [:admin, @admin_event], url: admin_events_path, local: true do |f|

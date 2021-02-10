@@ -34,8 +34,8 @@ body {
 // 左サイドメニューここから
 .left-side-menu {
   width: 10%;
-  // height: 100%;
-  border: 2px solid #666;
+  height: 1000px;
+  border: 2px solid orange;
   border-radius: 10px;
   position: fixed;
   top: 0;
@@ -43,14 +43,13 @@ body {
   z-index: 10;
 
   .logo {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .list-item {
     list-style: none;
-    margin-top: 20px;
     text-align: center;
   }
     .link {
@@ -59,7 +58,10 @@ body {
 
       .list-text {
         color: black;
-        font-size: 18px;
+        font-size: 16px;
+        width: 80%;
+        margin: 0 auto 8px;
+        border-bottom: 1px solid orange;
       }
 
       .hide-link {

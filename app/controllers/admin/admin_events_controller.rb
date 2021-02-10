@@ -10,6 +10,7 @@ class Admin::AdminEventsController < ApplicationController
     @households = Household.all
     @men = Resident.where(gender: 0)
     @women = Resident.where(gender: 1)
+    @today = I18n.l Time.now.in_time_zone("Tokyo"), format: :short
   end
 
   def create
