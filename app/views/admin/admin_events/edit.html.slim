@@ -19,12 +19,12 @@ h1 スケジュール詳細
           th.active
             = f.label :start
           td
-            = f.datetime_select :start, {}, class: 'form-control datetime-form'
+            = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
         tr
           th.active
             = f.label :end
           td
-            = f.datetime_select :end, {}, class: 'form-control datetime-form'
+            = f.datetime_select :end, { minute_step: 30 }, class: 'form-control datetime-form'
         tr
           td
             = f.submit '変更', class: 'btn btn-success'

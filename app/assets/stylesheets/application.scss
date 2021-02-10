@@ -34,8 +34,8 @@ body {
 // 左サイドメニューここから
 .left-side-menu {
   width: 10%;
-  height: 100%;
-  border: 2px solid #666;
+  height: 1000px;
+  border: 2px solid orange;
   border-radius: 10px;
   position: fixed;
   top: 0;
@@ -43,14 +43,13 @@ body {
   z-index: 10;
 
   .logo {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .list-item {
     list-style: none;
-    margin-top: 20px;
     text-align: center;
   }
     .link {
@@ -59,7 +58,10 @@ body {
 
       .list-text {
         color: black;
-        font-size: 18px;
+        font-size: 16px;
+        width: 80%;
+        margin: 0 auto 8px;
+        border-bottom: 1px solid orange;
       }
 
       .hide-link {
@@ -99,16 +101,112 @@ body {
   }
 }
 
-
+// カレンダーCSS
 .datetime-form {
   display: inline-block;
   width: auto;
 }
 
-td.fc-sat {
-    background-color: #eaf4ff;
+td.fc-sat {         //土曜日の色設定
+  background-color: #eaf4ff;
 }
 
-td.fc-sun {
+td.fc-sun {         //日曜日の色設定
+  background-color: #ffeaea;
+}
+
+.resident-info {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+
+  .info-box {
+    width: 200px;
+    height: 100px;
+    margin: 0 30px 30px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
     background-color: #ffeaea;
+
+    .box-title {
+      font-size: 24px;
+    }
+
+    .box-body {
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+
+  .info-box:nth-child(3) {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+    background-color: #eaf4ff;
+  }
+}
+
+.admin-event-container {
+  display: flex;
+
+  .admin-event {
+    flex-basis: 450px;
+    margin-right: 40px;
+  }
+
+  .admin-calendar {
+    flex-basis: 900px;
+  }
+}
+
+// メッセージここから
+.message-container {
+  display: flex;
+
+  .messages {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+
+    .message-item {
+      width: 400px;
+      height: auto;
+      margin-bottom: 40px;
+      border: 1px dashed #444;
+      position: relative;
+
+      .message-content {
+        padding: 10px;
+      }
+
+      .sender {
+        text-align: end;
+      }
+
+      .delete-message {
+        position: absolute;
+        bottom: 6px;
+        left: 6px;
+        border: 1px solid red;
+        border-radius: 2px;
+        padding: 2px 4px;
+
+        .delete-message-link {
+          color: black;
+        }
+      }
+    }
+
+    .message-item:nth-child(odd) {
+      margin-right: 40px;
+    }
+  }
+
+  .message-form {
+    width: 400px;
+    height: 600px;
+    margin-left: auto;
+  }
+
 }

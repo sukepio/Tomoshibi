@@ -19,6 +19,10 @@
           = image_tag 'icon-rice.png', width: '80px', height: '80px'
           p.list-text 食事メニュー
       li.list-item
+        = link_to admin_messages_path, class:'header-link' do
+          = image_tag 'icon-message.png', width: '80px', height: '80px'
+          p.list-text メッセージ
+      li.list-item
         = link_to admins_path, class:'header-link' do
           = image_tag 'icon-admin.png', width: '80px', height: '80px'
           p.list-text 管理者一覧

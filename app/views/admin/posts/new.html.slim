@@ -1,9 +1,6 @@
 h1 避難所通信の新規投稿
 
-- if @post.errors.present?
-  ul#error_explanation
-    - @post.errors.full_messages.each do |message|
-      li= message
+= render 'layouts/error_messages', resource: @post
 
 = form_with model: [:admin, @post], local: true do |f|
   .form-group
@@ -14,5 +11,5 @@ h1 避難所通信の新規投稿
     = f.text_area :body, rows: 10, class:'form-control'
   .form-group
     = f.label :image
-    = f.file_field :image, class: 'form-control'
+    = f.file_field :image, :multiple => true, class: 'form-control'
   = f.submit nil, class: 'btn btn-primary'

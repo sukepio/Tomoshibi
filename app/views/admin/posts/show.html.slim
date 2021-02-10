@@ -9,8 +9,9 @@ table.table
     tr
       td= @post.title
       td= @post.body
-      - if @post.image?
-        td= image_tag @post.image.url
+      - if @post.image.present?
+        - @post.image.each do |image|
+          td= image_tag image.url
     tr
       td
         = link_to "編集する", edit_admin_post_path(@post), class: 'btn btn-success'
