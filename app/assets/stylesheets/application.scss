@@ -215,6 +215,14 @@ td.fc-sun {         //日曜日の色設定
   display: flex;
   flex-wrap: wrap;
 
+  .delete-photo {
+    color: red;
+    margin-right: 20px;
+    border: 1px solid red;
+    border-radius: 6px;
+    height: 25px;
+  }
+
   .photo {
     margin: 0 10px 10px 0;
   }
