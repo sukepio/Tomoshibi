@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     delete '/events/:id', to: 'admin_events#destroy'
     resources :posts
     resources :messages, only: [:index, :create, :destroy]
-    resources :meals, only: [:index, :create, :edit, :update, :destroy]
     resources :residents, only: [:index, :show, :edit, :update] do
       resources :photos, only: [:index, :new, :create, :destroy]
       resources :households, only: [:new, :create, :edit, :update]
@@ -28,6 +27,7 @@ Rails.application.routes.draw do
 
   scope module: :admin do
     resources :admins, only: [:index]
+    resources :meals, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   scope module: :public do

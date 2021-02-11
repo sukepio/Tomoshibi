@@ -1,16 +1,11 @@
 class Admin::AdminEventsController < ApplicationController
   before_action :set_admin_event, only: [:edit, :update, :destroy]
+  before_action :set_index, only: [:index, :create]
 
 
   def index
     @admin_events = AdminEvent.all
     @admin_event = AdminEvent.new
-    @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day)
-    @residents = Resident.all
-    @households = Household.all
-    @men = Resident.where(gender: 0)
-    @women = Resident.where(gender: 1)
-    @today = I18n.l Time.now.in_time_zone("Tokyo"), format: :short
   end
 
   def create
@@ -40,6 +35,15 @@ class Admin::AdminEventsController < ApplicationController
   end
 
   private
+
+  def set_index
+    @residents = Resident.all
+    @households = Household.all
+    @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day)
+    @men = Resident.where(gender: 0)
+    @women = Resident.where(gender: 1)
+    @today = I18n.l Time.now.in_time_zone("Tokyo"), format: :short
+  end
 
   def set_admin_event
     @admin_event = AdminEvent.find(params[:id])

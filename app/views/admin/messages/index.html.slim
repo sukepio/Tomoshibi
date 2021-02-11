@@ -1,7 +1,5 @@
 h1 全国からのメッセージ
 
-= render 'layouts/error_messages', resource: @message
-
 .message-container
   .messages
     - @messages.each do |message|
@@ -19,6 +17,9 @@ h1 全国からのメッセージ
       = page_entries_info @messages
 
   .message-form
+
+    = render 'layouts/error_messages', resource: @message
+
     h5 メッセージ追加
     = form_with model: [:admin, @message], local: true do |f|
         .form-group

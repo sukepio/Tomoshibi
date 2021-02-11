@@ -1,28 +1,25 @@
-h1 食事メニュー
+h1 献立一覧
+
+
 
 h4 本日の献立
 
-- @today_meals.each do |meal|
-  p= meal.menu
+table
+  tbody
+    tr
+      td 時間
+      td 献立
+      td 備考
+      - if admin_signed_in?
+        td 発注数
+    - @today_meals.each do |meal|
+      tr
+        td= meal.time_format
+        td= meal.menu
+        td= meal.detail
+        td= meal.amount if admin_signed_in?
 
-.row
-    = form_with model: [:admin, @meal], url: admin_meals_path, local: true do |f|
+- if admin_signed_in?
+  = link_to '献立追加', new_meal_path, class: 'btn btn-primary'
 
-      .form-group
-        = f.text_field :menu, placeholder: '献立', class: 'form-control'
-
-      .form-group
-        = f.label :amount, '発注数'
-        = f.select :amount, [*30..200], { selected: 100 }, class: 'form-control'
-
-      .form-group
-        = f.text_field :detail, placeholder: '備考', class: 'form-control'
-
-      .form-group
-        = f.label :start, '食事日時'
-        = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
-
-      .form-group
-        = f.submit '新規登録', class: 'btn btn-success btn-block'
-
-#meal-calendar
+#mealcalendar

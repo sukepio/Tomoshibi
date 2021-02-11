@@ -28,6 +28,9 @@
         p= "#{event.start.strftime("%H:%M")} #{event.title}"
 
     .admin-event-form
+
+      = render 'layouts/error_messages', resource: @admin_event
+
       = form_with model: [:admin, @admin_event], url: admin_events_path, local: true do |f|
 
         .form-group
