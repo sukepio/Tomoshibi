@@ -45,6 +45,7 @@ ja:
         remember_me: "次回から自動的にログイン"
       resident:
         current_password: "現在のパスワード"
+        full_name: "避難者名"
         first_name: "名"
         last_name: "姓"
         first_name_kana: "メイ"
@@ -52,6 +53,7 @@ ja:
         date_of_birth: "生年月日"
         phone_number: "電話番号"
         login_id: "ログインID"
+        gender: "性別"
         information: "避難者情報"
         password: "パスワード"
         password_confirmation: "確認用パスワード"

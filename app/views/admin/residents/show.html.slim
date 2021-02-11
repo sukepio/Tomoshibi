@@ -11,8 +11,9 @@ h1
       tr
         th 名前
         td
-          = @resident.full_name
           = @resident.full_name_kana
+          br
+          = @resident.full_name
       tr
         th 性別
         td= @resident.gender

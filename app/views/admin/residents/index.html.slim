@@ -1,12 +1,20 @@
 h1 避難者一覧
 = link_to "避難者新規登録へ", new_resident_registration_path, class: 'btn btn-primary'
 
+= search_form_for @q, url: admin_residents_path, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :last_name_cont, '名前', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :last_name_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-primary'
+
 table.table
   tbody
     tr
-      td 避難者名
+      td= sort_link(@q, :last_name, "避難者名", [:last_name, "gender"])
       td 避難者ID
-      td 性別
+      td= sort_link(@q, :gender)
       td 居住スペース
       td 写真許可
     - @residents.each do |resident|

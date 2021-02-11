@@ -1,7 +1,8 @@
 class Admin::ResidentsController < ApplicationController
 
   def index
-    @residents = Resident.all
+    @q = Resident.ransack(params[:q])
+    @residents = @q.result(distinct: true)
   end
 
   def show
@@ -11,7 +12,7 @@ class Admin::ResidentsController < ApplicationController
       @household = @resident.household
       @residents = @household.residents
     end
-    
+
   end
 
   def edit
