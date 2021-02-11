@@ -25,7 +25,7 @@
     .event-today
       p 今日のイベント
       - @today_events.each do |event|
-        p= "#{event.start.strftime("%H:%M")} #{event.title}"
+        p= "#{event.time_format} #{event.title}"
 
     .admin-event-form
 

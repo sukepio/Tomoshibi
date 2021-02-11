@@ -1,5 +1,16 @@
 h1= current_resident.full_name
 
+
+p 本日の予定
+
+table
+  tbody
+    - @today_events.each do |event|
+      tr
+        td= event.time_format
+        td= event.title
+        td= event.body
+
 = link_to "イベント作成", new_myevent_path, class: 'btn btn-primary'
 
 #mycalendar

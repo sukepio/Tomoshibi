@@ -20,6 +20,7 @@ html
         - if admin_signed_in?
           p.login-name= "こんにちは、#{current_admin.full_name}さん！"
         - elsif resident_signed_in?
+          p.self-message= "#{current_resident.self_message}"
           p.login-name= "こんにちは、#{current_resident.full_name}さん！"
 
       - if flash.notice.present?

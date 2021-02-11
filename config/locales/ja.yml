@@ -28,6 +28,10 @@ ja:
         body: スケジュール内容
         start: 開始日時
         end: 終了日時
+      myevent:
+        title: スケジュール名
+        body: スケジュール内容
+        start: 開始日時
       meal:
         menu: 献立
         amount: 発注数

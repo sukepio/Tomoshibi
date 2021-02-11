@@ -13,9 +13,4 @@
       = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
 
     .form-group
-      = f.label :end
-      br
-      = f.datetime_select :end, { minute_step: 30 }, class: 'form-control datetime-form'
-
-    .form-group
       = f.submit '新規登録', class: 'btn btn-success btn-block'
