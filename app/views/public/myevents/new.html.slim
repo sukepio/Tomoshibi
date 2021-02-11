@@ -1,0 +1,21 @@
+.admin-event-form
+  = form_with model: @myevent, local: true do |f|
+
+    .form-group
+      = f.text_field :title, placeholder: 'スケジュール名', class: 'form-control'
+
+    .form-group
+      = f.text_field :body, placeholder: 'スケジュール内容', class: 'form-control'
+
+    .form-group
+      = f.label :start
+      br
+      = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+
+    .form-group
+      = f.label :end
+      br
+      = f.datetime_select :end, { minute_step: 30 }, class: 'form-control datetime-form'
+
+    .form-group
+      = f.submit '新規登録', class: 'btn btn-success btn-block'
