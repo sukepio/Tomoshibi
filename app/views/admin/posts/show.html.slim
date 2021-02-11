@@ -9,7 +9,7 @@ table.table
     tr
       td= @post.title
       td= @post.body
-      - if @post.image.present?
+      - if @post.image
         - @post.image.each do |image|
           td= image_tag image.url
     tr

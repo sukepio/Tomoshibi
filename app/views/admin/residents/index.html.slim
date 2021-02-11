@@ -4,11 +4,11 @@ h1 避難者一覧
 = search_form_for @q, url: admin_residents_path, class: 'mb-5' do |f|
   .form-group.row
     = f.label :last_name_cont, '名前', class: 'col-sm-2 col-form-label'
-    .col-sm-10
+    .col-sm-４
       = f.search_field :last_name_cont, class: 'form-control'
   .form-group.row
     = f.label :household_id_eq, '居住スペース', class: 'col-sm-2 col-form-label'
-    .col-sm-10
+    .col-sm-４
       = f.collection_select :household_id_eq, @households, :id, :living_space, :include_blank => '指定なし', class: 'form-control'
   .form-group
     = f.submit class: 'btn btn-outline-primary'
@@ -18,6 +18,7 @@ table.table
     tr
       td= sort_link(@q, :last_name, "避難者名", [:last_name, "gender"])
       td 避難者ID
+      td= sort_link(@q, :date_of_birth, "年齢")
       td= sort_link(@q, :gender)
       td 居住スペース
       td 自宅住所
@@ -26,6 +27,7 @@ table.table
       tr
         td= link_to resident.full_name, admin_resident_path(resident)
         td= resident.id
+        td= "#{resident.age}才"
         td= resident.gender
         - if resident.household.present?
           td= resident.household.living_space
