@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     registrations: 'admin/resident/registrations'
   }
 
-  root 'homes#about'
   devise_for :admins, controllers: {
     sessions: 'admin/sessions',
     registrations: 'admin/registrations'
@@ -31,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
+    root 'homes#about'
     get '/mypage', to: 'residents#show', as: 'mypage'
     resources :myevents, only: [:new, :create, :edit, :update, :destroy]
   end
