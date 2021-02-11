@@ -52,16 +52,21 @@ body {
     list-style: none;
     text-align: center;
   }
-    .link {
+    .header-link {
       text-decoration: none;
+
+      &:hover .list-text {
+        color: orange;
+      }
     }
 
       .list-text {
         color: black;
         font-size: 16px;
+        text-decoration: none;
         width: 80%;
         margin: 0 auto 8px;
-        border-bottom: 1px solid orange;
+        // border-bottom: 1px solid orange;
       }
 
       .hide-link {
