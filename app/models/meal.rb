@@ -1,5 +1,8 @@
 class Meal < ApplicationRecord
 
+  validates :menu, presence: true
+  validates :start, presence: true
+
   def time_format
     start.strftime('%H:%M')
   end

@@ -4,6 +4,15 @@ class Resident < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :phone_number, presence: true
+  validates :login_id, presence: true
+  validates :date_of_birth, presence: true
+  validates :gender, presence: true
+
   belongs_to :household, optional: true
   has_many :photos, dependent: :destroy
   has_many :myevents, dependent: :destroy
