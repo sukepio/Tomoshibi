@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'bullet'
 end
 
 group :development do
@@ -72,7 +73,8 @@ gem 'jquery-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'dotenv-rails'
-gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'ransack'
+gem 'kaminari'

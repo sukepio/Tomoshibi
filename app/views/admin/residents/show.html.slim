@@ -11,14 +11,18 @@ h1
       tr
         th 名前
         td
-          = @resident.full_name
           = @resident.full_name_kana
+          br
+          = @resident.full_name
       tr
         th 性別
         td= @resident.gender
       tr
         th 生年月日
-        td= @resident.date_of_birth
+        td= @resident.birthday
+      tr
+        th 年齢
+        td= @resident.age
       tr
         th 連絡先
         td= @resident.phone_number

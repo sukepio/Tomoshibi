@@ -6,5 +6,4 @@ h1 #{@resident.full_name}さんの写真を追加する
   .form-group
     = f.label :images
     = f.file_field :images, multiple: true, class: 'form-control', id: :resident_photo
-  - if @resident.photo
   = f.submit nil, class: 'btn btn-primary'
