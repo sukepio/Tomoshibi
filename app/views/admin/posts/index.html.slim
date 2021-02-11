@@ -12,7 +12,7 @@ table.table
       tr
         td= post.admin_id
         td= link_to post.title, admin_post_path(post)
-        td= post.body
+        td= simple_format(h(post.body), {}, sanitize: false, wrapper_tag: "div")
 
 .mt-3
   = paginate @posts
