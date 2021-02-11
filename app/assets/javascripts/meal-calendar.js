@@ -1,14 +1,14 @@
 $(function () {
     // 画面遷移を検知
     $(document).on('turbolinks:load', function () {
-        if ($('#meal-calendar').length) {
+        if ($('#mealcalendar').length) {
 
             function Calendar() {
-                return $('#meal-calendar').fullCalendar({
+                return $('#mealcalendar').fullCalendar({
                 });
             }
             function clearCalendar() {
-                $('#meal-calendar').html('');
+                $('#mealcalendar').html('');
             }
 
             $(document).on('turbolinks:load', function () {
@@ -17,8 +17,8 @@ $(function () {
             $(document).on('turbolinks:before-cache', clearCalendar);
 
             //events: '/admin/events.json', 以下に追加
-            $('#meal-calendar').fullCalendar({
-                events: '/admin/meals.json',
+            $('#mealcalendar').fullCalendar({
+                events: '/meals.json',
                 //カレンダー上部を年月で表示させる
                 titleFormat: 'YYYY年 M月',
                 //曜日を日本語表示
