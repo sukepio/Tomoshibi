@@ -2,8 +2,8 @@ class Admin::MealsController < ApplicationController
   before_action :set_meal, only: [:edit, :update, :destroy]
 
   def index
-    @today_meals =Meal.where(start: Time.now.in_time_zone("Tokyo").all_day)
     @meals = Meal.all
+    @today_meals = Meal.where(start: Time.now.in_time_zone("Tokyo").all_day)
   end
 
   def new
