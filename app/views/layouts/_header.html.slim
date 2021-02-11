@@ -48,10 +48,11 @@
          = link_to mypage_path, class:'header-link' do
           = image_tag 'icon-bookmark.png', width: '80px', height: '80px'
           p.list-text お気に入り
-      li.list-item
-         = link_to mypage_path, class:'header-link' do
-          = image_tag 'icon-photo.png', width: '80px', height: '80px', class: 'test'
-          p.list-text 写真アルバム
+      - if current_resident.photo_accepted
+        li.list-item
+           = link_to mypage_path, class:'header-link' do
+            = image_tag 'icon-photo.png', width: '80px', height: '80px', class: 'test'
+            p.list-text 写真アルバム
       li.list-item
          = link_to root_path, class:'header-link' do
           = image_tag 'icon-info.png', width: '80px', height: '80px'
