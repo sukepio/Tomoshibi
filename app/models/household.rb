@@ -15,4 +15,5 @@ class Household < ApplicationRecord
  def full_name
   head_last_name + ' ' + head_first_name
  end
+
 end

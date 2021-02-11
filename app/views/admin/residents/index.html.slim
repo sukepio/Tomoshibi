@@ -6,6 +6,10 @@ h1 避難者一覧
     = f.label :last_name_cont, '名前', class: 'col-sm-2 col-form-label'
     .col-sm-10
       = f.search_field :last_name_cont, class: 'form-control'
+  .form-group.row
+    = f.label :household_id_eq, '居住スペース', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.collection_select :household_id_eq, @households, :id, :living_space, :include_blank => '指定なし', class: 'form-control'
   .form-group
     = f.submit class: 'btn btn-outline-primary'
 
@@ -16,6 +20,7 @@ table.table
       td 避難者ID
       td= sort_link(@q, :gender)
       td 居住スペース
+      td 自宅住所
       td 写真許可
     - @residents.each do |resident|
       tr
@@ -24,6 +29,7 @@ table.table
         td= resident.gender
         - if resident.household.present?
           td= resident.household.living_space
+          td= resident.household.address
         - else
           td 世帯情報を登録してください
         - if resident.photo_accepted?
