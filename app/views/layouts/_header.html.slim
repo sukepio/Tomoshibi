@@ -30,6 +30,7 @@
         = link_to destroy_admin_session_path, method: :delete, class:'header-link' do
           = image_tag 'icon-logout.png', width: '80px', height: '80px'
           p.list-text ログアウト
+
     - elsif resident_signed_in?
       li.list-item
          = link_to mypage_path, class:'header-link' do
@@ -52,13 +53,14 @@
           = image_tag 'icon-photo.png', width: '80px', height: '80px', class: 'test'
           p.list-text 写真アルバム
       li.list-item
-         = link_to mypage_path, class:'header-link' do
+         = link_to root_path, class:'header-link' do
           = image_tag 'icon-info.png', width: '80px', height: '80px'
           p.list-text 避難所情報
       li.list-item
          = link_to destroy_resident_session_path, method: :delete, class:'header-link' do
           = image_tag 'icon-logout.png', width: '80px', height: '80px'
           p.list-text 住民ログアウト
+
     - else
       li.list-item
         = link_to new_admin_session_path, class:'header-link' do
