@@ -1,5 +1,11 @@
 h1= current_resident.full_name
 
+.info-box
+    p.box-title.today= @today
+
+p= current_resident.self_message
+= link_to "写真アルバムについて", confirm_path, class: 'btn btn-outline-danger'
+= link_to "編集する", edit_path, class: 'btn btn-outline-success'
 
 p 本日の予定
 

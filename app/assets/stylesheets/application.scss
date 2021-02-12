@@ -108,7 +108,18 @@ h1 {
       line-height: 50px;
       font-size: 20px;
       color: red;
+
+      .hide {
+        display: none;
+        color: blue;
+      }
     }
+
+    .self-message-click {
+      color: blue;
+    }
+
+
 
     .login-name {
       line-height: 50px;
@@ -158,6 +169,11 @@ td.fc-sun {         //日曜日の色設定
     .box-body {
       font-size: 32px;
       font-weight: bold;
+    }
+
+    .today {
+      line-height: 100px;
+      font-size: 32px;
     }
   }
 
@@ -258,4 +274,20 @@ td.fc-sun {         //日曜日の色設定
 #image_prev {
   width: auto;
   height: 400px;
+}
+
+// 写真許可
+.photo-explanation-container {
+  margin-top: 50px;
+}
+
+.photo-explanation {
+  width: 65%;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+.resident-edit-form {
+  width: 40%;
+  margin: 0 auto;
 }

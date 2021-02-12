@@ -1,4 +1,5 @@
 class Admin::AdminEventsController < ApplicationController
+  before_action :today
   before_action :set_admin_event, only: [:edit, :update, :destroy]
   before_action :set_index, only: [:index, :create]
 
@@ -42,7 +43,6 @@ class Admin::AdminEventsController < ApplicationController
     @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day)
     @men = Resident.where(gender: 0)
     @women = Resident.where(gender: 1)
-    @today = I18n.l Time.now.in_time_zone("Tokyo"), format: :short
   end
 
   def set_admin_event
