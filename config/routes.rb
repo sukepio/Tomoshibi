@@ -36,7 +36,9 @@ Rails.application.routes.draw do
     get '/confirm', to: 'residents#confirm'
     patch '/edit', to: 'residents#update'
     resources :myevents, only: [:new, :create, :edit, :update, :destroy]
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      resource :bookmarks, only: [:create, :destroy]
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

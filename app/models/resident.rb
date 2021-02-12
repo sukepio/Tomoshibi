@@ -16,6 +16,7 @@ class Resident < ApplicationRecord
   belongs_to :household, optional: true
   has_many :photos, dependent: :destroy
   has_many :myevents, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
 
   enum gender: { 男: 0, 女: 1}

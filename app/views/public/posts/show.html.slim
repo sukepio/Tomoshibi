@@ -2,6 +2,13 @@ h1= @post.title
 
 .post-show
   p= @post.time_format
+  - if @post.bookmarked_by?(current_resident)
+    = link_to post_bookmarks_path(@post), method: :delete do
+      = image_tag 'icon-star.png', width: '25px', height: '25px'
+  - else
+    = link_to post_bookmarks_path(@post), method: :post do
+      = image_tag 'icon-unstar.png', width: '25px', height: '25px'
+
   .img-flex
     - if @post.image
       - @post.image.each do |image|
