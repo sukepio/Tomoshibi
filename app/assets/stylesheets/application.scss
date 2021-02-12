@@ -291,3 +291,53 @@ td.fc-sun {         //日曜日の色設定
   width: 40%;
   margin: 0 auto;
 }
+
+// 避難者側避難所通信詳細画面
+.post-show {
+  width: 60%;
+  margin: 80px auto;
+
+  p {
+    margin-top: 20px;
+  }
+}
+
+.img-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.post-img {
+  text-align: center;
+  margin-right: 10px;
+}
+
+// 避難者側避難所通信一覧
+.post-table {
+  width: 100%;
+
+  th, td {
+    // border: solid 1px;
+    padding: 10px;
+  }
+
+  td:nth-child(1) {
+    width: 10%;
+  }
+
+  td:nth-child(2) {
+    width: 20%;
+  }
+
+  td:nth-child(3) {
+    width: 65%;
+  }
+
+  td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+

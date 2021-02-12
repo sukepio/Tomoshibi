@@ -12,7 +12,7 @@ h1 避難所通信一覧
   .form-group
     = f.submit class: 'btn btn-outline-primary'
 
-table.table
+table.post-table
   tbody
     tr
       th 日付
@@ -22,6 +22,6 @@ table.table
       tr
         td= post.time_format
         td= link_to post.title, post_path(post)
-        th= simple_format(h(post.body), {}, sanitize: false, wrapper_tag: "div")
+        td.text-warp= post.body
 
 = paginate @posts
