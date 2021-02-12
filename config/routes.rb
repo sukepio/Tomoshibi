@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     registrations: 'admin/resident/registrations'
   }
 
-  root 'homes#about'
   devise_for :admins, controllers: {
     sessions: 'admin/sessions',
     registrations: 'admin/registrations'
@@ -31,7 +30,11 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    get '/mypage', to: 'residents#show', as: 'mypage'
+    root 'homes#about'
+    get '/mypage', to: 'residents#show'
+    get '/edit', to: 'residents#edit'
+    get '/confirm', to: 'residents#confirm'
+    patch '/edit', to: 'residents#update'
     resources :myevents, only: [:new, :create, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

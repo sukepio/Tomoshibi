@@ -28,6 +28,10 @@ ja:
         body: スケジュール内容
         start: 開始日時
         end: 終了日時
+      myevent:
+        title: スケジュール名
+        body: スケジュール内容
+        start: 開始日時
       meal:
         menu: 献立
         amount: 発注数
@@ -73,7 +77,7 @@ ja:
     formats:
       default: "%Y/%m/%d"
       long: "%Y年%m月%d日(%a)"
-      short: "%m/%d"
+      short: "%-m/%d"
       full_date: "%m/%d(%a)"
     month_names:
     -
