@@ -1,0 +1,15 @@
+h1 全国からのメッセージ
+
+.messages-index
+  - @messages.each do |message|
+    .message-item
+      - if message.image.present?
+        = image_tag message.image.url, class: 'message-img'
+      .card-body
+        - if message.content.present?
+          p.message-content= message.content
+        p.sender= "#{message.sender} さんより"
+
+.mt-3
+  = paginate @messages
+  = page_entries_info @messages
