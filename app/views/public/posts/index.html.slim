@@ -1,0 +1,27 @@
+h1 避難所通信一覧
+
+= search_form_for @q, url: posts_path, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :title_cont, 'タイトル', class: 'col-sm-2 col-form-label'
+    .col-sm-４
+      = f.search_field :title_cont, class: 'form-control'
+  .form-group.row
+    = f.label :body_cont, '内容', class: 'col-sm-2 col-form-label'
+    .col-sm-４
+      = f.search_field :body_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-primary'
+
+table.post-table
+  tbody
+    tr
+      th 日付
+      th タイトル
+      th 内容
+    - @posts.each do |post|
+      tr
+        td= post.time_format
+        td= link_to post.title, post_path(post)
+        td.text-warp= post.body
+
+= paginate @posts
