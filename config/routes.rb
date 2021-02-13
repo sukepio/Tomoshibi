@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_scope :resident do
+    root "public/sessions#new"
+  end
+
   devise_for :residents, controllers: {
     sessions: 'public/sessions',
     registrations: 'admin/resident/registrations'
@@ -31,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    root 'homes#about'
+    get 'information', to: 'homes#information'
     get '/mypage', to: 'residents#show'
     get '/edit', to: 'residents#edit'
     get '/confirm', to: 'residents#confirm'
