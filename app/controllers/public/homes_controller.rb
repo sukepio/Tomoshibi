@@ -1,4 +1,4 @@
 class Public::HomesController < ApplicationController
-  def about
+  def information
   end
 end

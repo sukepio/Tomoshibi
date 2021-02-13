@@ -6,6 +6,9 @@ class Admin::AdminEventsController < ApplicationController
 
   def index
     @admin_events = AdminEvent.all
+  end
+
+  def new
     @admin_event = AdminEvent.new
   end
 
@@ -38,11 +41,11 @@ class Admin::AdminEventsController < ApplicationController
   private
 
   def set_index
-    @residents = Resident.all
+    @residents = Resident.where(has_left: false)
     @households = Household.all
     @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day).order(start: :asc)
-    @men = Resident.where(gender: 0)
-    @women = Resident.where(gender: 1)
+    @men = @residents.where(gender: 0)
+    @women = @residents.where(gender: 1)
   end
 
   def set_admin_event

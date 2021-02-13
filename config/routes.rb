@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_scope :resident do
+    root "public/sessions#new"
+  end
+
   devise_for :residents, controllers: {
     sessions: 'public/sessions',
     registrations: 'admin/resident/registrations'
@@ -11,9 +15,10 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
+    get '/events/new', to: 'admin_events#new', as: 'new_events'
     get '/events', to: 'admin_events#index', as: 'events'
     get '/events/:id/edit', to: 'admin_events#edit', as: 'edit_event'
-    post '/events', to: 'admin_events#create', as: 'event'
+    post '/events/new', to: 'admin_events#create', as: 'event'
     patch '/events/:id', to: 'admin_events#update'
     delete '/events/:id', to: 'admin_events#destroy'
     resources :posts
@@ -30,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    root 'homes#about'
+    get 'information', to: 'homes#information'
     get '/mypage', to: 'residents#show'
     get '/edit', to: 'residents#edit'
     get '/confirm', to: 'residents#confirm'

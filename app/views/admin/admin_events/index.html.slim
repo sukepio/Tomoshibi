@@ -19,40 +19,20 @@
     p.box-title.today= @today
 
 .admin-event-container
-
-
-  .admin-event
-    .event-today
-      p 今日のイベント
-      - @today_events.each do |event|
-        p= "#{event.time_format} #{event.title} #{event.body}"
-
-    .admin-event-form
-
-      = render 'layouts/error_messages', resource: @admin_event
-
-      = form_with model: [:admin, @admin_event], url: admin_events_path, local: true do |f|
-
-        .form-group
-          = f.text_field :title, placeholder: 'スケジュール名', class: 'form-control'
-
-        .form-group
-          = f.text_field :body, placeholder: 'スケジュール内容', class: 'form-control'
-
-        .form-group
-          = f.label :start
-          br
-          = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
-
-        .form-group
-          = f.label :end
-          br
-          = f.datetime_select :end, { minute_step: 30 }, class: 'form-control datetime-form'
-
-        .form-group
-          = f.submit '新規登録', class: 'btn btn-success btn-block'
-
+  .event-today
+    table.admin-event-table
+      tbody
+        tr
+          th 今日のイベント
+        - @today_events.each do |event|
+          tr
+            th= event.time_format
+            th= event.title
+          tr
+            td
+            td= event.body
+        tr
+          td= link_to 'イベント作成', admin_new_events_path
 
   .admin-calendar
-    h5 避難所カレンダー
     #admin-calendar

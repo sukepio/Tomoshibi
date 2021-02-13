@@ -39,7 +39,8 @@ h1 {
 .left-side-menu {
   width: 10%;
   height: 1000px;
-  border: 2px solid orange;
+  border-right: 2px solid orange;
+  border-top: 2px solid orange;
   border-radius: 10px;
   position: fixed;
   top: 0;
@@ -187,14 +188,15 @@ td.fc-sun {         //日曜日の色設定
 
 .admin-event-container {
   display: flex;
+  justify-content: space-between;
 
-  .admin-event {
-    flex-basis: 450px;
-    margin-right: 40px;
+  .event-today {
+    width: 30%;
+    // margin-right: 40px;
   }
 
   .admin-calendar {
-    flex-basis: 900px;
+    width: 65%;
   }
 }
 
@@ -317,22 +319,17 @@ td.fc-sun {         //日曜日の色設定
 
 // 避難者側避難所通信一覧
 .post-table {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #eee;
 
-  th, td {
+  tr:nth-child(3n){
+    border-bottom: 5px solid white;
+  }
+
+  th {
     padding: 10px;
-  }
-
-  td:nth-child(1) {
-    width: 10%;
-  }
-
-  td:nth-child(2) {
-    width: 20%;
-  }
-
-  td:nth-child(3) {
-    width: 65%;
   }
 
   td {
@@ -340,6 +337,7 @@ td.fc-sun {         //日曜日の色設定
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 5px;
   }
 }
 
