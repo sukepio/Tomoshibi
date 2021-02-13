@@ -3,16 +3,16 @@ class Public::ResidentsController < ApplicationController
 
   def show
     @myevents = current_resident.myevents
-    @today_events = @myevents.where(start: Time.now.in_time_zone("Tokyo").all_day)
+    @today_events = @myevents.where(start: Time.now.in_time_zone("Tokyo").all_day).order(start: :asc)
     @recent_post = Post.last
   end
 
   def confirm
 
   end
-  
+
   def edit
-    
+
   end
 
   def update

@@ -4,7 +4,7 @@ class Admin::MealsController < ApplicationController
 
   def index
     @meals = Meal.all
-    @today_meals = Meal.where(start: Time.now.in_time_zone("Tokyo").all_day)
+    @today_meals = Meal.where(start: Time.now.in_time_zone("Tokyo").all_day).order(start: :asc)
   end
 
   def new

@@ -40,7 +40,7 @@ class Admin::AdminEventsController < ApplicationController
   def set_index
     @residents = Resident.all
     @households = Household.all
-    @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day)
+    @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day).order(start: :asc)
     @men = Resident.where(gender: 0)
     @women = Resident.where(gender: 1)
   end
