@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     get '/edit', to: 'residents#edit'
     get '/confirm', to: 'residents#confirm'
     patch '/edit', to: 'residents#update'
+    resources :photos, only: [:index]
     resources :messages, only: [:index]
     resources :myevents, only: [:new, :create, :edit, :update, :destroy]
     resources :posts, only: [:index, :show] do

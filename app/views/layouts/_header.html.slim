@@ -54,7 +54,7 @@
           p.list-text 献立一覧
       - if current_resident.photo_accepted
         li.list-item
-           = link_to mypage_path, class:'header-link' do
+           = link_to photos_path, class:'header-link' do
             = image_tag 'icon-photo.png', width: '80px', height: '80px', class: 'test'
             p.list-text 写真アルバム
       li.list-item
