@@ -13,15 +13,13 @@ h1 避難所通信一覧
     = f.submit class: 'btn btn-outline-primary'
 
 table.post-table
-  tbody
-    tr
-      th 日付
-      th タイトル
-      th 内容
-    - @posts.each do |post|
+  - @posts.each do |post|
+    tbody
       tr
-        td= post.time_format
+        th= post.time_format
+      tr
         td= link_to post.title, post_path(post)
+      tr
         td.text-warp= post.body
 
 = paginate @posts

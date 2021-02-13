@@ -317,22 +317,17 @@ td.fc-sun {         //日曜日の色設定
 
 // 避難者側避難所通信一覧
 .post-table {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #eee;
 
-  th, td {
+  tr:nth-child(3n){
+    border-bottom: 5px solid white;
+  }
+
+  th {
     padding: 10px;
-  }
-
-  td:nth-child(1) {
-    width: 10%;
-  }
-
-  td:nth-child(2) {
-    width: 20%;
-  }
-
-  td:nth-child(3) {
-    width: 65%;
   }
 
   td {
@@ -340,6 +335,7 @@ td.fc-sun {         //日曜日の色設定
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding: 5px;
   }
 }
 
