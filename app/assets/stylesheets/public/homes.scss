@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#map {
+  width: 60%;
+  height: 400px;
+  margin: 30px auto;
+}
+
 .about-table {
   width: 60%;
   margin: 0 auto 50px;
@@ -35,6 +41,10 @@
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
       }
+    }
+
+    th.title:after {
+      display: none;
     }
 
     td {
