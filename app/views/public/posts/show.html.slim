@@ -5,9 +5,11 @@ h1= @post.title
   - if @post.bookmarked_by?(current_resident)
     = link_to post_bookmarks_path(@post), method: :delete do
       = image_tag 'icon-star.png', width: '30px', height: '30px'
+      span お気に入り
   - else
     = link_to post_bookmarks_path(@post), method: :post do
       = image_tag 'icon-unstar.png', width: '30px', height: '30px'
+      span お気に入り
 
   .img-flex
     - if @post.image
