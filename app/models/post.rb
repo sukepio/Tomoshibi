@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
 
+  has_many :bookmarks, dependent: :destroy
   belongs_to :admin
   mount_uploaders :image, ImageUploader
   serialize :image, JSON
@@ -13,4 +14,7 @@ class Post < ApplicationRecord
     updated_at.strftime("%-m/%-d(#{wd[updated_at.wday]})")
   end
 
+  def bookmarked_by?(resident)
+    bookmarks.where(resident_id: resident.id).exists?
+  end
 end

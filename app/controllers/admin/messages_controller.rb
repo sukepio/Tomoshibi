@@ -23,7 +23,7 @@ class Admin::MessagesController < ApplicationController
   private
 
   def set_messages
-    @messages = Message.page(params[:page]).per(6)
+    @messages = Message.page(params[:page]).per(6).order(created_at: :desc)
   end
 
   def message_params

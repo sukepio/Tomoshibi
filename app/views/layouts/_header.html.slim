@@ -41,13 +41,13 @@
           = image_tag 'icon-news.png', width: '80px', height: '80px'
           p.list-text 避難所通信
       li.list-item
-         = link_to mypage_path, class:'header-link' do
-          = image_tag 'icon-message.png', width: '80px', height: '80px'
-          p.list-text メッセージ
-      li.list-item
-         = link_to mypage_path, class:'header-link' do
+         = link_to bookmarks_path, class:'header-link' do
           = image_tag 'icon-bookmark.png', width: '80px', height: '80px'
           p.list-text お気に入り
+      li.list-item
+         = link_to messages_path, class:'header-link' do
+          = image_tag 'icon-message.png', width: '80px', height: '80px'
+          p.list-text メッセージ
       li.list-item
          = link_to meals_path, class:'header-link' do
           = image_tag 'icon-rice.png', width: '80px', height: '80px'

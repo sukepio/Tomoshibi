@@ -25,7 +25,7 @@
     .event-today
       p 今日のイベント
       - @today_events.each do |event|
-        p= "#{event.time_format} #{event.title}"
+        p= "#{event.time_format} #{event.title} #{event.body}"
 
     .admin-event-form
 

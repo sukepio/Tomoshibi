@@ -35,8 +35,12 @@ Rails.application.routes.draw do
     get '/edit', to: 'residents#edit'
     get '/confirm', to: 'residents#confirm'
     patch '/edit', to: 'residents#update'
+    resources :messages, only: [:index]
     resources :myevents, only: [:new, :create, :edit, :update, :destroy]
-    resources :posts, only: [:index, :show]
+    resources :posts, only: [:index, :show] do
+      resource :bookmarks, only: [:create, :destroy]
+    end
+    get '/bookmarks', to: 'bookmarks#index'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_093510) do
+ActiveRecord::Schema.define(version: 2021_02_12_120946) do
 
   create_table "admin_events", force: :cascade do |t|
     t.string "title"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 2021_02_11_093510) do
     t.index ["last_name"], name: "index_admins_on_last_name"
     t.index ["last_name_kana"], name: "index_admins_on_last_name_kana"
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "resident_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "households", force: :cascade do |t|

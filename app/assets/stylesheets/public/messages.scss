@@ -1,0 +1,36 @@
+// Place all the styles related to the public::messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.messages-index {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: start;
+
+  .message-item {
+    width: 31%;
+    margin-right: 3.5%;
+    margin-bottom: 40px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    position: relative;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    .message-img {
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 10px;
+
+      .sender {
+        text-align: end;
+        font-weight: bold;
+      }
+    }
+  }
+}

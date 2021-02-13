@@ -6,15 +6,13 @@ h1 全国からのメッセージ
       .message-item
         - if message.image.present?
           = image_tag message.image.url, class: 'message-img'
-        - if message.content.present?
-          p.message-content= message.content
-        p.sender= "#{message.sender} さんより"
-        span.delete-message
-          = link_to '削除', admin_message_path(message.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-message-link'
+        .card-body
+          - if message.content.present?
+            p.message-content= message.content
+          p.sender= "#{message.sender} さんより"
+          span.delete-message
+            = link_to '削除', admin_message_path(message.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-message-link'
 
-    .mt-3
-      = paginate @messages
-      = page_entries_info @messages
 
   .message-form
 
@@ -31,4 +29,7 @@ h1 全国からのメッセージ
           = f.file_field :image, class: 'form-control'
         = f.submit nil, class: 'btn btn-primary'
 
+.mt-3
+  = paginate @messages
+  = page_entries_info @messages
 
