@@ -38,6 +38,7 @@ class Admin::MealsController < ApplicationController
     redirect_to meals_path, notice: "「#{@meal.menu}」を削除しました。"
   end
 
+
   private
 
   def set_meal
