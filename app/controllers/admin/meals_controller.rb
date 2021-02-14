@@ -1,4 +1,5 @@
 class Admin::MealsController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   before_action :today
   before_action :set_meal, only: [:edit, :update, :destroy]
 

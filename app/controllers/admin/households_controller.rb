@@ -1,4 +1,5 @@
 class Admin::HouseholdsController < ApplicationController
+  before_action :authenticate_admin!
 
   def new
     @resident = Resident.find(params[:resident_id])

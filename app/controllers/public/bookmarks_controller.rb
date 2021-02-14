@@ -1,4 +1,5 @@
 class Public::BookmarksController < ApplicationController
+  before_action :authenticate_resident!
   before_action :set_post, only: [:create, :destroy]
 
   def index

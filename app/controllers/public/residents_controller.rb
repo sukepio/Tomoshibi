@@ -1,4 +1,5 @@
 class Public::ResidentsController < ApplicationController
+  before_action :authenticate_resident!
   before_action :today
 
   def show

@@ -1,4 +1,5 @@
 class Admin::ResidentsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @q = Resident.ransack(params[:q])

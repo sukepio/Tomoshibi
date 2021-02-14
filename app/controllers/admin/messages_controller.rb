@@ -1,4 +1,5 @@
 class Admin::MessagesController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @messages = Message.page(params[:page]).per(6).order(created_at: :desc)
