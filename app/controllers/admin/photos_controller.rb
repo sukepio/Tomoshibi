@@ -1,4 +1,5 @@
 class Admin::PhotosController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_resident, only: [:index, :new, :create, :destroy]
 
   def index

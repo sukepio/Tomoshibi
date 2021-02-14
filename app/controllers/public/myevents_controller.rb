@@ -1,4 +1,5 @@
 class Public::MyeventsController < ApplicationController
+  before_action :authenticate_resident!
   before_action :set_myevent, only: [:edit, :update, :destroy]
 
   def new

@@ -1,4 +1,5 @@
 class Admin::AdminEventsController < ApplicationController
+  before_action :authenticate_admin!
   before_action :today
   before_action :set_admin_event, only: [:edit, :update, :destroy]
   before_action :set_index, only: [:index, :create]

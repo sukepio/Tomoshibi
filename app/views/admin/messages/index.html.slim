@@ -1,7 +1,8 @@
 h1 全国からのメッセージ
 
-.message-container
-  .messages
+= link_to 'メッセージ追加', new_admin_message_path
+
+.messages-index
     - @messages.each do |message|
       .message-item
         - if message.image.present?
@@ -12,22 +13,6 @@ h1 全国からのメッセージ
           p.sender= "#{message.sender} さんより"
           span.delete-message
             = link_to '削除', admin_message_path(message.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-message-link'
-
-
-  .message-form
-
-    = render 'layouts/error_messages', resource: @message
-
-    h5 メッセージ追加
-    = form_with model: [:admin, @message], local: true do |f|
-        .form-group
-          = f.text_field :sender, placeholder: 'メッセージ差出人', class:'form-control'
-        .form-group
-          = f.text_area :content, rows: 10, placeholder: 'メッセージ内容', class:'form-control'
-        .form-group
-          = f.label :image
-          = f.file_field :image, class: 'form-control'
-        = f.submit nil, class: 'btn btn-primary'
 
 .mt-3
   = paginate @messages
