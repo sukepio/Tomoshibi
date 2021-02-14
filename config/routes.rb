@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     patch '/events/:id', to: 'admin_events#update'
     delete '/events/:id', to: 'admin_events#destroy'
     resources :posts
-    resources :messages, only: [:index, :create, :destroy]
+    resources :messages, only: [:index, :new, :create, :destroy]
     resources :residents, only: [:index, :show, :edit, :update] do
       resources :photos, only: [:index, :new, :create, :destroy]
       resources :households, only: [:new, :create, :edit, :update]

@@ -1,7 +1,10 @@
 class Admin::MessagesController < ApplicationController
-  before_action :set_messages, only: [:index, :create]
 
   def index
+    @messages = Message.page(params[:page]).per(6).order(created_at: :desc)
+  end
+
+  def new
     @message = Message.new
   end
 
@@ -21,10 +24,6 @@ class Admin::MessagesController < ApplicationController
   end
 
   private
-
-  def set_messages
-    @messages = Message.page(params[:page]).per(6).order(created_at: :desc)
-  end
 
   def message_params
     params.require(:message).permit(:image, :content, :sender)
