@@ -19,14 +19,17 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-  height: 100%;
+  height: auto;
 }
 
 body {
-  height: 100%;
+  transision: all 3s;
+  height: auto;
+  margin-bottom: 50px;
   display: flex;
   font-family: メイリオ, "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Open Sans", sans-serif, osaka, Arial, Verdana, sans-serif;
 }
@@ -38,14 +41,10 @@ h1 {
 // 左サイドメニューここから
 .left-side-menu {
   width: 10%;
-  height: 1000px;
+  height: auto;
   border-right: 2px solid orange;
   border-top: 2px solid orange;
   border-radius: 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
 
   .logo {
     font-size: 24px;
@@ -80,9 +79,9 @@ h1 {
 }
 // 左サイドメニューここまで
 
-.buffer {
-  width: 10%;
-}
+// .buffer {
+//   width: 10%;
+// }
 
 // メインここから
 .main {        //全体に適用
