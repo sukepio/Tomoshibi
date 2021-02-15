@@ -1,0 +1,36 @@
+// Place all the styles related to the public::photos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title-container {
+  text-align: center;
+
+  // .photo-icon {
+  //   // transform: rotate(120deg);
+  //   transition-duration: 1s;
+
+  //   &:hover {
+  //     transform: rotateY(360deg);
+    // }
+  // }
+}
+
+.photo-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .photo-box {
+    width: 24.5%;
+    margin-right: .66%;
+    margin-bottom: .66%;
+
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    .resident-photo {
+      width: 100%;
+    }
+  }
+}

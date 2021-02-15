@@ -1,0 +1,24 @@
+h1 メニュー詳細
+
+
+.row
+    = form_with model: @meal, local: true do |f|
+
+      .form-group
+        = f.label :menu, '献立'
+        = f.text_field :menu, placeholder: '献立', class: 'form-control'
+
+      .form-group
+        = f.label :amount, '発注数'
+        = f.select :amount, [*30..200], { selected: 100 }, class: 'form-control'
+
+      .form-group
+        = f.text_field :detail, placeholder: '備考', class: 'form-control'
+
+      .form-group
+        = f.label :start, '食事日時'
+        = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+
+      .form-group
+        = f.submit '更新する', class: 'btn btn-success'
+        = link_to '削除する', meal_path(@meal), data: { confirm: '本当に削除しますか？' }, method: :delete, class: 'btn btn-danger'

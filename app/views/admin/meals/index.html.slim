@@ -1,0 +1,25 @@
+.title-container
+  = image_tag 'icon-rice.png', width: '80px', height: '80px', class: 'photo-icon'
+  h2 献立
+
+h4 本日の献立
+
+table
+  tbody
+    tr
+      td 時間
+      td 献立
+      td 備考
+      - if admin_signed_in?
+        td 発注数
+    - @today_meals.each do |meal|
+      tr
+        td= meal.time_format
+        td= meal.menu
+        td= meal.detail
+        td= meal.amount if admin_signed_in?
+
+- if admin_signed_in?
+  = link_to '献立追加', new_meal_path, class: 'btn btn-primary'
+
+#mealcalendar

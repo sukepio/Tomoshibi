@@ -1,0 +1,57 @@
+// Place all the styles related to the admin/messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// メッセージここから
+.message-container {
+  display: flex;
+
+  .messages {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    align-items: start;
+
+    .message-item {
+      width: 400px;
+      height: auto;
+      margin-bottom: 40px;
+      border: 1px solid #bbb;
+      border-radius: 10px;
+      position: relative;
+
+      .card-body {
+        padding: 10px;
+
+        .sender {
+          text-align: end;
+          font-weight: bold;
+        }
+
+        .delete-message {
+          position: absolute;
+          bottom: 6px;
+          left: 6px;
+          border: 1px solid red;
+          border-radius: 2px;
+          padding: 2px 4px;
+
+          .delete-message-link {
+            color: black;
+          }
+        }
+      }
+    }
+
+    .message-item:nth-child(odd) {
+      margin-right: 40px;
+    }
+  }
+
+  .message-form {
+    width: 400px;
+    height: 600px;
+    margin-left: auto;
+  }
+
+}

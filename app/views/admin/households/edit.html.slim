@@ -1,0 +1,26 @@
+h1 世帯情報の編集
+
+= form_with model: [:admin, @resident, @household], local: true do |f|
+
+  .form-row
+    = f.label :head_last_name
+    = f.text_field :head_last_name, autofocus: true, class:'form-control'
+    
+  .form-row
+    = f.label :head_first_name
+    = f.text_field :head_first_name, autofocus: true, class:'form-control'
+    
+  .form-row
+    = f.label :address
+    = f.text_field :address, autofocus: true, class:'form-control'
+
+  .form-row
+    = f.label :house_damage_situation
+    = f.text_field :house_damage_situation, autofocus: true, class:'form-control'
+
+  .form-row
+    = f.label :living_space
+    = f.text_field :living_space, autofocus: true, class:'form-control'
+
+  .form-row
+      = f.submit nil, class: 'btn btn-primary'

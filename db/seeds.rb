@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Household.create!(
+  head_id: 1,
+  address: '登録なし',
+  house_damage_situation: '登録なし',
+  living_space: '登録なし',
+  )

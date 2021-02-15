@@ -1,0 +1,22 @@
+.title-container
+  = image_tag 'icon-message.png', width: '80px', height: '80px', class: 'photo-icon'
+  h2 全国からのメッセージ
+
+= link_to 'メッセージ追加', new_admin_message_path
+
+.messages-index
+    - @messages.each do |message|
+      .message-item
+        - if message.image.present?
+          = image_tag message.image.url, class: 'message-img'
+        .card-body
+          - if message.content.present?
+            p.message-content= message.content
+          p.sender= "#{message.sender} さんより"
+          span.delete-message
+            = link_to '削除', admin_message_path(message.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-message-link'
+
+.mt-3
+  = paginate @messages
+  = page_entries_info @messages
+

@@ -1,0 +1,40 @@
+.title-container
+  = image_tag 'mypage.png', width: '80px', height: '80px', class: 'photo-icon'
+  h2 マイページ
+
+p.box-title.today= @today
+
+.mypage-flex
+  .left-container
+    table.new-post
+     tbody
+      tr
+        th colspan=3 〜新着避難所通信〜
+      tr
+        td= link_to @recent_post.title, post_path(@recent_post)
+      tr
+        td= @recent_post.body
+
+    .myevent-container
+      table.myevent
+        tbody
+          tr
+            th colspan=3 本日の予定
+          tr
+            th.head 時間
+            th.head スケジュール名
+            th.head スケジュール内容
+          - @today_events.each do |event|
+            tr
+              td.body= event.time_format
+              td.body= event.title
+              td.body= event.body
+
+      = link_to "イベント作成", new_myevent_path, class: 'btn btn-primary'
+
+  .right-container
+    p= current_resident.self_message
+    = link_to "写真アルバムについて", confirm_path, class: 'btn btn-outline-danger'
+    = link_to "編集する", edit_path, class: 'btn btn-outline-success'
+
+#mycalendar

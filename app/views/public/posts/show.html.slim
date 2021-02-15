@@ -1,0 +1,13 @@
+h1= @post.title
+
+.post-show
+  p= @post.time_format
+  #bookmark-btn
+    = render 'public/posts/bookmark_btn', post: @post
+
+  .img-flex
+    - if @post.image
+      - @post.image.each do |image|
+        .post-img= image_tag image.url, height: '400px'
+
+  p= @post.body

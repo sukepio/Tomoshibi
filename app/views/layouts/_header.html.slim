@@ -1,0 +1,78 @@
+  p.logo ともしび
+  ul
+    - if admin_signed_in?
+      li.list-item
+        = link_to admin_events_path, class:'header-link' do
+          = image_tag 'icon-calendar.png', width: '80px', height: '80px'
+          p.list-text 避難所カレンダー
+      li.list-item
+        = link_to admin_residents_path, class:'header-link op-link' do
+          = image_tag 'icon-people.png', width: '80px', height: '80px'
+          p.list-text 避難者一覧
+          = link_to '新規登録', new_resident_registration_path, class: 'hide-link'
+      li.list-item
+        = link_to admin_posts_path, class:'header-link' do
+          = image_tag 'icon-news.png', width: '80px', height: '80px'
+          p.list-text 避難所通信一覧
+      li.list-item
+        = link_to meals_path, class:'header-link' do
+          = image_tag 'icon-rice.png', width: '80px', height: '80px'
+          p.list-text 食事メニュー
+      li.list-item
+        = link_to admin_messages_path, class:'header-link' do
+          = image_tag 'icon-message.png', width: '80px', height: '80px'
+          p.list-text メッセージ
+      li.list-item
+        = link_to admins_path, class:'header-link' do
+          = image_tag 'icon-admin.png', width: '80px', height: '80px'
+          p.list-text 管理者一覧
+      li.list-item
+        = link_to destroy_admin_session_path, method: :delete, class:'header-link' do
+          = image_tag 'icon-logout.png', width: '80px', height: '80px'
+          p.list-text ログアウト
+
+    - elsif resident_signed_in?
+      li.list-item
+         = link_to mypage_path, class:'header-link' do
+          = image_tag 'mypage.png', width: '80px', height: '80px'
+          p.list-text マイページ
+      li.list-item
+         = link_to posts_path, class:'header-link' do
+          = image_tag 'icon-news.png', width: '80px', height: '80px'
+          p.list-text 避難所通信
+      li.list-item
+         = link_to bookmarks_path, class:'header-link' do
+          = image_tag 'icon-bookmark.png', width: '80px', height: '80px'
+          p.list-text お気に入り
+      li.list-item
+         = link_to messages_path, class:'header-link' do
+          = image_tag 'icon-message.png', width: '80px', height: '80px'
+          p.list-text メッセージ
+      li.list-item
+         = link_to meals_path, class:'header-link' do
+          = image_tag 'icon-rice.png', width: '80px', height: '80px'
+          p.list-text 献立一覧
+      - if current_resident.photo_accepted
+        li.list-item
+           = link_to photos_path, class:'header-link' do
+            = image_tag 'icon-photo.png', width: '80px', height: '80px'
+            p.list-text 写真アルバム
+      li.list-item
+         = link_to information_path, class:'header-link' do
+          = image_tag 'icon-info.png', width: '80px', height: '80px'
+          p.list-text 避難所情報
+      li.list-item
+         = link_to destroy_resident_session_path, method: :delete, class:'header-link' do
+          = image_tag 'icon-logout.png', width: '80px', height: '80px'
+          p.list-text 住民ログアウト
+
+    - else
+      li.list-item
+        = link_to new_admin_session_path, class:'header-link' do
+          = image_tag 'icon-login.png', width: '80px', height: '80px'
+          p.list-text 管理者ログイン
+
+        li.list-item
+          = link_to new_resident_session_path, class:'header-link' do
+            = image_tag 'icon-login.png', width: '80px', height: '80px'
+            p.list-text 住民ログイン

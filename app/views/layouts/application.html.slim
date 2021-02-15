@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title
+      | Tomoshibi
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+
+    .left-side-menu
+      = render 'layouts/header'
+
+    .buffer
+
+    .main
+      .welcome-container
+        p.shelter-name 旧多良木高校避難所
+        - if admin_signed_in?
+          p.login-name= "こんにちは、#{current_admin.full_name}さん！"
+        - elsif resident_signed_in?
+          p.self-message
+            = "#{current_resident.self_message}"
+          p.login-name= "こんにちは、#{current_resident.full_name}さん！"
+
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield

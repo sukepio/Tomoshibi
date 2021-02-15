@@ -1,0 +1,27 @@
+.title-container
+  = image_tag 'icon-news.png', width: '80px', height: '80px', class: 'photo-icon'
+  h2 避難所通信
+
+= search_form_for @q, url: posts_path, class: 'mb-5' do |f|
+  .form-group.row
+    = f.label :title_cont, 'タイトル', class: 'col-sm-2 col-form-label'
+    .col-sm-４
+      = f.search_field :title_cont, class: 'form-control'
+  .form-group.row
+    = f.label :body_cont, '内容', class: 'col-sm-2 col-form-label'
+    .col-sm-４
+      = f.search_field :body_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-primary'
+
+table.post-table
+  - @posts.each do |post|
+    tbody
+      tr
+        th= post.time_format
+      tr
+        td= link_to post.title, post_path(post)
+      tr
+        td.text-warp= post.body
+
+= paginate @posts
