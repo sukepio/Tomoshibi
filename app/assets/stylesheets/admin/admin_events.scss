@@ -1,3 +1,56 @@
 // Place all the styles related to the admin/AdminEvents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 避難者統計情報
+.resident-info {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+
+  .info-box {
+    width: 200px;
+    height: 100px;
+    margin: 0 30px 30px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #ffeaea;
+
+    .box-title {
+      font-size: 24px;
+    }
+
+    .box-body {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .today {
+      line-height: 100px;
+      font-size: 32px;
+    }
+  }
+
+  .info-box:nth-child(3) {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 10px;
+    background-color: #eaf4ff;
+  }
+}
+
+
+// 管理者イベント
+.admin-event-container {
+  display: flex;
+  justify-content: space-between;
+
+  .event-today {
+    width: 30%;
+  }
+
+  .admin-calendar {
+    width: 65%;
+  }
+}

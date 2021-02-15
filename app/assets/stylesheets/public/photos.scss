@@ -5,14 +5,14 @@
 .title-container {
   text-align: center;
 
-  .photo-icon {
-    // transform: rotate(120deg);
-    transition-duration: 1s;
+  // .photo-icon {
+  //   // transform: rotate(120deg);
+  //   transition-duration: 1s;
 
-    &:hover {
-      transform: rotateY(360deg);
-    }
-  }
+  //   &:hover {
+  //     transform: rotateY(360deg);
+    // }
+  // }
 }
 
 .photo-container {

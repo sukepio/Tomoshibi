@@ -1,3 +1,19 @@
 // Place all the styles related to the admin/residents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 写真許可
+.photo-explanation-container {
+  margin-top: 50px;
+}
+
+.photo-explanation {
+  width: 65%;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+.resident-edit-form {
+  width: 40%;
+  margin: 0 auto;
+}

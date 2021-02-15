@@ -1,4 +1,6 @@
-h1 全国からのメッセージ
+.title-container
+  = image_tag 'icon-message.png', width: '80px', height: '80px', class: 'photo-icon'
+  h2 全国からのメッセージ
 
 .messages-index
   - @messages.each do |message|

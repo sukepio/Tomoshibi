@@ -1,3 +1,20 @@
 // Place all the styles related to the admin/photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+
+  .delete-photo {
+    color: red;
+    margin-right: 20px;
+    border: 1px solid red;
+    border-radius: 6px;
+    height: 25px;
+  }
+
+  .photo {
+    margin: 0 10px 10px 0;
+  }
+}
