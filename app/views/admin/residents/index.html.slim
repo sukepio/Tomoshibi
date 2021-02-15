@@ -1,4 +1,7 @@
-h1 避難者一覧
+.title-container
+  = image_tag 'icon-people.png', width: '80px', height: '80px', class: 'photo-icon'
+  h2 避難者一覧
+
 = link_to "避難者新規登録へ", new_resident_registration_path, class: 'btn btn-primary'
 
 = search_form_for @q, url: admin_residents_path, class: 'mb-5' do |f|
