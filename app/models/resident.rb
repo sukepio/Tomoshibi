@@ -12,6 +12,7 @@ class Resident < ApplicationRecord
   validates :login_id, presence: true
   validates :date_of_birth, presence: true
   validates :gender, presence: true
+  validates :self_message, length: { maximum: 25}
 
   belongs_to :household, optional: true
   has_many :photos, dependent: :destroy

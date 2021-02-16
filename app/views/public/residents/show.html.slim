@@ -1,25 +1,24 @@
 .title-container
   = image_tag 'mypage.png', width: '80px', height: '80px', class: 'photo-icon'
-  h2 マイページ
-
-p.box-title.today= @today
+  p.title-text マイページ
 
 .mypage-flex
   .left-container
-    table.new-post
-     tbody
-      tr
-        th colspan=3 〜新着避難所通信〜
-      tr
-        td= link_to @recent_post.title, post_path(@recent_post)
-      tr
-        td= @recent_post.body
+    .new-post-container
+      table.new-post-table
+       tbody
+        tr
+          th colspan=3 〜 新着避難所通信 〜
+        tr
+          td= link_to @recent_post.title, post_path(@recent_post)
+        tr
+          td= @recent_post.body
 
     .myevent-container
-      table.myevent
+      table.myevent-table
         tbody
           tr
-            th colspan=3 本日の予定
+            th colspan=3 〜 本日の予定 〜
           tr
             th.head 時間
             th.head スケジュール名
@@ -29,12 +28,13 @@ p.box-title.today= @today
               td.body= event.time_format
               td.body= event.title
               td.body= event.body
-              
+
       = link_to "イベント作成", new_myevent_path, class: 'new-event-btn'
 
   .right-container
     p= current_resident.self_message
-    = link_to "写真アルバムについて", confirm_path, class: 'btn btn-outline-danger'
-    = link_to "編集する", edit_path, class: 'btn btn-outline-success'
+    = link_to "写真アルバムについて", confirm_path, class: 'photo-info-btn'
+    br
+    = link_to "編集する", edit_path, class: 'edit-btn'
 
 #mycalendar

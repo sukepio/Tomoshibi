@@ -27,6 +27,7 @@
 body {
   height: 100%;
   display: flex;
+  letter-spacing: 0.2em;
   // font: "メイリオ","Noto Sans Japanese","ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",  "メイリオ", Meiryo, "ＭＳ Ｐゴシック", 'Open Sans', sans-serif,osaka, Arial, Verdana, sans-serif
   font-family: 'ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,sans-serif;
 }
@@ -94,6 +95,7 @@ body {
       border: 2px solid $orange;
       border-radius: 20px;
       position: relative;
+      background: white;
 
       &:first-child {
         margin-left: 40px;
@@ -127,8 +129,8 @@ body {
   width: 90%;
   min-height: 100%;  //ページいっぱいに背景を適用
   padding: 80px 40px 60px;
-  background-image: linear-gradient(#f7e5bf .5px, transparent .5px), linear-gradient(to right, #f7e5bf .5px, white .5px);   //背景格子CSS
-  background-size: 5px 5px;
+  background-image: linear-gradient(#fdefb4 .5px, transparent .5px), linear-gradient(to right, #fdefb4 .5px, white .5px);   //背景格子CSS
+  background-size: 4px 4px;
 
 
   .login-container {
@@ -181,4 +183,9 @@ td.fc-sun {         //日曜日の色設定
 	0% {top: 0; transform: scale(1);}
 	50% {transform: rotateY(180deg);}
 	100% {transform: rotateY(360deg);}
+}
+
+
+.title-text {
+  font-size: 30px;
 }

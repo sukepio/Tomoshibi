@@ -3,3 +3,17 @@ $green: #3db143;
 $orange: #ee780f;
 $yellow: #edb316;
 $red: #de1919;
+
+@mixin link-btn() {
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+@mixin link-btn-hover() {
+  background: white;
+  text-decoration: none;
+}

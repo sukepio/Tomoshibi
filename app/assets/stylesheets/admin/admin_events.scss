@@ -6,9 +6,6 @@
 
 @import "variables";
 
-.title-text {
-  font-size: 30px;
-}
 
 .resident-info {
   display: flex;
@@ -60,20 +57,13 @@
 }
 
 .new-event-btn {
-  width: 10%;
-  text-align: center;
-  padding: 10px 20px;
-  border-radius: 20px;
+  @include link-btn();
   background: $orange;
-  color: white;
-  text-decoration: none;
-  margin-top: 20px;
 
   &:hover {
-    background: white;
+    @include link-btn-hover();
     color: $orange;
     border: 1px solid $orange;
-    text-decoration: none;
   }
 }
 

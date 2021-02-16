@@ -1,6 +1,8 @@
 // Place all the styles related to the public::residents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
 .mypage-flex {
   width: 100%;
   display: flex;
@@ -8,65 +10,125 @@
 
   .left-container {
     width: 70%;
+
+    .new-post-container {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 10px 0 20px 20px;
+
+      .new-post-table {
+        width: 80%;
+
+        th {
+          font-size: 24px;
+          text-align: center;
+        }
+
+        th, td {
+          padding: 5px;
+        }
+
+        td {
+          max-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .myevent-container {
+      background: white;
+      border-radius: 10px;
+      padding: 0 0 20px 20px;
+
+      .myevent-table {
+        width: 80%;
+        margin: 20px 0;
+
+        th, td {
+          padding: 5px;
+        }
+
+        tr:first-child th {
+          font-size: 24px;
+          text-align: center;
+        }
+
+        .head:nth-child(1) {
+          width: 15%;
+        }
+
+        .head:nth-child(2) {
+          width: 30%;
+        }
+
+        .head:nth-child(3) {
+          width: 55%;
+        }
+
+        th.head {
+          color: black;
+        }
+
+        th.body {
+          border-bottom: 1px solid black;
+        }
+
+        td.body {
+          border-bottom: 1px solid black;
+          max-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+
+  }
+
+  .right-container {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    height: 80%;
+    width: 25%;
+
+    .photo-info-btn {
+      @include link-btn();
+      width: 100%;
+      background: $red;
+      margin-bottom: 20px;
+      display: inline-block;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $red;
+        background: white;
+        border: 1px solid $red;
+      }
+    }
+
+    .edit-btn {
+      @include link-btn();
+      width: 100%;
+      background: $blue;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        background: white;
+        border: 1px solid $blue;
+      }
+    }
   }
 }
 
-
-.new-post {
-  width: 80%;
-
-  th {
-    font-size: 24px;
-  }
-
-  th, td {
-    padding: 5px;
-  }
-
-  td {
-    max-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
+#mycalendar {
+  margin-top: 30px;
 }
 
 
-.myevent {
-  width: 70%;
-  margin: 20px 0;
 
-  th, td {
-    padding: 5px;
-  }
 
-  .title {
-    font-size: 20px;
-  }
-
-  .head:nth-child(1) {
-    width: 10%;
-  }
-
-  .head:nth-child(2) {
-    width: 30%;
-  }
-
-  .head:nth-child(3) {
-    width: 60%;
-  }
-
-  th.head {
-    color: black;
-  }
-
-  th.body {
-    border-bottom: 1px solid black;
-  }
-
-  td.body {
-    border-bottom: 1px solid black;
-  }
-
-}
