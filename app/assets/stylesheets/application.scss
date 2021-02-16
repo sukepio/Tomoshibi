@@ -27,7 +27,7 @@
 body {
   height: 100%;
   display: flex;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   // font: "メイリオ","Noto Sans Japanese","ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",  "メイリオ", Meiryo, "ＭＳ Ｐゴシック", 'Open Sans', sans-serif,osaka, Arial, Verdana, sans-serif
   font-family: 'ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,sans-serif;
 }
@@ -35,7 +35,7 @@ body {
 
 // 左サイドメニューここから
 .left-side-menu {
-  width: 10%;
+  width: 12%;
   height: 100%;
   background-color: #fff;
 
@@ -78,7 +78,7 @@ body {
 // 左サイドメニューここまで
 
   .welcome-container {
-    width: 90%;
+    width: 88%;
     height: 80px;
     margin-bottom: 50px;
     padding: 0 20px;
@@ -119,7 +119,7 @@ body {
 
 // メインここから
 .main {        //全体に適用
-  width: 90%;
+  width: 88%;
   min-height: 100%;  //ページいっぱいに背景を適用
   padding: 80px 40px 60px;
   background-image: linear-gradient(#fdefb4 .5px, transparent .5px), linear-gradient(to right, #fdefb4 .5px, white .5px);   //背景格子CSS
@@ -185,7 +185,7 @@ td.fc-sun {         //日曜日の色設定
 
 // マイイベントCSS
 .myevent-container {
-  background: white;
+  background: #fff;
   border-radius: 10px;
   padding: 0 0 20px 20px;
   width: 80%;
