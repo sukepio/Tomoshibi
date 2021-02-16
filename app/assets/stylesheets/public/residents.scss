@@ -9,16 +9,22 @@
   justify-content: space-between;
 
   .left-container {
-    width: 70%;
+    width: 80%;
 
     .new-post-container {
+      width: 80%;
+      margin: 0 auto 20px;
       background: white;
       border-radius: 10px;
-      margin-bottom: 20px;
       padding: 10px 0 20px 20px;
 
       .new-post-table {
         width: 80%;
+        margin: 0 auto;
+
+        tr:nth-child(2) td {
+          font-weight: bold;
+        }
 
         th {
           font-size: 24px;
@@ -36,6 +42,7 @@
           white-space: nowrap;
         }
       }
+
     }
 
   }

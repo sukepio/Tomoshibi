@@ -81,6 +81,7 @@ body {
     width: 90%;
     height: 80px;
     margin-bottom: 50px;
+    padding: 0 20px;
     position: absolute;
     top: 0;
     right: 0;
@@ -90,21 +91,12 @@ body {
 
     .welcome-box {
       height: 60%;
-      margin: 20px 40px 0 0;
+      margin-top: 20px;
       padding: 10px 20px 0;
       border: 2px solid $orange;
       border-radius: 20px;
       position: relative;
       background: white;
-
-      &:first-child {
-        margin-left: 40px;
-      }
-
-      &:nth-child(3) {
-         margin: 20px 0;
-         color: $blue;
-      }
 
 
       .left {
@@ -191,51 +183,67 @@ td.fc-sun {         //日曜日の色設定
   font-size: 30px;
 }
 
-// 新着避難所通信テーブル
+// マイイベントCSS
 .myevent-container {
-      background: white;
-      border-radius: 10px;
-      padding: 0 0 20px 20px;
+  background: white;
+  border-radius: 10px;
+  padding: 0 0 20px 20px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
-      .myevent-table {
-        width: 80%;
-        // margin: 20px 0;
+  .myevent-table {
+    width: 80%;
+    margin: 0 auto 20px;
 
-        th, td {
-          padding: 5px;
-        }
-
-        tr:first-child th {
-          font-size: 24px;
-          text-align: center;
-        }
-
-        .head:nth-child(1) {
-          width: 15%;
-        }
-
-        .head:nth-child(2) {
-          width: 30%;
-        }
-
-        .head:nth-child(3) {
-          width: 55%;
-        }
-
-        th.head {
-          color: black;
-        }
-
-        th.body {
-          border-bottom: 1px solid black;
-        }
-
-        td.body {
-          border-bottom: 1px solid black;
-          max-width: 0;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-      }
+    th, td {
+      padding: 5px;
     }
+
+    tr:first-child th {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .head:nth-child(1) {
+      width: 15%;
+    }
+
+    .head:nth-child(2) {
+      width: 30%;
+    }
+
+    .head:nth-child(3) {
+      width: 55%;
+    }
+
+    th.head {
+      color: black;
+    }
+
+    th.body {
+      border-bottom: 1px solid black;
+    }
+
+    td.body {
+      border-bottom: 1px solid black;
+      max-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .new-event-btn {
+  margin: 0 auto;
+  @include link-btn();
+  background: $orange;
+
+  &:hover {
+    @include link-btn-hover();
+    color: $orange;
+    border: 1px solid $orange;
+  }
+}
+}
