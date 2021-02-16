@@ -38,54 +38,6 @@
       }
     }
 
-    .myevent-container {
-      background: white;
-      border-radius: 10px;
-      padding: 0 0 20px 20px;
-
-      .myevent-table {
-        width: 80%;
-        margin: 20px 0;
-
-        th, td {
-          padding: 5px;
-        }
-
-        tr:first-child th {
-          font-size: 24px;
-          text-align: center;
-        }
-
-        .head:nth-child(1) {
-          width: 15%;
-        }
-
-        .head:nth-child(2) {
-          width: 30%;
-        }
-
-        .head:nth-child(3) {
-          width: 55%;
-        }
-
-        th.head {
-          color: black;
-        }
-
-        th.body {
-          border-bottom: 1px solid black;
-        }
-
-        td.body {
-          border-bottom: 1px solid black;
-          max-width: 0;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-      }
-    }
-
   }
 
   .right-container {

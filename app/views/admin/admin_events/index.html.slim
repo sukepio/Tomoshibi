@@ -23,10 +23,10 @@
     p.box-title.today= @today
 
 .myevent-container
-  table.myevent
+  table.myevent-table
     tbody
       tr
-        th.title colspan=3 〜 本日の予定 〜
+        th colspan=3 〜 本日の予定 〜
       tr
         th.head 時間
         th.head スケジュール名
@@ -37,9 +37,7 @@
           th.body= event.title
           td.body= event.body
 
-
-  .new-admin-event-btn
-    = link_to 'イベント作成', admin_new_events_path, class: 'btn'
+  = link_to 'イベント作成', admin_new_events_path, class: 'new-event-btn'
 
 .admin-calendar
   #admin-calendar
