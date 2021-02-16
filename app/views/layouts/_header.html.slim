@@ -17,7 +17,7 @@
       li.list-item
         = link_to meals_path, class:'header-link' do
           = image_tag 'icon-rice.png', width: '80px', height: '80px'
-          p.list-text 食事メニュー
+          p.list-text 献立
       li.list-item
         = link_to admin_messages_path, class:'header-link' do
           = image_tag 'icon-message.png', width: '80px', height: '80px'
@@ -51,7 +51,7 @@
       li.list-item
          = link_to meals_path, class:'header-link' do
           = image_tag 'icon-rice.png', width: '80px', height: '80px'
-          p.list-text 献立一覧
+          p.list-text 献立
       - if current_resident.photo_accepted
         li.list-item
            = link_to photos_path, class:'header-link' do

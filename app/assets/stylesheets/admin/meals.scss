@@ -1,3 +1,68 @@
 // Place all the styles related to the admin/meals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.today-meal-container {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px 0;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+
+  .todays-meal-table {
+    width: 80%;
+    margin: 0 auto 30px;
+
+    th, td {
+      padding: 5px;
+    }
+
+    tr:first-child th {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .head:nth-child(1) {
+      width: 15%;
+    }
+
+    .head:nth-child(2) {
+      width: 30%;
+    }
+
+    .head:nth-child(3) {
+      width: 30%;
+    }
+
+    .head:nth-child(4) {
+      width: 10%;
+    }
+
+    th.body {
+      border-bottom: 1px solid black;
+    }
+
+    td.body {
+      border-bottom: 1px solid black;
+      max-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .new-meal-btn {
+    margin: 0 auto;
+    @include link-btn();
+    background: $orange;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $orange;
+      border: 1px solid $orange;
+    }
+  }
+}

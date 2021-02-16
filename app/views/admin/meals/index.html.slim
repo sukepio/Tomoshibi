@@ -1,25 +1,26 @@
 .title-container
   = image_tag 'icon-rice.png', width: '80px', height: '80px', class: 'photo-icon'
-  h2 献立
+  p.title-text 献立
 
-h4 本日の献立
-
-table
-  tbody
-    tr
-      td 時間
-      td 献立
-      td 備考
-      - if admin_signed_in?
-        td 発注数
-    - @today_meals.each do |meal|
+.today-meal-container
+  table.todays-meal-table
+    tbody
       tr
-        td= meal.time_format
-        td= meal.menu
-        td= meal.detail
-        td= meal.amount if admin_signed_in?
+        th colspan=4 〜 本日の献立 〜
+      tr
+        th.head 時間
+        th.head 献立
+        th.head 備考
+        - if admin_signed_in?
+          th.head 発注数
+      - @today_meals.each do |meal|
+        tr
+          th.body= meal.time_format
+          th.body= meal.menu
+          td.body= meal.detail
+          td.body= meal.amount if admin_signed_in?
 
-- if admin_signed_in?
-  = link_to '献立追加', new_meal_path, class: 'btn btn-primary'
+  - if admin_signed_in?
+    = link_to '献立追加', new_meal_path, class: 'new-meal-btn'
 
 #mealcalendar
