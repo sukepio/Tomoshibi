@@ -29,8 +29,8 @@ p.box-title.today= @today
               td.body= event.time_format
               td.body= event.title
               td.body= event.body
-
-      = link_to "イベント作成", new_myevent_path, class: 'btn btn-primary'
+              
+      = link_to "イベント作成", new_myevent_path, class: 'new-event-btn'
 
   .right-container
     p= current_resident.self_message

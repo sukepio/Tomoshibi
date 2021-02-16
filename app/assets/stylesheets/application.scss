@@ -14,6 +14,7 @@
  *= require_self
  *= require fullcalendar
  */
+@import "variables";
 @import "bootstrap";
 
 
@@ -26,7 +27,8 @@
 body {
   height: 100%;
   display: flex;
-  font: "メイリオ","Noto Sans Japanese","ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",  "メイリオ", Meiryo, "ＭＳ Ｐゴシック", 'Open Sans', sans-serif,osaka, Arial, Verdana, sans-serif
+  // font: "メイリオ","Noto Sans Japanese","ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",  "メイリオ", Meiryo, "ＭＳ Ｐゴシック", 'Open Sans', sans-serif,osaka, Arial, Verdana, sans-serif
+  font-family: 'ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,sans-serif;
 }
 
 
@@ -50,7 +52,7 @@ body {
       text-decoration: none;
 
       &:hover .list-text {
-        color: orange;
+        color: $orange;
         opacity: .6;
       }
 
@@ -84,61 +86,30 @@ body {
     display: flex;
     justify-content: space-between;
 
-    .shelter-name {
-      height: 60%;
-      margin: 20px 0 0 40px;
-      padding: 10px 20px 0;
-      border: 2px solid orange;
-      border-radius: 20px;
-      position: relative;
 
-      .left {
-        position: absolute;
-        top: -22px;
-        left: 20%;
-        height: 30px;
-        border-left: 2px solid orange;
-      }
-
-      .right {
-        position: absolute;
-        top: -22px;
-        right: 20%;
-        height: 30px;
-        border-left: 2px solid orange;
-      }
-    }
-
-    .self-message {
-      line-height: 50px;
-      font-size: 20px;
-      color: red;
-
-      .hide {
-        display: none;
-        color: blue;
-      }
-    }
-
-    .self-message-click {
-      color: blue;
-    }
-
-    .login-name {
+    .welcome-box {
       height: 60%;
       margin: 20px 40px 0 0;
       padding: 10px 20px 0;
-      border: 2px solid orange;
+      border: 2px solid $orange;
       border-radius: 20px;
       position: relative;
 
+      &:first-child {
+        margin-left: 40px;
+      }
+
+      &:nth-child(2) {
+         margin: 20px 0;
+         color: $blue;
+      }
 
       .left {
         position: absolute;
         top: -22px;
         left: 20%;
         height: 30px;
-        border-left: 2px solid orange;
+        border-left: 2px solid $orange;
       }
 
       .right {
@@ -146,10 +117,11 @@ body {
         top: -22px;
         right: 20%;
         height: 30px;
-        border-left: 2px solid orange;
+        border-left: 2px solid $orange;
       }
     }
   }
+
 // メインここから
 .main {        //全体に適用
   width: 90%;
@@ -162,7 +134,6 @@ body {
   .login-container {
     width: 100%;
     text-align: center;
-    // font-size: 18px;
 
     .login-form {
       border-radius: 10px;
@@ -177,6 +148,11 @@ body {
 
 
 // カレンダーCSS
+
+.fc-view-container {
+  background: white;
+  border: 1px solid black;
+}
 
 .datetime-form {
   display: inline-block;

@@ -14,7 +14,7 @@ html
 
     - if admin_signed_in? || resident_signed_in?
       .welcome-container
-        .shelter-name
+        .welcome-box
           p 旧多良木高校避難所
           span.left
           span.right
@@ -24,9 +24,11 @@ html
             span.left
             span.right
         - elsif resident_signed_in?
-          p.self-message
-            = "#{current_resident.self_message}"
-          .login-name
+          .welcome-box
+            p= "#{current_resident.self_message}"
+            span.left
+            span.right
+          .welcome-box
             p= "こんにちは、#{current_resident.full_name}さん！"
             span.left
             span.right
