@@ -12,9 +12,12 @@ html
     .left-side-menu
       = render 'layouts/header'
 
-    .main
+    - if admin_signed_in? || resident_signed_in?
       .welcome-container
-        p.shelter-name 旧多良木高校避難所
+        .shelter-name
+          p 旧多良木高校避難所
+          span.left
+          span.right
         - if admin_signed_in?
           .login-name
             p= "こんにちは、#{current_admin.full_name}さん！"
@@ -27,7 +30,8 @@ html
             p= "こんにちは、#{current_resident.full_name}さん！"
             span.left
             span.right
+  .main
 
-      - if flash.notice.present?
-        .alert.alert-success= flash.notice
-      = yield
+    - if flash.notice.present?
+      .alert.alert-success= flash.notice
+    = yield

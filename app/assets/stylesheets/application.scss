@@ -16,6 +16,7 @@
  */
 @import "bootstrap";
 
+
 * {
   padding: 0;
   margin: 0;
@@ -25,7 +26,7 @@
 body {
   height: 100%;
   display: flex;
-  font-family: メイリオ, "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Open Sans", sans-serif, osaka, Arial, Verdana, sans-serif;
+  font: "メイリオ","Noto Sans Japanese","ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",  "メイリオ", Meiryo, "ＭＳ Ｐゴシック", 'Open Sans', sans-serif,osaka, Arial, Verdana, sans-serif
 }
 
 
@@ -73,18 +74,10 @@ body {
 }
 // 左サイドメニューここまで
 
-// メインここから
-.main {        //全体に適用
-  width: 90%;
-  min-height: 100%;  //ページいっぱいに背景を適用
-  padding: 60px 40px;
-  position: relative;
-  background-image: linear-gradient(#f7e5bf .5px, transparent .5px), linear-gradient(to right, #f7e5bf .5px, white .5px);   //背景格子CSS
-  background-size: 5px 5px;
-
   .welcome-container {
-    width: 100%;
+    width: 90%;
     height: 80px;
+    margin-bottom: 50px;
     position: absolute;
     top: 0;
     right: 0;
@@ -92,30 +85,9 @@ body {
     justify-content: space-between;
 
     .shelter-name {
-      line-height: 50px;
-      padding-left: 40px;
-      font-size: 24px;
-    }
-
-    .self-message {
-      line-height: 50px;
-      font-size: 20px;
-      color: red;
-
-      .hide {
-        display: none;
-        color: blue;
-      }
-    }
-
-    .self-message-click {
-      color: blue;
-    }
-
-    .login-name {
       height: 60%;
-      margin: 20px 40px 0 0;
-      padding: 10px 10px 0;
+      margin: 20px 0 0 40px;
+      padding: 10px 20px 0;
       border: 2px solid orange;
       border-radius: 20px;
       position: relative;
@@ -136,7 +108,56 @@ body {
         border-left: 2px solid orange;
       }
     }
+
+    .self-message {
+      line-height: 50px;
+      font-size: 20px;
+      color: red;
+
+      .hide {
+        display: none;
+        color: blue;
+      }
+    }
+
+    .self-message-click {
+      color: blue;
+    }
+
+    .login-name {
+      height: 60%;
+      margin: 20px 40px 0 0;
+      padding: 10px 20px 0;
+      border: 2px solid orange;
+      border-radius: 20px;
+      position: relative;
+
+
+      .left {
+        position: absolute;
+        top: -22px;
+        left: 20%;
+        height: 30px;
+        border-left: 2px solid orange;
+      }
+
+      .right {
+        position: absolute;
+        top: -22px;
+        right: 20%;
+        height: 30px;
+        border-left: 2px solid orange;
+      }
+    }
   }
+// メインここから
+.main {        //全体に適用
+  width: 90%;
+  min-height: 100%;  //ページいっぱいに背景を適用
+  padding: 80px 40px 60px;
+  background-image: linear-gradient(#f7e5bf .5px, transparent .5px), linear-gradient(to right, #f7e5bf .5px, white .5px);   //背景格子CSS
+  background-size: 5px 5px;
+
 
   .login-container {
     width: 100%;
@@ -156,9 +177,6 @@ body {
 
 
 // カレンダーCSS
-#admin-calendar {
-  background: white;
-}
 
 .datetime-form {
   display: inline-block;

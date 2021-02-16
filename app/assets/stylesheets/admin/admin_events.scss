@@ -3,19 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 避難者統計情報
+
+$blue: #0b75be;
+$green: #3db143;
+$orange: #ee780f;
+$yellow: #edb316;
+$red: #de1919;
+
 .resident-info {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 40px;
 
   .info-box {
     width: 200px;
     height: 100px;
     margin: 0 30px 30px;
-    border: 1px solid black;
-    border-radius: 15px;
+    border: 3px solid black;
+    border-radius: 20px;
     text-align: center;
-    // background-color: #ffeaea;
 
     .box-title {
       font-size: 24px;
@@ -32,26 +38,58 @@
     }
   }
 
+  .info-box:first-child {
+    border-color: $green;
+  }
+
+
+  .info-box:nth-child(2) {
+    border-color: $red;
+  }
+
   .info-box:nth-child(3) {
     display: flex;
     justify-content: space-around;
     padding: 0 10px;
-    // background-color: #eaf4ff;
+    border-color: $blue;
+  }
+
+  .info-box:last-child {
+    border-color: $yellow;
   }
 }
 
+.new-admin-event-btn {
+  width: 10%;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: $orange;
+  text-decoration: none;
+  margin-top: 20px;
 
-// 管理者イベント
-.admin-event-container {
-  display: flex;
-  justify-content: space-between;
-  
-
-  .event-today {
-    width: 30%;
+  .btn {
+    color: white;
   }
 
-  .admin-calendar {
-    width: 65%;
+  &:hover {
+    background: white;
+    color: $orange;
+    border: 1px solid $orange;
+
+    .btn {
+      color: $orange;
+    }
   }
 }
+
+.admin-calendar {
+  width: 100%;
+  // padding: 50px;
+}
+
+.fc-view-container {
+  background: white;
+  border: 1px solid black;
+}
+
