@@ -22,15 +22,8 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-}
-
 body {
-
-  // transision: all 3s;
   height: 100%;
-  margin-bottom: 50px;
   display: flex;
   font-family: メイリオ, "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Open Sans", sans-serif, osaka, Arial, Verdana, sans-serif;
 }
@@ -72,7 +65,6 @@ body {
         text-decoration: none;
         width: 80%;
         margin: 0 auto 8px;
-        // border-bottom: 1px solid orange;
       }
 
       .hide-link {
@@ -84,10 +76,11 @@ body {
 // メインここから
 .main {        //全体に適用
   width: 90%;
-  height: 100%;
+  min-height: 100%;  //ページいっぱいに背景を適用
   padding: 60px 40px;
   position: relative;
-  background-color: #ffffee;
+  background-image: linear-gradient(#f7e5bf .5px, transparent .5px), linear-gradient(to right, #f7e5bf .5px, white .5px);   //背景格子CSS
+  background-size: 5px 5px;
 
   .welcome-container {
     width: 100%;
@@ -143,6 +136,10 @@ body {
 
 
 // カレンダーCSS
+#admin-calendar {
+  background: white;
+}
+
 .datetime-form {
   display: inline-block;
   width: auto;
