@@ -84,7 +84,7 @@ body {
 
   .welcome-container {
     width: 100%;
-    height: 50px;
+    height: 80px;
     position: absolute;
     top: 0;
     right: 0;
@@ -113,8 +113,28 @@ body {
     }
 
     .login-name {
-      line-height: 50px;
-      padding-right: 40px;
+      height: 60%;
+      margin: 20px 40px 0 0;
+      padding: 10px 10px 0;
+      border: 2px solid orange;
+      border-radius: 20px;
+      position: relative;
+
+      .left {
+        position: absolute;
+        top: -22px;
+        left: 20%;
+        height: 30px;
+        border-left: 2px solid orange;
+      }
+
+      .right {
+        position: absolute;
+        top: -22px;
+        right: 20%;
+        height: 30px;
+        border-left: 2px solid orange;
+      }
     }
   }
 

@@ -11,16 +11,22 @@ html
 
     .left-side-menu
       = render 'layouts/header'
-      
+
     .main
       .welcome-container
         p.shelter-name 旧多良木高校避難所
         - if admin_signed_in?
-          p.login-name= "こんにちは、#{current_admin.full_name}さん！"
+          .login-name
+            p= "こんにちは、#{current_admin.full_name}さん！"
+            span.left
+            span.right
         - elsif resident_signed_in?
           p.self-message
             = "#{current_resident.self_message}"
-          p.login-name= "こんにちは、#{current_resident.full_name}さん！"
+          .login-name
+            p= "こんにちは、#{current_resident.full_name}さん！"
+            span.left
+            span.right
 
       - if flash.notice.present?
         .alert.alert-success= flash.notice
