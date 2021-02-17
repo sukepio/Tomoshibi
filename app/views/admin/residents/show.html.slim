@@ -1,12 +1,7 @@
-h1
-  = "#{@resident.full_name}さんの詳細"
-
-- if @resident.photo_accepted?
-  = link_to "写真アルバムへ", admin_resident_photos_path(@resident), class: 'btn btn-primary'
+h2= "#{@resident.full_name}さん"
 
 .resident-container
-
-  table.table
+  table.resident-show-table
     tbody
       tr
         th 名前
@@ -42,15 +37,19 @@ h1
         th 写真許可
         - if @resident.photo_accepted?
           td 許可する
-          td= link_to '写真追加', new_admin_resident_photo_path(@resident), class: 'btn-btn-success'
         - else
           td 許可しない
-      tr
-        td= link_to "編集する", edit_admin_resident_path, class: 'btn btn-success'
+  .btn-link
+    = link_to "編集する", edit_admin_resident_path, class: 'resident-edit-btn'
+    - if @resident.photo_accepted?
+      = link_to "写真アルバムへ", admin_resident_photos_path(@resident), class: 'photo-btn'
 
+.resident-container
   - if @resident.household.present?
-    table.table
+    table.resident-show-table
       tbody
+        tr
+          th.title colspan=2 世帯情報
         tr
           th 世帯主名
           td= @household.full_name
@@ -70,9 +69,9 @@ h1
             - @residents.each do |resident|
               br
               = link_to resident.full_name, admin_resident_path(resident)
-        tr
-          td= link_to "編集する", edit_admin_resident_household_path(@resident, @household), class: 'btn btn-primary'
+
+    = link_to "編集する", edit_admin_resident_household_path(@resident, @household), class: 'household-btn'
 
   - else
-    = link_to '世帯情報を登録する', new_admin_resident_household_path(@resident), class: 'btn btn-primary'
+    = link_to '世帯情報を登録する', new_admin_resident_household_path(@resident), class: 'household-btn'
 

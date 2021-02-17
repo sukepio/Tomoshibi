@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
-
+// 避難者検索
 .resident-search-container {
   width: 40%;
   margin: 40px auto;
@@ -42,6 +42,7 @@
   }
 }
 
+// 避難者一覧
 .resident-table-container {
   width: 90%;
   margin: 0 auto;
@@ -89,6 +90,81 @@
     }
   }
 }
+
+// 避難者詳細画面
+h2 {
+  text-align: center;
+}
+
+.resident-container {
+  width: 70%;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .resident-show-table {
+    width: 90%;
+    margin-bottom: 30px;
+
+    th, td {
+      padding: 15px;
+    }
+
+    th {
+      width: 25%;
+      color: $orange;
+
+    }
+    .title {
+      text-align: center;
+      color: #000;
+      font-size: 24px;
+    }
+
+    tr {
+      border-bottom: 1px dotted #000;
+    }
+  }
+
+  .resident-edit-btn {
+    @include link-btn();
+    background: $green;
+    margin-right: 30px;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $green;
+      border: 1px dotted $green;
+    }
+  }
+
+  .photo-btn {
+    @include link-btn();
+    background: $yellow;
+    margin-right: 30px;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $yellow;
+      border: 1px dotted $yellow;
+    }
+  }
+}
+
+.household-btn {
+  @include link-btn();
+  background: $blue;
+
+  &:hover {
+    @include link-btn-hover();
+    color: $blue;
+    border: 1px dotted $blue;
+  }
+}
+
 
 // 写真許可
 .photo-explanation-container {
