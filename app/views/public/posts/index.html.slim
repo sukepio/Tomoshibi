@@ -14,14 +14,15 @@
   .form-group
     = f.submit class: 'btn btn-outline-primary'
 
-table.post-table
-  - @posts.each do |post|
-    tbody
-      tr
-        th= post.time_format
-      tr
-        td= link_to post.title, post_path(post)
-      tr
-        td.text-warp= post.body
+.post-table-container
+  table.post-table
+    - @posts.each do |post|
+      tbody
+        tr
+          th= post.time_format
+        tr
+          td= link_to post.title, post_path(post)
+        tr
+          td.text-warp= post.body
 
 = paginate @posts
