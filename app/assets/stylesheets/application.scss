@@ -96,8 +96,7 @@ body {
       border: 2px solid $orange;
       border-radius: 20px;
       position: relative;
-      background: white;
-
+      background: #fff;
 
       .left {
         position: absolute;
@@ -400,6 +399,55 @@ td.fc-sun {         //日曜日の色設定
       margin-top: 40px;
       line-height: 2.5em;
       letter-spacing: .2em;
+    }
+  }
+}
+
+// メッセージ一覧
+.messages-index {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: start;
+  margin-top: 40px;
+
+  .message-item {
+    width: 31%;
+    margin-right: 3.5%;
+    margin-bottom: 40px;
+    // border: 1px solid #666;
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    .message-img {
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 10px;
+
+      .sender {
+        text-align: end;
+        // font-weight: bold;
+        color: $blue;
+      }
+
+      .delete-message-link {
+        @include link-btn();
+        background: $red;
+        padding: 5px 8px;
+
+        &:hover {
+          @include link-btn-hover();
+          color: $red;
+          border: 1px solid $red;
+        }
+      }
     }
   }
 }
