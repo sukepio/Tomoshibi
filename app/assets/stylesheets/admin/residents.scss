@@ -1,6 +1,94 @@
 // Place all the styles related to the admin/residents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+
+.resident-search-container {
+  width: 40%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+
+    .input-container {
+      width: 100%;
+
+      .search-label {
+        color: $blue;
+        font-weight: bold;
+      }
+    }
+
+    .submit-btn {
+      @include link-btn();
+      background: $blue;
+      border: none;
+      margin: 0 auto;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+  }
+}
+
+.resident-table-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+
+  .resident-table {
+    width: 90%;
+    margin: 0 auto 30px;
+
+    th, td {
+      padding: 15px;
+    }
+
+    th {
+      color: $orange;
+
+      &:nth-child(-n + 3) {
+        text-decoration: underline;
+      }
+    }
+
+    td {
+      border-bottom: 1px dotted #666;
+
+      .name {
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  .new-resident-btn {
+    @include link-btn();
+    margin: 0 auto;
+    background: $orange;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $orange;
+      border: 1px solid $orange;
+    }
+  }
+}
 
 // 写真許可
 .photo-explanation-container {
