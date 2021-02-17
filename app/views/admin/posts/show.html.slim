@@ -1,18 +1,18 @@
-h1 避難所通信詳細
+.post-show-container
 
-table.table
-  tbody
-    tr
-      td= Post.human_attribute_name(:title)
-      td= Post.human_attribute_name(:body)
-      td
-    tr
-      td= @post.title
-      td= @post.body
+  .post-show
+    .show-top
+      p.time= @post.time_format
+      p.writer= "投稿者: #{@post.admin.full_name}"
+    h2= @post.title
+
+    .img-flex
       - if @post.image
         - @post.image.each do |image|
-          td= image_tag image.url
-    tr
-      td
-        = link_to "編集する", edit_admin_post_path(@post), class: 'btn btn-success'
-        = link_to "削除する", admin_post_path(@post), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'btn btn-danger'
+          .post-img= image_tag image.url, height: '400px'
+
+    p.body= @post.body
+
+    .btn-container
+      = link_to "編集する", edit_admin_post_path(@post), class: 'post-edit-btn'
+      = link_to "削除する", admin_post_path(@post), method: :delete, data: { confirm: "本当に削除しますか？" }, class: 'post-delete-btn'

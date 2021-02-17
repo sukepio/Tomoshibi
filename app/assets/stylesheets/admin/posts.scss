@@ -4,6 +4,34 @@
 @import "variables";
 
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.post-edit-btn {
+  @include link-btn();
+  background: $green;
+  margin-right: 20px;
+
+  &:hover {
+    @include link-btn-hover();
+    color: $green;
+    border: 1px solid $green;
+  }
+}
+
+.post-delete-btn {
+  @include link-btn();
+  background: $red;
+
+  &:hover {
+    @include link-btn-hover();
+    color: $red;
+    border: 1px solid $red;
+  }
+}
+
 .post-edit-form {
   width: 600px;
   margin: 0 auto;
