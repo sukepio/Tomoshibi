@@ -1,3 +1,43 @@
 // Place all the styles related to the admin/admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.admin-table-container {
+  width: 80%;
+  background: #fff;
+  margin: 40px auto;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+
+  .admin-table {
+    width: 90%;
+    margin: 0 auto 30px;
+
+    th, td {
+      padding: 15px;
+    }
+
+    th {
+      color: $orange;
+    }
+
+    td {
+      border-bottom: 1px dotted #666;
+    }
+  }
+
+  .new-admin-btn {
+    @include link-btn();
+    background: $orange;
+    margin: 0 auto;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $orange;
+      border: 1px solid $orange;
+    }
+
+  }
+}

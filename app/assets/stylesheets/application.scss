@@ -198,7 +198,7 @@ td.fc-sun {         //日曜日の色設定
     margin: 0 auto 30px;
 
     th, td {
-      padding: 5px;
+      padding: 15px;
     }
 
     tr:first-child th {
@@ -219,7 +219,7 @@ td.fc-sun {         //日曜日の色設定
     }
 
     th.head {
-      color: black;
+      color: $orange;
     }
 
     th.body {
