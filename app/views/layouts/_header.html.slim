@@ -27,6 +27,10 @@
           = image_tag 'icon-admin.png', width: '80px', height: '80px'
           p.list-text 管理者一覧
       li.list-item
+         = link_to information_path, class:'header-link' do
+          = image_tag 'icon-info.png', width: '80px', height: '80px'
+          p.list-text 避難所情報
+      li.list-item
         = link_to destroy_admin_session_path, method: :delete, class:'header-link' do
           = image_tag 'icon-logout.png', width: '80px', height: '80px'
           p.list-text ログアウト
