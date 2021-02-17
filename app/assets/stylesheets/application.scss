@@ -194,7 +194,7 @@ td.fc-sun {         //日曜日の色設定
   flex-direction: column;
 
   .myevent-table {
-    width: 80%;
+    width: 90%;
     margin: 0 auto 30px;
 
     th, td {
@@ -246,4 +246,104 @@ td.fc-sun {         //日曜日の色設定
     border: 1px solid $orange;
   }
 }
+}
+
+// 避難所通信検索
+.post-search-container {
+  width: 40%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+
+    .input-container {
+      width: 100%;
+
+      .search-label {
+        color: $blue;
+        font-weight: bold;
+      }
+    }
+
+    .submit-btn {
+      @include link-btn();
+      background: $blue;
+      border: none;
+      margin: 0 auto;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+  }
+}
+
+// 避難所通信一覧画面CSS共通
+.post-table-container {
+  width: 90%;
+  margin: 40px auto;
+  padding: 20px 0;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .post-table {
+    width: 90%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+
+    tr:nth-child(3n){
+      margin-bottom: 10px;
+      border-bottom: 1px dotted #666;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+
+    tr:nth-child(1n) td {
+      width: 20%;
+    }
+
+    .time {
+      color: $orange;
+    }
+
+    .post-title {
+      color: black;
+      text-decoration: none;
+      border-bottom: 1px solid black;
+      padding-bottom: 2px;
+    }
+
+    td {
+      max-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .new-posts-btn {
+    @include link-btn();
+    background: $orange;
+    margin-top: 20px;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $orange;
+      border: 1px solid $orange;
+    }
+  }
 }
