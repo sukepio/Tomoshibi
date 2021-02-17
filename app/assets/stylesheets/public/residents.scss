@@ -19,20 +19,27 @@
       padding: 10px 0 20px 20px;
 
       .new-post-table {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
 
-        tr:nth-child(2) td {
-          font-weight: bold;
+        .title {
+          color: #000;
+          text-decoration: none;
+          border-bottom: 1px solid #000;
+          padding-bottom: 2px;
         }
 
-        th {
-          font-size: 24px;
+        .time {
+          color: $orange;
+        }
+
+        tr:first-child th {
           text-align: center;
+          font-size: 24px;
         }
 
         th, td {
-          padding: 5px;
+          padding: 10px;
         }
 
         td {

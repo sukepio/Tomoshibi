@@ -10,9 +10,9 @@
         tr
           th colspan=3 〜 新着避難所通信 〜
         tr
-          td= @recent_post.time_format
+          th.time= @recent_post.time_format
         tr
-          td= link_to @recent_post.title, post_path(@recent_post)
+          th= link_to @recent_post.title, post_path(@recent_post), class: 'title'
         tr
           td= @recent_post.body
 
