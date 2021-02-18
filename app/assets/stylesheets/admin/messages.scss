@@ -1,3 +1,17 @@
 // Place all the styles related to the admin/messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.new-message-btn {
+  @include link-btn();
+  background: $blue;
+  float: right;
+  margin: 30px 0;
+
+  &:hover {
+    @include link-btn-hover();
+    color: $blue;
+    border: 1px solid $blue;
+  }
+}

@@ -2,11 +2,13 @@
   = image_tag 'icon-photo.png', width: '80px', height: '80px', class: 'photo-icon'
   h2 #{@resident.full_name}さんの写真アルバム
 
-= link_to '写真を追加する', new_admin_resident_photo_path(@resident), class: 'btn btn-success mb-3'
+.btn-right
+  = link_to '写真を追加する', new_admin_resident_photo_path(@resident), class: 'new-photo-btn'
 
-- @photos.each do |photo|
-  .photos
-    = link_to '削除', admin_resident_photo_path(@resident, photo), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-photo'
-    - photo.images.each do |image|
-      .photo
-        = image_tag image.url
+.admin-photo-container
+  - @photos.each do |photo|
+    .photos
+      = link_to '削除', admin_resident_photo_path(@resident, photo), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-photo-btn'
+      - photo.images.each do |image|
+        .photo
+          = image_tag image.url

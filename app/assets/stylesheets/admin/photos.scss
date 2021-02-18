@@ -1,17 +1,47 @@
 // Place all the styles related to the admin/photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.btn-right {
+  width: 95%;
+  text-align: right;
+  margin: 0;
+}
+
+.new-photo-btn {
+  @include link-btn();
+  background: $blue;
+  margin: 30px 0;
+
+  &:hover {
+    @include link-btn-hover();
+    color: $blue;
+    border: 1px solid $blue;
+  }
+}
+
+.admin-photo-container {
+  width: 100%;
+  margin: 10px auto;
+}
 
 .photos {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 
-  .delete-photo {
-    color: red;
-    margin-right: 20px;
-    border: 1px solid red;
-    border-radius: 6px;
-    height: 25px;
+  .delete-photo-btn {
+    @include link-btn();
+    background: $red;
+    margin-right: 15px;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $red;
+      border: 1px solid $red;
+
+    }
   }
 
   .photo {
