@@ -144,7 +144,6 @@ body {
 }
 
 // カレンダーCSS
-
 .fc-view-container {
   background: white;
   border: 1px solid black;
@@ -161,6 +160,71 @@ td.fc-sat {         //土曜日の色設定
 
 td.fc-sun {         //日曜日の色設定
   background-color: #ffeaea;
+}
+
+// カレンダー新規・編集画面
+.event-form-container {
+  width: 40%;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .event-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span.required {
+     float: right;
+     color: $red;
+    }
+
+    span.optional {
+      float: right;
+    }
+
+    .new-btn {
+      @include link-btn();
+      background: $orange;
+      border: none;
+      width: 30%;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $orange;
+        border: 1px solid $orange;
+      }
+    }
+
+    .update-btn {
+      @include link-btn();
+      background: $blue;
+      border: none;
+      margin-bottom: 20px;
+      width: 30%;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+
+    .delete-btn {
+      @include link-btn();
+      background: $red;
+      width: 30%;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $red;
+        border: 1px solid $red;
+      }
+    }
+  }
 }
 
 // アイコンアニメーション
