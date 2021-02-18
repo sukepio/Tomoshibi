@@ -7,6 +7,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 
   .left-container {
     width: 80%;
@@ -96,5 +97,46 @@
 }
 
 
+// 写真許可
+.photo-explanation-container {
+  margin-top: 40px;
+}
 
+.photo-explanation {
+  width: 65%;
+  margin: 30px auto;
+  line-height: 2;
+  background: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-itmes: center;
 
+  .important {
+    text-align: center;
+    font-size: 22px;
+    color: $red;
+  }
+
+  .explanation-body {
+    line-height: 2.5em;
+    letter-spacing: .2em;
+  }
+
+  .photo-btn {
+    @include link-btn();
+    background: $green;
+    margin: 0 auto;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $green;
+      border: 1px solid $green;
+    }
+  }
+}
+
+.resident-edit-form {
+  width: 40%;
+  margin: 0 auto;
+}

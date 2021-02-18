@@ -56,9 +56,13 @@
          = link_to meals_path, class:'header-link' do
           = image_tag 'icon-rice.png', width: '80px', height: '80px'
           p.list-text 献立
-      - if current_resident.photo_accepted
-        li.list-item
-           = link_to photos_path, class:'header-link' do
+      li.list-item
+        - if current_resident.photo_accepted
+          = link_to photos_path, class:'header-link' do
+            = image_tag 'icon-photo.png', width: '80px', height: '80px'
+            p.list-text 写真アルバム
+        - else
+          = link_to confirm_path, class:'header-link' do
             = image_tag 'icon-photo.png', width: '80px', height: '80px'
             p.list-text 写真アルバム
       li.list-item
