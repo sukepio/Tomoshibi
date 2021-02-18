@@ -1,64 +1,142 @@
 // Place all the styles related to the public::residents controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
 .mypage-flex {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 
   .left-container {
-    width: 70%;
+    width: 80%;
+
+    .new-post-container {
+      width: 80%;
+      margin: 0 auto 20px;
+      background: white;
+      border-radius: 15px;
+      padding: 10px 20px;
+
+      .new-post-table {
+        width: 90%;
+        margin: 0 auto;
+
+        .title {
+          color: #000;
+          text-decoration: none;
+          border-bottom: 1px solid #000;
+          padding-bottom: 2px;
+        }
+
+        .time {
+          color: $orange;
+        }
+
+        tr:first-child th {
+          text-align: center;
+          font-size: 24px;
+        }
+
+        th, td {
+          padding: 10px;
+        }
+
+        td {
+          max-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+    }
+
+  }
+
+  .right-container {
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+    height: 80%;
+    width: 25%;
+
+    .photo-info-btn {
+      @include link-btn();
+      width: 100%;
+      background: $red;
+      margin-bottom: 20px;
+      display: inline-block;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $red;
+        background: white;
+        border: 1px solid $red;
+      }
+    }
+
+    .edit-btn {
+      @include link-btn();
+      width: 100%;
+      background: $blue;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        background: white;
+        border: 1px solid $blue;
+      }
+    }
   }
 }
 
-
-.new-post {
-  width: 80%;
-
-  th {
-    color: orange;
-  }
-
-  th, td {
-    padding: 5px;
-  }
-
-  td {
-    max-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
+#mycalendar {
+  margin-top: 30px;
 }
 
 
-.myevent {
-  width: 70%;
-  margin: 20px 0;
+// 写真許可
+.photo-explanation-container {
+  margin-top: 40px;
+}
 
-  th, td {
-    padding: 5px;
+.photo-explanation {
+  width: 65%;
+  margin: 30px auto;
+  line-height: 2;
+  background: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-itmes: center;
+
+  .important {
+    text-align: center;
+    font-size: 22px;
+    color: $red;
   }
 
-  .head:nth-child(1) {
-    width: 10%;
+  .explanation-body {
+    line-height: 2.5em;
+    letter-spacing: .2em;
   }
 
-  .head:nth-child(2) {
-    width: 30%;
-  }
+  .photo-btn {
+    @include link-btn();
+    background: $green;
+    margin: 0 auto;
 
-  .head:nth-child(3) {
-    width: 60%;
+    &:hover {
+      @include link-btn-hover();
+      color: $green;
+      border: 1px solid $green;
+    }
   }
+}
 
-  th.head {
-    color: black;
-  }
-
-  td.body {
-    border-bottom: 1px solid black;
-  }
-
+.resident-edit-form {
+  width: 40%;
+  margin: 0 auto;
 }

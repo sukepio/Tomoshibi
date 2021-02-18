@@ -3,19 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 避難者統計情報
+
+@import "variables";
+
+
 .resident-info {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 40px;
 
   .info-box {
     width: 200px;
     height: 100px;
     margin: 0 30px 30px;
-    border: 1px solid black;
-    border-radius: 15px;
+    border: 3px solid black;
+    border-radius: 20px;
     text-align: center;
-    // background-color: #ffeaea;
+    background: #fff;
 
     .box-title {
       font-size: 24px;
@@ -32,25 +36,43 @@
     }
   }
 
+  .info-box:first-child {
+    border-color: $green;
+  }
+
+
+  .info-box:nth-child(2) {
+    border-color: $red;
+  }
+
   .info-box:nth-child(3) {
     display: flex;
     justify-content: space-around;
     padding: 0 10px;
-    // background-color: #eaf4ff;
+    border-color: $blue;
+  }
+
+  .info-box:last-child {
+    border-color: $yellow;
   }
 }
 
+.admin-calendar {
+  width: 100%;
+  margin-top: 30px;
+}
 
-// 管理者イベント
-.admin-event-container {
-  display: flex;
-  justify-content: space-between;
 
-  .event-today {
-    width: 30%;
-  }
+.event-form {
+  width: 50%;
+  margin: 0 auto;
+}
 
-  .admin-calendar {
-    width: 65%;
-  }
+input[type="title"] {
+  padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
 }

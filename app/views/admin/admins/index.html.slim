@@ -2,18 +2,19 @@
   = image_tag 'icon-admin.png', width: '80px', height: '80px', class: 'photo-icon'
   h2 管理者一覧
 
-table.table
-  tbody
-    tr
-      td 管理者名
-      td ログインID
-      td 連絡先
-      td メールアドレス
-    - @admins.each do |admin|
+.admin-table-container
+  table.admin-table
+    tbody
       tr
-        td= admin.full_name
-        td= admin.login_id
-        td= admin.phone_number
-        td= admin.email
-    tr
-      td= link_to '管理者新規登録', new_admin_registration_path, class: 'btn btn-success'
+        th 管理者名
+        th ログインID
+        th 連絡先
+        th メールアドレス
+      - @admins.each do |admin|
+        tr
+          td= admin.full_name
+          td= admin.login_id
+          td= admin.phone_number
+          td= admin.email
+
+  = link_to '管理者新規登録', new_admin_registration_path, class: 'new-admin-btn'

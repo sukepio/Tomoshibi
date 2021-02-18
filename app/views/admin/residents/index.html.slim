@@ -2,44 +2,45 @@
   = image_tag 'icon-people.png', width: '80px', height: '80px', class: 'photo-icon'
   h2 避難者一覧
 
-= link_to "避難者新規登録へ", new_resident_registration_path, class: 'btn btn-primary'
+.resident-search-container
+  = search_form_for @q, url: admin_residents_path, class: 'search-form' do |f|
+    .input-container
+      .form-group.row
+        = f.label :last_name_cont, '名前', class: 'col-sm-4 col-form-label search-label'
+        .col-sm-4
+          = f.search_field :last_name_cont, class: 'form-control'
+      .form-group.row
+        = f.label :household_id_eq, '居住スペース', class: 'col-sm-4 col-form-label search-label'
+        .col-sm-4
+          = f.collection_select :household_id_eq, @households, :id, :living_space, :include_blank => '指定なし', class: 'form-control'
+    = f.submit class: 'submit-btn'
 
-= search_form_for @q, url: admin_residents_path, class: 'mb-5' do |f|
-  .form-group.row
-    = f.label :last_name_cont, '名前', class: 'col-sm-2 col-form-label'
-    .col-sm-４
-      = f.search_field :last_name_cont, class: 'form-control'
-  .form-group.row
-    = f.label :household_id_eq, '居住スペース', class: 'col-sm-2 col-form-label'
-    .col-sm-４
-      = f.collection_select :household_id_eq, @households, :id, :living_space, :include_blank => '指定なし', class: 'form-control'
-  .form-group
-    = f.submit class: 'btn btn-outline-primary'
-
-table.table
-  tbody
-    tr
-      td= sort_link(@q, :last_name, "避難者名", [:last_name, "gender"])
-      td 避難者ID
-      td= sort_link(@q, :date_of_birth, "年齢")
-      td= sort_link(@q, :gender)
-      td 居住スペース
-      td 自宅住所
-      td 写真許可
-    - @residents.each do |resident|
+.resident-table-container
+  table.resident-table
+    tbody
       tr
-        td= link_to resident.full_name, admin_resident_path(resident)
-        td= resident.id
-        td= "#{resident.age}才"
-        td= resident.gender
-        - if resident.household.present?
-          td= resident.household.living_space
-          td= resident.household.address
-        - else
-          td 世帯情報を登録してください
-        - if resident.photo_accepted?
-          td 許可する
-        - else
-          td 許可しない
+        th= sort_link(@q, :last_name, "避難者名", [:last_name, "gender"])
+        th= sort_link(@q, :date_of_birth, "年齢")
+        th= sort_link(@q, :gender)
+        th 居住スペース
+        th 自宅住所
+        th 写真許可
+      - @residents.each do |resident|
+        tr
+          td= link_to resident.full_name, admin_resident_path(resident), class: 'name'
+          td= "#{resident.age}才"
+          td= resident.gender
+          - if resident.household.present?
+            td= resident.household.living_space
+            td= resident.household.address
+          - else
+            td 世帯情報を登録してください
+            td 世帯情報を登録してください
+          - if resident.photo_accepted?
+            td 許可する
+          - else
+            td 許可しない
+  = link_to "避難者新規登録へ", new_resident_registration_path, class: 'new-resident-btn'
+
 
 = paginate @residents

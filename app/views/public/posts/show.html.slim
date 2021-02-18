@@ -1,13 +1,15 @@
-h1= @post.title
+.post-show-container
 
-.post-show
-  p= @post.time_format
-  #bookmark-btn
-    = render 'public/posts/bookmark_btn', post: @post
+  .post-show
+    .show-top
+      p.time= @post.time_format
+      #bookmark-btn
+        = render 'public/posts/bookmark_btn', post: @post
+    h2= @post.title
 
-  .img-flex
-    - if @post.image
-      - @post.image.each do |image|
-        .post-img= image_tag image.url, height: '400px'
+    .img-flex
+      - if @post.image
+        - @post.image.each do |image|
+          .post-img= image_tag image.url, height: '400px'
 
-  p= @post.body
+    p.body= @post.body
