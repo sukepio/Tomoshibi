@@ -24,6 +24,7 @@ class Admin::ResidentsController < ApplicationController
 
   def update
     @resident = Resident.find(params[:id])
+    @households = Household.all
     if @resident.update(resident_params)
       redirect_to admin_resident_path(@resident), notice: "#{@resident.full_name}さんの情報を更新しました。"
     else
