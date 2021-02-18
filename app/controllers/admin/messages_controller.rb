@@ -14,7 +14,7 @@ class Admin::MessagesController < ApplicationController
     if @message.save
       redirect_to admin_messages_path, notice: "メッセージを追加しました。"
     else
-      render :index
+      render :new
     end
   end
 

@@ -1,5 +1,5 @@
 h1 スケジュール詳細
-
+= render 'layouts/error_messages', resource: @admin_event
 .row
   = form_with model: [:admin, @admin_event], url: admin_path(@admin_event), local: true do |f|
 

@@ -449,3 +449,7 @@ td.fc-sun {         //日曜日の色設定
     }
   }
 }
+
+#error_explanation li.error-message {
+  color: $red;
+}

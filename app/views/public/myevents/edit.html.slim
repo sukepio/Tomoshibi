@@ -1,8 +1,8 @@
 h1 スケジュール詳細
+= render 'layouts/error_messages', resource: @myevent
 
 .row
   = form_with model: @myevent, local: true do |f|
-
     table.table
       tbody
         tr
