@@ -2,6 +2,7 @@ h1 編集する
 
 
 .row.justify-content-center
+  = render 'layouts/error_messages', resource: @resident
   = form_with model: [:admin, @resident], local: true do |f|
 
     .form-row

@@ -1,5 +1,6 @@
 h1 メニュー詳細
 
+= render 'layouts/error_messages', resource: @meal
 
 .row
     = form_with model: @meal, local: true do |f|

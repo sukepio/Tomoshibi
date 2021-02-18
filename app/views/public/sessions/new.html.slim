@@ -2,6 +2,7 @@
   h2
     | 住民さんログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
     .field
       = f.label :login_id
       br

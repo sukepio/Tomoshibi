@@ -29,7 +29,7 @@ class Admin::MealsController < ApplicationController
     if @meal.update(meal_params)
       redirect_to meals_path, notice: "「#{@meal.menu}」を更新しました。"
     else
-      render :index
+      render :edit
     end
   end
 

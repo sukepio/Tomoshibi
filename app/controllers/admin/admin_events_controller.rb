@@ -18,7 +18,7 @@ class Admin::AdminEventsController < ApplicationController
     if @admin_event.save
       redirect_to admin_events_path, notice: "「#{@admin_event.title}」を作成しました。"
     else
-      render :index
+      render :new
     end
   end
 
