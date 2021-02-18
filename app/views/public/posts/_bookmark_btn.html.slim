@@ -1,8 +1,8 @@
 - if post.bookmarked_by?(current_resident)
   = link_to post_bookmarks_path(post), remote: true, method: :delete do
-    = image_tag 'icon-star.png', width: '30px', height: '30px'
-    span お気に入り
+    = image_tag 'star.png', width: '30px', height: '30px'
+    span.favourite お気に入り
 - else
   = link_to post_bookmarks_path(post), remote: true, method: :post do
-    = image_tag 'icon-unstar.png', width: '30px', height: '30px'
-    span お気に入り
+    = image_tag 'unstar.png', width: '30px', height: '30px'
+    span.favourite お気に入り

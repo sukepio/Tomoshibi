@@ -14,7 +14,9 @@
  *= require_self
  *= require fullcalendar
  */
+@import "variables";
 @import "bootstrap";
+
 
 * {
   padding: 0;
@@ -22,23 +24,18 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-}
-
 body {
-
-  // transision: all 3s;
   height: 100%;
-  margin-bottom: 50px;
   display: flex;
-  font-family: メイリオ, "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Open Sans", sans-serif, osaka, Arial, Verdana, sans-serif;
+  letter-spacing: 0.15em;
+  // font: "メイリオ","Noto Sans Japanese","ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",  "メイリオ", Meiryo, "ＭＳ Ｐゴシック", 'Open Sans', sans-serif,osaka, Arial, Verdana, sans-serif
+  font-family: 'ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,sans-serif;
 }
 
 
 // 左サイドメニューここから
 .left-side-menu {
-  width: 10%;
+  width: 12%;
   height: 100%;
   background-color: #fff;
 
@@ -56,7 +53,7 @@ body {
       text-decoration: none;
 
       &:hover .list-text {
-        color: orange;
+        color: $orange;
         opacity: .6;
       }
 
@@ -72,7 +69,6 @@ body {
         text-decoration: none;
         width: 80%;
         margin: 0 auto 8px;
-        // border-bottom: 1px solid orange;
       }
 
       .hide-link {
@@ -81,54 +77,57 @@ body {
 }
 // 左サイドメニューここまで
 
-// メインここから
-.main {        //全体に適用
-  width: 90%;
-  height: 100%;
-  padding: 60px 40px;
-  position: relative;
-  background-color: #ffffee;
-
   .welcome-container {
-    width: 100%;
-    height: 50px;
+    width: 88%;
+    height: 80px;
+    // margin-bottom: 100px;
+    padding: 0 20px;
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
     justify-content: space-between;
 
-    .shelter-name {
-      line-height: 50px;
-      padding-left: 40px;
-      font-size: 24px;
-    }
 
-    .self-message {
-      line-height: 50px;
-      font-size: 20px;
-      color: red;
+    .welcome-box {
+      height: 60%;
+      margin-top: 20px;
+      padding: 10px 20px 0;
+      border: 2px solid $orange;
+      border-radius: 20px;
+      position: relative;
+      background: #fff;
 
-      .hide {
-        display: none;
-        color: blue;
+      .left {
+        position: absolute;
+        top: -22px;
+        left: 20%;
+        height: 30px;
+        border-left: 2px solid $orange;
+      }
+
+      .right {
+        position: absolute;
+        top: -22px;
+        right: 20%;
+        height: 30px;
+        border-left: 2px solid $orange;
       }
     }
-
-    .self-message-click {
-      color: blue;
-    }
-
-    .login-name {
-      line-height: 50px;
-      padding-right: 40px;
-    }
   }
+
+// メインここから
+.main {        //全体に適用
+  width: 88%;
+  min-height: 100%;  //ページいっぱいに背景を適用
+  padding: 120px 40px 60px;
+  background-image: linear-gradient(#ffe37c .5px, transparent .5px), linear-gradient(to right, #ffe37c .5px, #fff .5px);   //背景格子CSS
+  background-size: 4px 4px;
+
 
   .login-container {
     width: 100%;
     text-align: center;
-    // font-size: 18px;
 
     .login-form {
       border-radius: 10px;
@@ -140,9 +139,17 @@ body {
   }
 }
 
-
+.title-container {
+  text-align: center;
+}
 
 // カレンダーCSS
+
+.fc-view-container {
+  background: white;
+  border: 1px solid black;
+}
+
 .datetime-form {
   display: inline-block;
   width: auto;
@@ -170,4 +177,275 @@ td.fc-sun {         //日曜日の色設定
 	0% {top: 0; transform: scale(1);}
 	50% {transform: rotateY(180deg);}
 	100% {transform: rotateY(360deg);}
+}
+
+// タイトルCSS
+.title-text {
+  font-size: 30px;
+}
+
+// マイイベントCSS
+.myevent-container {
+  background: #fff;
+  border-radius: 15px;
+  padding: 10px 0;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .myevent-table {
+    width: 90%;
+    margin: 0 auto 30px;
+
+    th, td {
+      padding: 15px;
+    }
+
+    tr:first-child th {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .head:nth-child(1) {
+      width: 15%;
+    }
+
+    .head:nth-child(2) {
+      width: 30%;
+    }
+
+    .head:nth-child(3) {
+      width: 55%;
+    }
+
+    th.head {
+      color: $orange;
+    }
+
+    th.body {
+      border-bottom: 1px solid black;
+    }
+
+    td.body {
+      border-bottom: 1px solid black;
+      max-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .new-event-btn {
+  margin: 0 auto;
+  @include link-btn();
+  background: $orange;
+
+  &:hover {
+    @include link-btn-hover();
+    color: $orange;
+    border: 1px solid $orange;
+  }
+}
+}
+
+// 避難所通信検索
+.post-search-container {
+  width: 40%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+
+    .input-container {
+      width: 100%;
+
+      .search-label {
+        color: $blue;
+        font-weight: bold;
+      }
+    }
+
+    .submit-btn {
+      @include link-btn();
+      background: $blue;
+      border: none;
+      margin: 0 auto;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+  }
+}
+
+// 避難所通信一覧画面CSS共通
+.post-table-container {
+  width: 90%;
+  margin: 40px auto;
+  padding: 20px 0;
+  background: #fff;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .post-table {
+    width: 90%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+
+    tr:nth-child(3n){
+      margin-bottom: 10px;
+      border-bottom: 1px dotted #666;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+
+    tr:nth-child(1n) td {
+      width: 20%;
+    }
+
+    .time {
+      color: $orange;
+    }
+
+    .post-title {
+      color: black;
+      text-decoration: none;
+      border-bottom: 1px solid black;
+      padding-bottom: 2px;
+    }
+
+    td {
+      max-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .new-posts-btn {
+    @include link-btn();
+    background: $orange;
+    margin-top: 20px;
+
+    &:hover {
+      @include link-btn-hover();
+      color: $orange;
+      border: 1px solid $orange;
+    }
+  }
+}
+
+// 避難所通信詳細共通
+.post-show-container {
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px 0;
+
+
+  .post-show {
+    width: 80%;
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      text-decoration: underline;
+      margin: 40px;
+    }
+
+    .show-top {
+      display: flex;
+      justify-content: space-between;
+
+      p.time {
+        color: $orange;
+        font-size: 20px;
+        margin-right: 30px;
+      }
+
+      span.favourite {
+        color: $blue;
+        margin-left: 5px;
+      }
+    }
+
+    .img-flex {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .post-img {
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    p.body {
+      margin-top: 40px;
+      line-height: 2.5em;
+      letter-spacing: .2em;
+    }
+  }
+}
+
+// メッセージ一覧
+.messages-index {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: start;
+  margin-top: 40px;
+
+  .message-item {
+    width: 31%;
+    margin-right: 3.5%;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    .message-img {
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 10px;
+
+      .sender {
+        text-align: end;
+        color: $blue;
+      }
+
+      .delete-message-link {
+        @include link-btn();
+        background: $red;
+        padding: 5px 8px;
+
+        &:hover {
+          @include link-btn-hover();
+          color: $red;
+          border: 1px solid $red;
+        }
+      }
+    }
+  }
 }

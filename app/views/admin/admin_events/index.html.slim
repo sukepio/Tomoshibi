@@ -1,3 +1,7 @@
+.title-container
+  = image_tag 'icon-calendar.png', width: '80px', height: '80px', class: 'photo-icon'
+  p.title-text 避難所カレンダー
+
 .resident-info
   .info-box
     p.box-title 避難者数
@@ -18,21 +22,10 @@
   .info-box
     p.box-title.today= @today
 
-.admin-event-container
-  .event-today
-    table.admin-event-table
-      tbody
-        tr
-          th 今日のイベント
-        - @today_events.each do |event|
-          tr
-            th= event.time_format
-            th= event.title
-          tr
-            td
-            td= event.body
-        tr
-          td= link_to 'イベント作成', admin_new_events_path
+.myevent-container
+  = render 'myevent', today_events: @today_events
 
-  .admin-calendar
-    #admin-calendar
+  = link_to 'イベント作成', admin_new_events_path, class: 'new-event-btn'
+
+.admin-calendar
+  #admin-calendar

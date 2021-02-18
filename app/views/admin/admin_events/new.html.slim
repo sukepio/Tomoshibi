@@ -1,14 +1,17 @@
-h1 新規スケジュール登録
+h2 新規スケジュール登録
 
 
-= render 'layouts/error_messages', resource: @admin_event
+.event-form
+  = render 'layouts/error_messages', resource: @admin_event
 
-= form_with model: [:admin, @admin_event], url: admin_new_events_path, local: true do |f|
-  .form-group
-    = f.text_field :title, placeholder: 'スケジュール名', class: 'form-control'
+  = form_with model: [:admin, @admin_event], url: admin_new_events_path, local: true do |f|
+
+    = f.label :title
+    = f.text_field :title, placeholder: 'スケジュール名'
 
     .form-group
-      = f.text_field :body, placeholder: 'スケジュール内容', class: 'form-control'
+      = f.label :body
+      = f.text_area :body, rows: 2, placeholder: 'スケジュール内容', class: 'form-control'
 
     .form-group
       = f.label :start

@@ -1,9 +1,9 @@
 class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :authenticate_admin!
 
   def index
-    @posts = Post.page(params[:page]).order(created_at: :desc)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes([:admin]).page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show

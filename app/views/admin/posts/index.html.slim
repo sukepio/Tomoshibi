@@ -2,20 +2,33 @@
   = image_tag 'icon-news.png', width: '80px', height: '80px', class: 'photo-icon'
   h2 避難所通信
 
-= link_to "新規投稿", new_admin_post_path, class: 'btn btn-primary'
+.post-search-container
+  = search_form_for @q, url: admin_posts_path, class: 'search-form' do |f|
+    .input-container
+      .form-group.row
+        = f.label :title_cont, 'タイトル', class: 'col-sm-4 col-form-label search-label'
+        .col-sm-4
+          = f.search_field :title_cont, class: 'form-control'
+      .form-group.row
+        = f.label :body_cont, '内容', class: 'col-sm-4 col-form-label search-label'
+        .col-sm-4
+          = f.search_field :body_cont, class: 'form-control'
+    = f.submit class: 'submit-btn'
 
-table.table
-  tbody
-    tr
-      td= Post.human_attribute_name(:admin_id)
-      td= Post.human_attribute_name(:title)
-      td= Post.human_attribute_name(:body)
+.post-table-container
+  table.post-table
     - @posts.each do |post|
-      tr
-        td= post.admin_id
-        td= link_to post.title, admin_post_path(post)
-        td= simple_format(h(post.body), {}, sanitize: false, wrapper_tag: "div")
+      tbody
+        tr
+          th.time= post.time_format
+          td= "投稿者: #{post.admin.full_name}"
+        tr
+          th= link_to post.title, admin_post_path(post), class: "post-title"
+        tr
+          td.body colspan=3 = simple_format(h(post.body), {}, sanitize: false, wrapper_tag: "div")
 
-.mt-3
   = paginate @posts
   = page_entries_info @posts
+
+  = link_to "新規投稿", new_admin_post_path, class: 'new-posts-btn'
+
