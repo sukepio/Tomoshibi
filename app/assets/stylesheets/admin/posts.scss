@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
-
 .btn-container {
   display: flex;
   justify-content: center;
@@ -33,10 +32,41 @@
 }
 
 .post-edit-form {
-  width: 600px;
-  margin: 0 auto;
+  width: 50%;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+
+    .photos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .update-btn {
+      @include link-btn();
+      background: $blue;
+      border: none;
+      width: 100px;
+      margin: 0 auto;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+  }
 }
 #image_prev {
   width: auto;
   height: 400px;
+}
+
+.center {
+  text-align: center;
 }

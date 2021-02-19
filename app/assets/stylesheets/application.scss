@@ -80,7 +80,6 @@ body {
   .welcome-container {
     width: 88%;
     height: 80px;
-    // margin-bottom: 100px;
     padding: 0 20px;
     position: absolute;
     top: 0;
@@ -143,8 +142,73 @@ body {
   text-align: center;
 }
 
-// カレンダーCSS
+// 管理者・避難者新規登録画面
+.registration-form-container {
+  width: 40%;
+  margin: 40PX auto;
+  padding: 30px;
+  background: #fff;
 
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+
+    span.required {
+      float: right;
+      color: $red;
+    }
+
+    span.optional {
+      float: right;
+    }
+
+    .new-btn {
+      @include link-btn();
+      background: $orange;
+      border: none;
+      width: 30%;
+      margin: 0 auto;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $orange;
+        border: 1px solid $orange;
+      }
+    }
+  }
+}
+
+
+// 避難所通信新規投稿・メッセージ投稿画面共通CSS
+.form-container {
+  width: 50%;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+
+    .new-btn {
+      @include link-btn();
+      background: $orange;
+      border: none;
+      width: 30%;
+      margin: 0 auto;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $orange;
+        border: 1px solid $orange;
+      }
+    }
+  }
+}
+
+
+// カレンダーCSS
 .fc-view-container {
   background: white;
   border: 1px solid black;
@@ -161,6 +225,62 @@ td.fc-sat {         //土曜日の色設定
 
 td.fc-sun {         //日曜日の色設定
   background-color: #ffeaea;
+}
+
+// カレンダー新規・編集画面
+.event-form-container {
+  width: 40%;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .event-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .new-btn {
+      @include link-btn();
+      background: $orange;
+      border: none;
+      width: 30%;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $orange;
+        border: 1px solid $orange;
+      }
+    }
+
+    .update-btn {
+      @include link-btn();
+      background: $blue;
+      border: none;
+      margin-bottom: 20px;
+      width: 30%;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+
+    .delete-btn {
+      @include link-btn();
+      background: $red;
+      width: 30%;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $red;
+        border: 1px solid $red;
+      }
+    }
+  }
 }
 
 // アイコンアニメーション
@@ -451,6 +571,24 @@ td.fc-sun {         //日曜日の色設定
   }
 }
 
-#error_explanation li.error-message {
+#error_explanation {
+  width: 55%;
+  margin: 0 auto;
+
+  li.error-message {
+    color: $red;
+  }
+}
+
+.form-group {
+  padding-bottom: 10px;
+}
+
+span.required {
+  float: right;
   color: $red;
+}
+
+span.optional {
+  float: right;
 }

@@ -1,57 +1,68 @@
-h1 編集する
+h2 編集する
 
-
-.row.justify-content-center
+.registration-form-container
   = render 'layouts/error_messages', resource: @resident
-  = form_with model: [:admin, @resident], local: true do |f|
+  = form_with model: [:admin, @resident], class: 'registration-form', local: true do |f|
+    .form-body
+      .form-row
+        .form-group.col-lg-6
+          = f.label :last_name
+          = f.text_field :last_name, autofocus: true, class:'form-control'
+        .form-group.col-lg-6
+          = f.label :first_name
+          span.required 【必須】
+          = f.text_field :first_name, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :last_name
-      = f.text_field :last_name, autofocus: true, class:'form-control'
-      = f.label :first_name
-      = f.text_field :first_name, autofocus: true, class:'form-control'
+      .form-row
+        .form-group.col-lg-6
+          = f.label :last_name_kana
+          = f.text_field :last_name_kana, autofocus: true, class:'form-control'
+        .form-group.col-lg-6
+          = f.label :first_name_kana
+          span.required 【必須】
+          = f.text_field :first_name_kana, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :last_name_kana
-      = f.text_field :last_name_kana, autofocus: true, class:'form-control'
-      = f.label :first_name_kana
-      = f.text_field :first_name_kana, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :phone_number
+        span.required 【必須】
+        = f.text_field :phone_number, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :phone_number
-      br
-      = f.text_field :phone_number, autofocus: true, class:'form-control'
-      = f.label :login_id
-      br
-      = f.text_field :login_id, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :login_id
+        span.required 【必須】
+        = f.text_field :login_id, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :date_of_birth
-      br
-      = f.date_select :date_of_birth, use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1), class:'form-control'
+      .form-group
+        = f.label :date_of_birth
+        span.required 【必須】
+        br
+        = f.date_select :date_of_birth, {use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1)}, {class: 'form-control', style: 'display: inline-block;width: auto;' }
 
-    .form-row
-      p 性別
-      = f.radio_button :gender, "男", :checked => true
-      = f.label :gender, "男"
+      .form-group
+        = f.label :gender, "性別", { class: 'form-check-label' }
+        span.required 【必須】
+        br
+        = f.radio_button :gender, '男', :checked => true
+        = f.label :gender, "男性", { class: 'form-check-label mr-2' }
+        = f.radio_button :gender, '女'
+        = f.label :gender, "女性", { class: 'form-check-label' }
 
-      = f.radio_button :gender, "女"
-      = f.label :gender, "女"
+      .form-group
+        = f.label :information
+        span.optional 【任意】
+        = f.text_area :information, rows: 5, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :information
-      = f.text_area :information, rows: 5, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :household_id, '世帯登録'
+        = f.select :household_id, @households.map{ |household| [household.information, household.id] }, { include_blank: '選択してください' }, { class:'form-control' }
 
-    .form-row
-      = f.label :household_id, '世帯登録'
-      = f.select :household_id, @households.map{ |household| [household.information, household.id] }
+      .form-group
+        = f.label :has_left, "入所状況"
+        br
+        = f.radio_button :has_left, false, :checked => true
+        = f.label :has_left, "入所中", { class: 'form-check-label mr-2' }
+        = f.radio_button :has_left, true
+        = f.label :has_left, "退所済"
 
-    .form-row
-      = f.radio_button :has_left, false, :checked => true
-      = f.label :has_left, "入所中"
 
-      = f.radio_button :has_left, true
-      = f.label :has_left, "退所済"
-
-    .form-row
-      = f.submit nil, class: 'btn btn-primary'
+    = f.submit "変更", class: 'edit-btn'

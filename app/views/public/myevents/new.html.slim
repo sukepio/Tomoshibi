@@ -1,17 +1,23 @@
-= render 'layouts/error_messages', resource: @myevent
-.admin-event-form
-  = form_with model: @myevent, local: true do |f|
+h2 新規スケジュール登録
 
-    .form-group
-      = f.text_field :title, placeholder: 'スケジュール名', class: 'form-control'
+.event-form-container
+  = render 'layouts/error_messages', resource: @myevent
 
-    .form-group
-      = f.text_field :body, placeholder: 'スケジュール内容', class: 'form-control'
+  = form_with model: @myevent, class: 'event-form', local: true do |f|
+    .form-body
+      .form-group
+        = f.label :title
+        span.required 【必須】
+        = f.text_field :title, class: 'form-control'
 
-    .form-group
-      = f.label :start
-      br
-      = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+      .form-group
+        = f.label :body
+        span.optional 【任意】
+        = f.text_area :body, rows: 2, class: 'form-control'
 
-    .form-group
-      = f.submit '新規登録', class: 'btn btn-success btn-block'
+      .form-group
+        = f.label :start
+        br
+        = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+
+    = f.submit '新規登録', class: 'new-btn'

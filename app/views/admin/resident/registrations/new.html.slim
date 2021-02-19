@@ -1,59 +1,70 @@
-h2
-  | 避難者新規登録
+h2 避難者新規登録
 
-.row.justify-content-center
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = render 'layouts/error_messages', resource: resource
+.registration-form-container
+  = render 'layouts/error_messages', resource: resource
+  = form_with model: @resident, url: resident_registration_path, id: 'new_resident', class: 'new_resident registration-form', local: true do |f|
+    .form-body
+      .form-row
+        .form-group.col-lg-6
+          = f.label :last_name
+          = f.text_field :last_name, autofocus: true, class:'form-control'
+        .form-group.col-lg-6
+          = f.label :first_name
+          span.required 【必須】
+          = f.text_field :first_name, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :last_name
-      = f.text_field :last_name, autofocus: true, class:'form-control'
-      = f.label :first_name
-      = f.text_field :first_name, autofocus: true, class:'form-control'
+      .form-row
+        .form-group.col-lg-6
+          = f.label :last_name_kana
+          = f.text_field :last_name_kana, autofocus: true, class:'form-control'
+        .form-group.col-lg-6
+          = f.label :first_name_kana
+          span.required 【必須】
+          = f.text_field :first_name_kana, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :last_name_kana
-      = f.text_field :last_name_kana, autofocus: true, class:'form-control'
-      = f.label :first_name_kana
-      = f.text_field :first_name_kana, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :phone_number
+        span.required 【必須】
+        = f.text_field :phone_number, autofocus: true, class:'form-control'
+        
+      .form-group
+        = f.label :login_id
+        span.required 【必須】
+        = f.text_field :login_id, autofocus: true, class:'form-control'
 
-    .form-row
-      = f.label :phone_number
-      br
-      = f.text_field :phone_number, autofocus: true, class:'form-control'
-      = f.label :login_id
-      br
-      = f.text_field :login_id, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :date_of_birth
+        span.required 【必須】
+        br
+        = f.date_select :date_of_birth, {use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1)}, {class: 'form-control', style: 'display: inline-block;width: auto;' }
 
-    .form-row
-      = f.label :date_of_birth
-      br
-      = f.date_select :date_of_birth, use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1), class:'form-control'
+      .form-group
+        = f.label :gender, "性別", { class: 'form-check-label' }
+        br
+        = f.radio_button :gender, '男', :checked => true
+        = f.label :gender, "男性", { class: 'form-check-label mr-2' }
+        = f.radio_button :gender, '女'
+        = f.label :gender, "女性", { class: 'form-check-label' }
 
-    .form-row
-      p 性別
-      = f.radio_button :gender, "男", :checked => true
-      = f.label :gender, "男"
+      .form-group
+        = f.label :information
+        span.optional 【任意】
+        = f.text_area :information, rows: 5, autofocus: true, class:'form-control'
 
-      = f.radio_button :gender, "女"
-      = f.label :gender, "女"
+      .form-group
+        = f.label :password
+        span.required 【必須】
+        - if @minimum_password_length
+          em
+            | (
+            = @minimum_password_length
+            | 文字以上)
+        br
+        = f.password_field :password, autocomplete: "new-password", class:'form-control'
+      .form-group
+        = f.label :password_confirmation
+        span.required 【必須】
+        br
+        = f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control'
 
-    .form-row
-      = f.label :information
-      = f.text_area :information, rows: 5, autofocus: true, class:'form-control'
-
-    .form-row
-      = f.label :password
-      - if @minimum_password_length
-        em
-          | (
-          = @minimum_password_length
-          |  文字以上)
-      br
-      = f.password_field :password, autocomplete: "new-password"
-    .form-row
-      = f.label :password_confirmation
-      br
-      = f.password_field :password_confirmation, autocomplete: "new-password"
-    .actions
-      = f.submit "Sign up"
+    = f.submit '新規登録' ,class: "new-btn"

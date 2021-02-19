@@ -157,9 +157,10 @@ h2 {
   }
 }
 
-.household-btn {
+.edit-btn {
   @include link-btn();
   background: $blue;
+  margin: 0 auto;
 
   &:hover {
     @include link-btn-hover();
@@ -167,3 +168,4 @@ h2 {
     border: 1px dotted $blue;
   }
 }
+

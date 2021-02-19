@@ -1,28 +1,24 @@
-h1 スケジュール詳細
-= render 'layouts/error_messages', resource: @myevent
+h2 スケジュール詳細
 
-.row
-  = form_with model: @myevent, local: true do |f|
-    table.table
-      tbody
-        tr
-          th.active
-            = f.label :title
-          td
-            = f.text_field :title, class: 'form-control'
-        tr
-          th.active
-            = f.label :body
-          td
-            = f.text_field :body, class: 'form-control'
-        tr
-          th.active
-            = f.label :start
-          td
-            = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+.event-form-container
+  = render 'layouts/error_messages', resource: @myevent
 
-        tr
-          td
-            = f.submit '変更', class: 'btn btn-success'
-          td
-            = link_to '削除する', myevent_path(@myevent), data: { confirm: '本当に削除しますか？' }, method: :delete, class: 'btn btn-danger'
+  = form_with model: @myevent, class: 'event-form', local: true do |f|
+    .form-body
+      .form-group
+        = f.label :title
+        span.required 【必須】
+        = f.text_field :title, class: 'form-control'
+
+      .form-group
+        = f.label :body
+        span.optional 【任意】
+        = f.text_area :body, rows: 2, class: 'form-control'
+
+      .form-group
+        = f.label :start
+        br
+        = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+
+    = f.submit '更新', class: 'update-btn'
+    = link_to '削除', myevent_path(@myevent), data: { confirm: '本当に削除しますか？' }, method: :delete, class: 'delete-btn'
