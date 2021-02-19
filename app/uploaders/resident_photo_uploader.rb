@@ -5,11 +5,11 @@ class ResidentPhotoUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # if Rails.env.production?
-  #   storage :fog
+    storage :fog
   # else
   #   storage :file
   # end
-  storage :file
+  # storage :file
 
   process resize_to_fill: [400, 400]
   # Override the directory where uploaded files will be stored.
