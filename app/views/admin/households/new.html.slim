@@ -1,26 +1,32 @@
 h1 世帯情報
 
-= form_with model: [:admin, @resident, @household], local: true do |f|
+.household-form-container
+  = render 'layouts/error_messages', resource: @household
 
-  .form-row
-    = f.label :head_last_name
-    = f.text_field :head_last_name, autofocus: true, class:'form-control'
+  = form_with model: [:admin, @resident, @household], class: 'household-form', local: true do |f|
+    .form-body
+      .form-row
+        .form-group.col-md-6
+          = f.label :head_last_name
+          = f.text_field :head_last_name, autofocus: true, class:'form-control'
+        .form-group.col-md-6
+          = f.label :head_first_name
+          span.required 【必須】
+          = f.text_field :head_first_name, autofocus: true, class:'form-control'
 
-  .form-row
-    = f.label :head_first_name
-    = f.text_field :head_first_name, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :address
+        span.required 【必須】
+        = f.text_field :address, autofocus: true, class:'form-control'
 
-  .form-row
-    = f.label :address
-    = f.text_field :address, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :house_damage_situation
+        span.required 【必須】
+        = f.text_area :house_damage_situation, rows: 4, autofocus: true, class:'form-control'
 
-  .form-row
-    = f.label :house_damage_situation
-    = f.text_field :house_damage_situation, autofocus: true, class:'form-control'
+      .form-group
+        = f.label :living_space
+        span.required 【必須】
+        = f.text_field :living_space, autofocus: true, class:'form-control'
 
-  .form-row
-    = f.label :living_space
-    = f.text_field :living_space, autofocus: true, class:'form-control'
-
-  .form-row
-      = f.submit nil, class: 'btn btn-primary'
+    = f.submit nil, class: 'new-btn'
