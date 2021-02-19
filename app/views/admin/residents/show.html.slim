@@ -70,8 +70,8 @@ h2= "#{@resident.full_name}さん"
               br
               = link_to resident.full_name, admin_resident_path(resident)
 
-    = link_to "編集する", edit_admin_resident_household_path(@resident, @household), class: 'household-btn'
+    = link_to "編集する", edit_admin_resident_household_path(@resident, @household), class: 'edit-btn'
 
   - else
-    = link_to '世帯情報を登録する', new_admin_resident_household_path(@resident), class: 'household-btn'
+    = link_to '世帯情報を登録する', new_admin_resident_household_path(@resident), class: 'edit-btn'
 

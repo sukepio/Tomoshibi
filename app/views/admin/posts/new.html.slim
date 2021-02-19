@@ -1,8 +1,8 @@
 h2 避難所通信の新規投稿
 
-.post-form-container
+.form-container
   = render 'layouts/error_messages', resource: @post
-  = form_with model: [:admin, @post], class: 'post-form', local: true do |f|
+  = form_with model: [:admin, @post], class: 'form', local: true do |f|
     .form-body
       .form-group
         = f.label :title

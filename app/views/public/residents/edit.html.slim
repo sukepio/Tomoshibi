@@ -1,16 +1,19 @@
-h1 写真許可と一言メッセージ
+h2 写真許可と一言メッセージ
 
 .resident-edit-form
-  = form_with model: current_resident, url: edit_path, local:true do |f|
-    .form-group
-      = f.label :photo_accepted, "写真許可"
-      p 写真アルバムについて下記ページを必ずお読みください
-      = link_to "写真許可においての注意事項", confirm_path
-      = f.radio_button :photo_accepted, false, :checked => true
-      = f.label :photo_accepted, "許可しない"
-      = f.radio_button :photo_accepted, true
-      = f.label :photo_accepted, "許可する"
-    .form-group
-      = f.label :self_message, '自分に一言！'
-      = f.text_field :self_message, class: 'form-control'
-    = f.submit '更新'
+  = form_with model: current_resident, url: edit_path, class: 'form',  local:true do |f|
+    .form-body
+      .form-group
+        = f.label :photo_accepted, "写真許可"
+        br
+        = f.radio_button :photo_accepted, false, :checked => true
+        = f.label :photo_accepted, "許可しない", class: 'mr-2'
+        = f.radio_button :photo_accepted, true
+        = f.label :photo_accepted, "許可する"
+        p 写真アルバムについては下記ページを必ずお読みください
+        = link_to "写真許可においての注意事項", confirm_path
+
+      .form-group
+        = f.label :self_message, '自分に一言！'
+        = f.text_field :self_message, class: 'form-control'
+    = f.submit '更新', class: 'update-btn'

@@ -9,7 +9,7 @@ class Household < ApplicationRecord
  validates :living_space, presence: true
 
  def information
-   head_last_name + head_first_name + ' ' + address
+   head_last_name + head_first_name + '　' + address
  end
 
  def full_name
