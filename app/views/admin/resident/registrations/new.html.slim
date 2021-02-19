@@ -1,8 +1,8 @@
 h2 避難者新規登録
 
-.resident-form-container
+.registration-form-container
   = render 'layouts/error_messages', resource: resource
-  = form_with model: @resident, url: resident_registration_path, id: 'new_resident', class: 'new_resident resident-form', local: true do |f|
+  = form_with model: @resident, url: resident_registration_path, id: 'new_resident', class: 'new_resident registration-form', local: true do |f|
     .form-body
       .form-row
         .form-group.col-lg-6
@@ -25,8 +25,8 @@ h2 避難者新規登録
       .form-group
         = f.label :phone_number
         span.required 【必須】
-
         = f.text_field :phone_number, autofocus: true, class:'form-control'
+        
       .form-group
         = f.label :login_id
         span.required 【必須】
