@@ -4,6 +4,42 @@
 @import "variables";
 
 
+.post-form-container {
+  width: 50%;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+
+  .post-form {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+
+    span.required {
+      float: right;
+      color: $red;
+    }
+
+    span.optional {
+      float: right;
+    }
+
+    .new-btn {
+      @include link-btn();
+      background: $orange;
+      border: none;
+      width: 30%;
+      margin: 0 auto;
+
+      &:hover {
+        @include link-btn-hover();
+        color: $orange;
+        border: 1px solid $orange;
+      }
+    }
+  }
+}
+
 .btn-container {
   display: flex;
   justify-content: center;

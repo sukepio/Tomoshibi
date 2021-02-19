@@ -1,15 +1,19 @@
-h1 避難所通信の新規投稿
+h2 避難所通信の新規投稿
 
-= render 'layouts/error_messages', resource: @post
-
-= form_with model: [:admin, @post], local: true do |f|
-  .form-group
-    = f.label :title
-    = f.text_field :title, class:'form-control'
-  .form-group
-    = f.label :body
-    = f.text_area :body, rows: 10, class:'form-control'
-  .form-group
-    = f.label :image
-    = f.file_field :image, multiple: true, class: 'form-control'
-  = f.submit nil, class: 'btn btn-primary'
+.post-form-container
+  = render 'layouts/error_messages', resource: @post
+  = form_with model: [:admin, @post], class: 'post-form', local: true do |f|
+    .form-body
+      .form-group
+        = f.label :title
+        span.required 【必須】
+        = f.text_field :title, class:'form-control'
+      .form-group
+        = f.label :body
+        span.required 【必須】
+        = f.text_area :body, rows: 10, class:'form-control'
+      .form-group
+        = f.label :image
+        span.optional 【任意】
+        = f.file_field :image, multiple: true, class: 'form-control'
+    = f.submit '投稿', class: 'new-btn'
