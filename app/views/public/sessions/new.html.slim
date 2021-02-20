@@ -6,11 +6,11 @@
     .field
       = f.label :login_id
       br
-      = f.text_field :login_id, autofocus: true, autocomplete: "login_id", class: 'login-form'
+      = f.text_field :login_id, autofocus: true, autocomplete: "login_id", class: 'form-control bg-red'
     .field
       = f.label :password
       br
-      = f.password_field :password, autocomplete: "current-password", class: 'login-form'
+      = f.password_field :password, autocomplete: "current-password", class: 'form-control'
     - if devise_mapping.rememberable?
       .field
         = f.check_box :remember_me
