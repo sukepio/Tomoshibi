@@ -1,7 +1,7 @@
 .login-container
+  h2 管理者ログイン
+  = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
   .login-form-container
-    h2 管理者ログイン
-    = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-group
         = f.text_field :login_id, autofocus: true, placeholder: "ログインID", class: 'form-control'
