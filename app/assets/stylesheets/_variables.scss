@@ -4,16 +4,20 @@ $orange: #ee780f;
 $yellow: #edb316;
 $red: #de1919;
 
-@mixin link-btn() {
+@mixin link-btn($color) {    //ボタン基本スタイル
   text-align: center;
+  background: $color;
   padding: 10px 20px;
   border-radius: 20px;
   color: white;
   text-decoration: none;
   display: inline-block;
+  border: none;
 }
 
-@mixin link-btn-hover() {
+@mixin link-btn-hover($color) {    //ホバー時のボタンスタイル
   background: white;
   text-decoration: none;
+  color: $color;
+  border: 1px solid $color;
 }

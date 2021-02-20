@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
+// 管理者新規登録
 .admin-table-container {
   width: 80%;
   background: #fff;
@@ -29,14 +30,11 @@
   }
 
   .new-admin-btn {
-    @include link-btn();
-    background: $orange;
+    @include link-btn($orange);
     margin: 0 auto;
 
     &:hover {
-      @include link-btn-hover();
-      color: $orange;
-      border: 1px solid $orange;
+      @include link-btn-hover($orange);
     }
 
   }

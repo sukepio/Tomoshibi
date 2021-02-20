@@ -9,25 +9,19 @@
 }
 
 .post-edit-btn {
-  @include link-btn();
-  background: $green;
+  @include link-btn($green);
   margin-right: 20px;
 
   &:hover {
-    @include link-btn-hover();
-    color: $green;
-    border: 1px solid $green;
+    @include link-btn-hover($green);
   }
 }
 
 .post-delete-btn {
-  @include link-btn();
-  background: $red;
+  @include link-btn($red);
 
   &:hover {
-    @include link-btn-hover();
-    color: $red;
-    border: 1px solid $red;
+    @include link-btn-hover($red);
   }
 }
 
@@ -48,20 +42,18 @@
     }
 
     .update-btn {
-      @include link-btn();
-      background: $blue;
-      border: none;
+      @include link-btn($blue);
       width: 100px;
       margin: 0 auto;
 
       &:hover {
-        @include link-btn-hover();
-        color: $blue;
-        border: 1px solid $blue;
+        @include link-btn-hover($blue);
       }
     }
   }
 }
+
+// 画像をプレビュー
 #image_prev {
   width: auto;
   height: 400px;

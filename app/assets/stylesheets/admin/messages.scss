@@ -3,15 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
+// メッセージ新規登録
 .new-message-btn {
-  @include link-btn();
-  background: $blue;
+  @include link-btn($blue);
   float: right;
   margin: 30px 0;
 
   &:hover {
-    @include link-btn-hover();
-    color: $blue;
-    border: 1px solid $blue;
+    @include link-btn-hover($blue);
   }
 }

@@ -1,13 +1,13 @@
 .login-container
-  h2
-    | 住民さんログイン
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
-    .form-group
-      = f.text_field :login_id, autofocus: true, placeholder: "ログインID", class: 'form-control bg-red'
-    .form-group
-      = f.password_field :password, placeholder: "パスワード", class: 'form-control'
-    .actions
-      = f.submit "ログイン"
+  .login-form-container
+    h2 住民さんログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
+      .form-group
+        = f.text_field :login_id, autofocus: true, placeholder: "ログインID", class: 'form-control bg-red'
+      .form-group
+        = f.password_field :password, placeholder: "パスワード", class: 'form-control'
+      .login-btn-container
+        = f.submit "ログイン", class: 'login-btn'
 
-  = link_to '住民用ゲストログイン', guest_sign_in_path, method: :post
+    = link_to '住民用ゲストログイン', guest_sign_in_path, method: :post, class: 'guest-login-btn'

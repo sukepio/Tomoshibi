@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
+// 本日の献立
 .today-meal-container {
   width: 80%;
   margin: 40px auto;
@@ -59,14 +60,11 @@
   }
 
   .new-meal-btn {
-    @include link-btn();
+    @include link-btn($orange);
     margin: 0 auto;
-    background: $orange;
 
     &:hover {
-      @include link-btn-hover();
-      color: $orange;
-      border: 1px solid $orange;
+      @include link-btn-hover($orange);
     }
   }
 }

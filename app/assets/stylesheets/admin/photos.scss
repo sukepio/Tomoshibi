@@ -11,45 +11,40 @@
 }
 
 .new-photo-btn {
-  @include link-btn();
-  background: $blue;
+  @include link-btn($blue);
   margin: 30px 0;
 
   &:hover {
-    @include link-btn-hover();
-    color: $blue;
-    border: 1px solid $blue;
+    @include link-btn-hover($blue);
   }
 }
 
+// 写真一覧
 .admin-photo-container {
   width: 100%;
   margin: 10px auto;
-}
 
-.photos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  .photos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-  .delete-photo-btn {
-    @include link-btn();
-    background: $red;
-    margin-right: 15px;
+    .delete-photo-btn {
+      @include link-btn($red);
+      margin-right: 15px;
 
-    &:hover {
-      @include link-btn-hover();
-      color: $red;
-      border: 1px solid $red;
+      &:hover {
+        @include link-btn-hover($red);
+      }
+    }
 
+    .photo {
+      margin: 0 10px 10px 0;
     }
   }
-
-  .photo {
-    margin: 0 10px 10px 0;
-  }
 }
 
+// 写真追加画面
 .new-photo-container {
   width: 40%;
   margin: 40px auto;
@@ -67,27 +62,19 @@
     }
 
     .new-btn {
-      @include link-btn();
-      background: $orange;
-      border: none;
+      @include link-btn($orange);
       margin-bottom: 30px;
 
       &:hover {
-        @include link-btn-hover();
-        color: $orange;
-        border: 1px solid $orange;
+        @include link-btn-hover($orange);
       }
     }
 
     .back-btn {
-      @include link-btn();
-      background: $blue;
-      border: none;
+      @include link-btn($blue);
 
       &:hover {
-        @include link-btn-hover();
-        color: $blue;
-        border: 1px solid $blue;
+        @include link-btn-hover($blue);
       }
     }
   }

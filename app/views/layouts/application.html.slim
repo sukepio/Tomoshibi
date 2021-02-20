@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | Tomoshibi
+      | ともしび
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -18,22 +18,22 @@ html
       .welcome-container
         .welcome-box
           p 旧多良木高校避難所
-          span.left
-          span.right
+          span.left-bar
+          span.right-bar
         - if admin_signed_in?
           .welcome-box
             p= "こんにちは、#{current_admin.full_name}さん！"
-            span.left
-            span.right
+            span.left-bar
+            span.right-bar
         - elsif resident_signed_in?
           .welcome-box
             p= "#{current_resident.self_message}"
-            span.left
-            span.right
+            span.left-bar
+            span.right-bar
           .welcome-box
             p= "こんにちは、#{current_resident.full_name}さん！"
-            span.left
-            span.right
+            span.left-bar
+            span.right-bar
 
     - if flash.notice.present?
       .alert.alert-success= flash.notice
