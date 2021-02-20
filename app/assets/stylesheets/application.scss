@@ -38,6 +38,7 @@ body {
   width: 12%;
   height: 100%;
   background-color: #fff;
+  position: relative;
 
   .logo {
     font-size: 24px;
@@ -74,6 +75,16 @@ body {
       .hide-link {
         display: none;
       }
+
+    // .circle {
+    //   width: 10px;
+    //   height: 10px;
+    //   border-radius: 50%;
+    //   background: $orange;
+    //   position: absolute;
+    //   top: 50px;
+    //   left: 20px;
+    // }
 }
 // 左サイドメニューここまで
 
@@ -124,6 +135,7 @@ body {
 
   .login-container {
     width: 100%;
+    height: 100vh;
     text-align: center;
 
     .login-form {
