@@ -78,15 +78,11 @@ body {
 // 左サイドメニューここまで
 
   .welcome-container {
-    width: 88%;
     height: 80px;
     padding: 0 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
-
 
     .welcome-box {
       height: 60%;
@@ -119,9 +115,11 @@ body {
 .main {        //全体に適用
   width: 88%;
   min-height: 100%;  //ページいっぱいに背景を適用
-  padding: 120px 40px 60px;
+  padding: 0 40px 100px;
   background-image: linear-gradient(#ffe37c .5px, transparent .5px), linear-gradient(to right, #ffe37c .5px, #fff .5px);   //背景格子CSS
   background-size: 4px 4px;
+  position: relative;
+  z-index: 10;
 
 
   .login-container {
@@ -135,6 +133,58 @@ body {
       height: 30px;
       font-size: 18px;
     }
+  }
+
+  .left-top-triangle {
+    border-right: 80px solid transparent;
+    border-top: 80px solid $blue;
+    border-left: 80px solid $blue;
+    border-bottom: 80px solid transparent;
+    width: 0;
+    opacity: .8;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  .right-top-triangle {
+    border-right: 120px solid $green;
+    border-top: 120px solid $green;
+    border-left: 120px solid transparent;
+    border-bottom: 120px solid transparent;
+    width: 0;
+    opacity: .8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  .right-bottom-triangle {
+    border-right: 100px solid $yellow;
+    border-top: 100px solid transparent;
+    border-left: 100px solid transparent;
+    border-bottom: 100px solid $yellow;
+    width: 0;
+    opacity: .8;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .left-bottom-triangle {
+    border-right: 110px solid transparent;
+    border-top: 110px solid transparent;
+    border-left: 110px solid $red;
+    border-bottom: 110px solid $red;
+    width: 0;
+    opacity: .8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
   }
 }
 

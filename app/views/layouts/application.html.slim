@@ -12,6 +12,7 @@ html
     .left-side-menu
       = render 'layouts/header'
 
+  .main
     - if admin_signed_in? || resident_signed_in?
       .welcome-container
         .welcome-box
@@ -32,8 +33,11 @@ html
             p= "こんにちは、#{current_resident.full_name}さん！"
             span.left
             span.right
-  .main
 
     - if flash.notice.present?
       .alert.alert-success= flash.notice
     = yield
+    .left-top-triangle
+    .right-top-triangle
+    .right-bottom-triangle
+    .left-bottom-triangle
