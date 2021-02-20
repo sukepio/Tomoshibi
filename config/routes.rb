@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   devise_scope :resident do
     root "public/sessions#new"
+    post '/guest_sign_in', to: 'public/sessions#new_guest'
+  end
+  
+  devise_scope :admin do
+    post 'admin/guest_sign_in', to: 'admin/sessions#new_guest'
   end
 
   devise_for :residents, controllers: {
@@ -11,7 +16,7 @@ Rails.application.routes.draw do
 
   devise_for :admins, controllers: {
     sessions: 'admin/sessions',
-    registrations: 'admin/registrations'
+    registrations: 'admin/registrations',
   }
 
   namespace :admin do

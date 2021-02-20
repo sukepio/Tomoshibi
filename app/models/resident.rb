@@ -53,4 +53,10 @@ class Resident < ApplicationRecord
   def age
     (Date.today.strftime(date_format).to_i - birthday.to_i)
   end
+
+  def self.guest
+    find_or_create_by!(first_name: '太郎', last_name: 'ゲスト', first_name_kana: 'タロウ', last_name_kana: 'ゲスト', phone_number: '00011112222', date_of_birth: '2000-01-01', login_id: 'guest.login') do |resident|
+      resident.password = SecureRandom.urlsafe_base64
+    end
+  end
 end
