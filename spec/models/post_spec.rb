@@ -17,40 +17,32 @@ RSpec.describe Post, type: :model do
   describe 'Validation' do
 
     describe 'title' do
-      context 'when a title is empty' do
-        it 'is invalid' do
-          post.title = ''
-          is_expected.to eq false
-        end
+      it 'is invalid without a title' do
+        post.title = ''
+        is_expected.to eq false
       end
     end
 
     describe 'body' do
-      context 'when a body is empty' do
-        it 'is invalid' do
-          post.body = ''
-          is_expected.to eq false
-        end
+      it 'is invalid without a body' do
+        post.body = ''
+        is_expected.to eq false
       end
 
-      context 'when a body has less than 20 words' do
-        it 'is invalid' do
-          post.body = Faker::Lorem.characters(number:19)
-          is_expected.to eq false
-        end
+      it 'is invalid with less than 20 words' do
+        post.body = Faker::Lorem.characters(number:19)
+        is_expected.to eq false
       end
 
-      context 'when a body has 20 words or more' do
-        it 'is valid' do
-          post.admin_id = admin.id
-          post.body = Faker::Lorem.characters(number:20)
-          is_expected.to eq true
-        end
+      it 'is valid with 20 words or more' do
+        post.admin_id = admin.id
+        post.body = Faker::Lorem.characters(number:20)
+        is_expected.to eq true
       end
     end
   end
 
-  describe 'asociation' do
+  describe 'association' do
     it 'belongs to admin' do
       expect(Post.reflect_on_association(:admin).macro).to eq :belongs_to
     end
