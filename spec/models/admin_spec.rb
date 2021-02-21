@@ -22,7 +22,11 @@ RSpec.describe Admin, type: :model do
         end
       end
     end
+  end
 
-
+  describe 'association' do
+    it 'has many posts' do
+      expect(Admin.reflect_on_association(:posts).macro).to eq :has_many
+    end
   end
 end

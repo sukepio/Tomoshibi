@@ -3,10 +3,13 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   subject { post.valid? }
 
+  let!(:admin) { FactoryBot.create(:admin) }
   let(:post) { FactoryBot.build(:post) }
+
 
   describe 'Saving a post' do
     it 'is valid with a title and a body' do
+      post.admin_id = admin.id
       is_expected.to eq true
     end
   end
@@ -39,11 +42,17 @@ RSpec.describe Post, type: :model do
 
       context 'when a body has 20 words or more' do
         it 'is valid' do
+          post.admin_id = admin.id
           post.body = Faker::Lorem.characters(number:20)
           is_expected.to eq true
         end
       end
     end
+  end
 
+  describe 'asociation' do
+    it 'belongs to admin' do
+      expect(Post.reflect_on_association(:admin).macro).to eq :belongs_to
+    end
   end
 end

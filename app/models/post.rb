@@ -7,6 +7,7 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 20 }
+  validates :admin_id, presence: true
 
   def time_format
     wd = ["日", "月", "火", "水", "木", "金", "土"]

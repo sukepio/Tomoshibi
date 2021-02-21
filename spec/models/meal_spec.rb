@@ -4,7 +4,9 @@ RSpec.describe Meal, type: :model do
   describe 'validation' do
     subject { meal.valid? }
 
+
     let(:meal) { FactoryBot.build(:meal) }
+
 
     it 'is invalid without a menu' do
       meal.menu = ''
