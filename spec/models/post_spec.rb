@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   subject { post.valid? }
+  
   let(:post) { FactoryBot.build(:post) }
 
   describe 'Saving a post' do
