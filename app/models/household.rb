@@ -2,8 +2,8 @@ class Household < ApplicationRecord
 
  has_many :residents
 
- validates :head_first_name, presence: true, uniqueness: true
- validates :head_last_name, presence: true, uniqueness: true
+ validates :head_first_name, presence: true
+ validates :head_last_name, presence: true
  validates :address, presence: true, uniqueness: true
  validates :house_damage_situation, presence: true
  validates :living_space, presence: true

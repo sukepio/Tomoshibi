@@ -14,5 +14,6 @@ FactoryBot.define do
     self_message { Faker::Lorem.characters(number:25) }
     password { 'password' }
     password_confirmation { 'password' }
+    household
   end
 end
