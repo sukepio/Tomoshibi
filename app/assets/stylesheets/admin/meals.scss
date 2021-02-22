@@ -68,3 +68,21 @@
     }
   }
 }
+
+@media screen and (max-width: 750px) {
+  .today-meal-container {
+    width: 95%;
+
+    .todays-meal-table {
+      width: 100%;
+
+      .head:nth-child(1) {
+        width: 10%;
+      }
+
+      .head:nth-child(4) {
+        width: 15%;
+      }
+    }
+  }
+}

@@ -62,3 +62,9 @@
 .center {
   text-align: center;
 }
+
+@media screen and (max-width: 750px) {
+  .post-edit-form {
+    width: 80%;
+  }
+}

@@ -148,3 +148,25 @@
   }
 }
 
+// レスポンシブ
+@media screen and (max-width: 750px) {
+  .resident-search-container {
+    width: 80%;
+  }
+
+  .resident-table-container {
+    width: 95%;
+
+    .resident-table {
+      width: 100%;
+
+      th, td {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .resident-container {
+    width: 90%;
+  }
+}
