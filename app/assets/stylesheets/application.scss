@@ -37,6 +37,7 @@ body {
   height: 100%;
   background-color: #fff;
   position: relative;
+}
 
   .logo {
     font-size: 24px;
@@ -69,11 +70,64 @@ body {
       margin: 0 auto 8px;
     }
   }
-}
 
-.sp-left-side-menu {
-  display: none;
-}
+// .sp-left-side-menu {
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   background: rgba(255, 255, 255, .9);
+//   text-align: center;
+//   padding: 64px;
+//   opacity: 0;
+//   pointer-events: none;
+//   transition: opacity .6s;
+
+//   #close {
+//     position: absolute;
+//     top: 16px;
+//     left: 16px;
+//     font-size: 32px;
+//     cursor: pointer;
+//   }
+
+//   li {
+//     opacity: 0;
+//     transform: translateY(16px);
+//     transition: opacity .3s transform .3s;
+//   }
+
+//   .show li {
+//     opacity: 1;
+//     transform: none;
+
+//     .show li:nth-child(1) {
+//       transition-delay: .1s;
+//     }
+//     .show li:nth-child(2) {
+//       transition-delay: .2s;
+//     }
+//     .show li:nth-child(3) {
+//       transition-delay: .3s;
+//     }
+//     .show li:nth-child(4) {
+//       transition-delay: .4s;
+//     }
+//     .show li:nth-child(5) {
+//       transition-delay: .5s;
+//     }
+//     .show li:nth-child(6) {
+//       transition-delay: .6s;
+//     }
+//     .show li:nth-child(7) {
+//       transition-delay: .7s;
+//     }
+//     .show li:nth-child(8) {
+//       transition-delay: .8s;
+//     }
+//   }
+// }
 // 左サイドメニューここまで
 
 // トップバーここから
@@ -123,10 +177,8 @@ body {
 
   // 三角形
   .left-top-triangle {
-    border-right: 80px solid transparent;
-    border-top: 80px solid $blue;
-    border-left: 80px solid $blue;
-    border-bottom: 80px solid transparent;
+    border: 80px solid;
+    border-color: $blue transparent transparent $blue;
     width: 0;
     opacity: .8;
     position: absolute;
@@ -136,10 +188,8 @@ body {
   }
 
   .right-top-triangle {
-    border-right: 120px solid $green;
-    border-top: 120px solid $green;
-    border-left: 120px solid transparent;
-    border-bottom: 120px solid transparent;
+    border: 120px solid;
+    border-color: $green $green transparent transparent;
     width: 0;
     opacity: .8;
     position: absolute;
@@ -149,10 +199,8 @@ body {
   }
 
   .right-bottom-triangle {
-    border-right: 100px solid $yellow;
-    border-top: 100px solid transparent;
-    border-left: 100px solid transparent;
-    border-bottom: 100px solid $yellow;
+    border: 100px solid;
+    border-color: transparent $yellow $yellow transparent;
     width: 0;
     opacity: .8;
     position: absolute;
@@ -162,10 +210,8 @@ body {
   }
 
   .left-bottom-triangle {
-    border-right: 110px solid transparent;
-    border-top: 110px solid transparent;
-    border-left: 110px solid $red;
-    border-bottom: 110px solid $red;
+    border: 110px solid;
+    border-color: transparent transparent $red $red;
     width: 0;
     opacity: .8;
     position: absolute;
@@ -632,4 +678,104 @@ span.required {    //フォームの必須項目
 
 span.optional {    //フォームの任意項目
   float: right;
+}
+
+
+@media screen and (max-width: 750px) {
+  .login-container {
+    .login-form-container {
+      width: 40%;
+      margin-top: 20px;
+    }
+  }
+
+  .main {        //全体に適用
+    width: 88%;
+    min-height: 100%;  //ページいっぱいに背景を適用
+    padding: 0 20px 50px;
+
+    .left-top-triangle {
+      border: 40px solid;
+      border-color: $blue transparent transparent $blue;
+    }
+
+    .left-bottom-triangle {
+      border: 55px solid;
+      border-color: transparent transparent $red $red;
+    }
+
+    .right-top-triangle {
+      border: 60px solid;
+      border-color: $green $green transparent transparent;
+    }
+
+    .right-bottom-triangle {
+      border: 50px solid;
+      border-color: transparent $yellow $yellow transparent;
+    }
+  }
+
+  .resident-info {
+    margin: 20px;
+
+    .info-box {
+      width: 100px;
+      height: 50px;
+      margin: 0 15px 15px;
+      border: 3px solid black;
+      border-radius: 20px;
+      text-align: center;
+      background: #fff;
+
+      .box-title {
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+
+      .box-body {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+
+      .today {
+        line-height: 50px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .myevent-container {
+    width: 95%;
+
+    .myevent-table {
+      width: 95%;
+      margin: 0 auto 15px;
+
+      th, td {
+        padding: 8px;
+        font-size: 12px;
+      }
+
+      tr:first-child th {
+        font-size: 12px;
+      }
+
+      .head:nth-child(1) {
+        width: 10%;
+      }
+
+      .head:nth-child(2) {
+        width: 35%;
+      }
+
+      .head:nth-child(3) {
+        width: 55%;
+      }
+    }
+
+    .new-event-btn {
+      padding: 5px 10px;
+    }
+  }
 }
