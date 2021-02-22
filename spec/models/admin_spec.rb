@@ -4,8 +4,14 @@ RSpec.describe Admin, type: :model do
   describe 'validation' do
     subject { admin.valid? }
 
-    let!(:other_admin) { FactoryBot.create(:admin) }
-    let(:admin) { FactoryBot.build(:admin) }
+    let!(:other_admin) { create(:admin) }
+    let(:admin) { build(:admin) }
+
+    context 'with valid inputs' do
+      it 'can be saved' do
+        is_expected.to eq true
+      end
+    end
 
     describe 'email' do
       context 'when an email is empty' do

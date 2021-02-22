@@ -9,6 +9,12 @@ RSpec.describe Household, type: :model do
     let(:household) { FactoryBot.build(:household) }
 
 
+    context 'with valid inputs' do
+      it 'can be saved' do
+        is_expected.to eq true
+      end
+    end
+
     context 'name' do
       it 'is invalid without a head_first_name' do
         household.head_first_name = ''

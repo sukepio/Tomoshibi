@@ -1,20 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { post.valid? }
-
-  let!(:admin) { FactoryBot.create(:admin) }
-  let(:post) { FactoryBot.build(:post) }
-
-
-  describe 'Saving a post' do
-    it 'is valid with a title and a body' do
-      post.admin_id = admin.id
-      is_expected.to eq true
-    end
-  end
-
   describe 'Validation' do
+    subject { post.valid? }
+
+    let!(:admin) { create(:admin) }
+    let(:post) { build(:post) }
+
+
+    context 'when a title and a body are valid' do
+      it 'can be saved' do
+        post.admin_id = admin.id
+        is_expected.to eq true
+      end
+    end
 
     describe 'title' do
       it 'is invalid without a title' do
