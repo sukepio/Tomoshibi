@@ -9,9 +9,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
 
-    .left-side-menu
-      = render 'layouts/header'
-      .circle
+    = render 'layouts/header'
 
   .main
     - if admin_signed_in? || resident_signed_in?
