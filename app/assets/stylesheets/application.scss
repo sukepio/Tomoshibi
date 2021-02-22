@@ -193,10 +193,7 @@ h2 {
 
   .login-form-container {
     width: 20%;
-
-    h2 {
-      margin-bottom: 40px;
-    }
+    margin-top: 40px;
 
     .login-btn {
       width: 100%;
@@ -219,6 +216,7 @@ h2 {
       text-decoration: none;
       padding-bottom: 4px;
       border-bottom: 2px solid #666;
+      box-shadow: 0 2px #ccc;
     }
   }
 }
@@ -612,6 +610,10 @@ td.fc-sun {         //日曜日の色設定
   li.error-message {
     color: $red;
   }
+}
+
+#flash_alert {
+  color: $red;
 }
 
 //フォームに適用
