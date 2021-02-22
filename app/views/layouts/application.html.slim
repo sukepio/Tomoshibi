@@ -9,8 +9,12 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
 
-    = render 'layouts/header'
-
+    .left-side-menu
+      = render 'layouts/header'
+      
+    .sp-left-side-menu
+      = render 'layouts/header'
+      
   .main
     - if admin_signed_in? || resident_signed_in?
       .welcome-container
