@@ -614,19 +614,15 @@ td.fc-sun {         //日曜日の色設定
   flex-wrap: wrap;
   width: 100%;
   align-items: start;
+  justify-content: space-between;
   margin-top: 40px;
 
   .message-item {
     width: 31%;
-    margin-right: 3.5%;
     margin-bottom: 40px;
     border-radius: 10px;
     background: #fff;
     position: relative;
-
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
 
     .message-img {
       width: 100%;
@@ -793,6 +789,17 @@ span.optional {    //フォームの任意項目
       h2 {
         font-size: 24px;
       }
+    }
+  }
+
+  .messages-index {
+
+    .message-item {
+      width: 49%;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      background: #fff;
+      position: relative;
     }
   }
 }

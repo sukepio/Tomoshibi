@@ -73,3 +73,28 @@
     margin: 0 auto;
   }
 }
+
+// レスポンシブ
+@media screen and (max-width: 750px) {
+  #map {
+    width: 90%;
+  }
+
+  .info-container {
+    width: 90%;
+  }
+
+  .around-info {
+    display: block;
+    width: 100%;
+
+    .table-container {
+      width: 90%;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px 0;
+      margin-bottom: 40px;
+      border-radius: 15px;
+    }
+  }
+}
