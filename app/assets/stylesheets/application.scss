@@ -147,7 +147,7 @@ body {
     position: relative;
     background: #fff;
 
-    .left {
+    .left-bar {
       position: absolute;
       top: -22px;
       left: 20%;
@@ -155,7 +155,7 @@ body {
       border-left: 2px solid $orange;
     }
 
-    .right {
+    .right-bar {
       position: absolute;
       top: -22px;
       right: 20%;
@@ -682,6 +682,23 @@ span.optional {    //フォームの任意項目
     .login-form-container {
       width: 40%;
       margin-top: 20px;
+    }
+  }
+
+  .welcome-container {
+    height: 80px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    .welcome-box {
+      height: 50%;
+      margin-top: 20px;
+      padding: 10px 20px 0;
+      font-size: 14px;
+    }
+    .resident-name {
+        display: none;
     }
   }
 
