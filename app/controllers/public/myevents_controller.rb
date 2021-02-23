@@ -16,7 +16,6 @@ class Public::MyeventsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

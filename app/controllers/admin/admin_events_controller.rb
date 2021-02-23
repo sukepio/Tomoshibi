@@ -4,7 +4,6 @@ class Admin::AdminEventsController < ApplicationController
   before_action :set_admin_event, only: [:edit, :update, :destroy]
   before_action :set_index, only: [:index, :create]
 
-
   def index
     @admin_events = AdminEvent.all
   end
@@ -23,7 +22,6 @@ class Admin::AdminEventsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update

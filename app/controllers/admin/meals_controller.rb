@@ -22,7 +22,6 @@ class Admin::MealsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -37,7 +36,6 @@ class Admin::MealsController < ApplicationController
     @meal.destroy
     redirect_to meals_path, notice: "「#{@meal.menu}」を削除しました。"
   end
-
 
   private
 

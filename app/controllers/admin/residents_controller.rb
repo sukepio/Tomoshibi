@@ -14,7 +14,6 @@ class Admin::ResidentsController < ApplicationController
       @household = @resident.household
       @residents = @household.residents
     end
-
   end
 
   def edit

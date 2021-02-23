@@ -26,7 +26,6 @@ class Admin::PhotosController < ApplicationController
     redirect_to admin_resident_photos_path(@resident)
   end
 
-
   private
 
   def set_resident
@@ -34,6 +33,6 @@ class Admin::PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit({images: []})
+    params.require(:photo).permit( {images: []} )
   end
 end

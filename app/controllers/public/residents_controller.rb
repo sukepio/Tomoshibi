@@ -9,11 +9,9 @@ class Public::ResidentsController < ApplicationController
   end
 
   def confirm
-
   end
 
   def edit
-
   end
 
   def update

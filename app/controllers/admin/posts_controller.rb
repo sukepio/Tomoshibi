@@ -37,7 +37,7 @@ class Admin::PostsController < ApplicationController
   end
 
   def destroy
-    @post =Post.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to admin_posts_path, notice: "避難所通信「#{@post.title}」を削除しました。"
   end
@@ -45,6 +45,6 @@ class Admin::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, {image: []})
+    params.require(:post).permit(:title, :body, { image: [] })
   end
 end
