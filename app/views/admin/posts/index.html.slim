@@ -6,12 +6,12 @@
   = search_form_for @q, url: admin_posts_path, class: 'search-form' do |f|
     .input-container
       .form-group.row
-        = f.label :title_cont, 'タイトル', class: 'col-sm-4 col-form-label search-label'
-        .col-sm-4
+        = f.label :title_cont, 'タイトル', class: 'col-lg-3 col-md-4 form-label search-label'
+        .col-md-8.col-lg-7
           = f.search_field :title_cont, class: 'form-control'
       .form-group.row
-        = f.label :body_cont, '内容', class: 'col-sm-4 col-form-label search-label'
-        .col-sm-4
+        = f.label :body_cont, '内容', class: 'col-lg-3 col-md-4 col-form-label search-label'
+        .col-md-8.col-lg-7
           = f.search_field :body_cont, class: 'form-control'
     = f.submit class: 'submit-btn'
 
@@ -27,8 +27,10 @@
         tr
           td.body colspan=3 = simple_format(h(post.body), {}, sanitize: false, wrapper_tag: "div")
 
-  = paginate @posts
-  = page_entries_info @posts
-
   = link_to "新規投稿", new_admin_post_path, class: 'new-posts-btn'
+
+
+  = paginate @posts
+  .pagination-count
+    = page_entries_info @posts
 

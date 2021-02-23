@@ -6,12 +6,12 @@
   = search_form_for @q, url: admin_residents_path, class: 'search-form' do |f|
     .input-container
       .form-group.row
-        = f.label :last_name_cont, '名前', class: 'col-sm-4 col-form-label search-label'
-        .col-sm-4
+        = f.label :last_name_cont, '名前', class: 'col-lg-4 col-md-4 col-form-label search-label'
+        .col-md-8.col-lg-7
           = f.search_field :last_name_cont, class: 'form-control'
       .form-group.row
-        = f.label :household_id_eq, '居住スペース', class: 'col-sm-4 col-form-label search-label'
-        .col-sm-4
+        = f.label :household_id_eq, '居住スペース', class: 'col-lg-4 col-md-4 col-form-label search-label'
+        .col-md-8.col-lg-7
           = f.collection_select :household_id_eq, @households, :id, :living_space, :include_blank => '指定なし', class: 'form-control'
     = f.submit class: 'submit-btn'
 
@@ -43,4 +43,6 @@
   = link_to "避難者新規登録へ", new_resident_registration_path, class: 'new-resident-btn'
 
 
-= paginate @residents
+  = paginate @residents
+  .pagination-count
+    = page_entries_info @residents

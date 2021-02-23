@@ -24,13 +24,14 @@
 $(function() {
   $('#open').on('click', function(event) {
     $('.overlay').addClass('show');
+    $(this).addClass('hide')
     // $('.overlay').fadeToggle();
     event.preventDefault();
   });
 
   $('#close').on('click', function(event) {
     $('.overlay').removeClass('show');
-    // $('.overlay').fadeToggle();
+    $('#open').removeClass('hide')
     event.preventDefault();
   });
 });

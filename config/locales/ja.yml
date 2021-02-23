@@ -8,6 +8,8 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       post: 避難所通信
+      resident: 避難者
+      message: メッセージ
     attributes:
       post:
         id: ID

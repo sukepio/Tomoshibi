@@ -70,64 +70,6 @@ body {
       margin: 0 auto 8px;
     }
   }
-
-// .sp-left-side-menu {
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   left: 0;
-//   background: rgba(255, 255, 255, .9);
-//   text-align: center;
-//   padding: 64px;
-//   opacity: 0;
-//   pointer-events: none;
-//   transition: opacity .6s;
-
-//   #close {
-//     position: absolute;
-//     top: 16px;
-//     left: 16px;
-//     font-size: 32px;
-//     cursor: pointer;
-//   }
-
-//   li {
-//     opacity: 0;
-//     transform: translateY(16px);
-//     transition: opacity .3s transform .3s;
-//   }
-
-//   .show li {
-//     opacity: 1;
-//     transform: none;
-
-//     .show li:nth-child(1) {
-//       transition-delay: .1s;
-//     }
-//     .show li:nth-child(2) {
-//       transition-delay: .2s;
-//     }
-//     .show li:nth-child(3) {
-//       transition-delay: .3s;
-//     }
-//     .show li:nth-child(4) {
-//       transition-delay: .4s;
-//     }
-//     .show li:nth-child(5) {
-//       transition-delay: .5s;
-//     }
-//     .show li:nth-child(6) {
-//       transition-delay: .6s;
-//     }
-//     .show li:nth-child(7) {
-//       transition-delay: .7s;
-//     }
-//     .show li:nth-child(8) {
-//       transition-delay: .8s;
-//     }
-//   }
-// }
 // 左サイドメニューここまで
 
 // トップバーここから
@@ -177,12 +119,7 @@ body {
 
   .hamburger-menu {
     display: none;
-    position: absolute;
-    top: 22px;
-    left: 18px;
-    height: 36px;
   }
-
   .overlay {
     display: none;
   }
@@ -475,7 +412,7 @@ td.fc-sun {         //日曜日の色設定
 
 // 避難所通信検索
 .post-search-container {
-  width: 40%;
+  width: 60%;
   margin: 40px auto;
   padding: 20px;
   background: #fff;
@@ -689,6 +626,33 @@ span.optional {    //フォームの任意項目
 }
 
 
+.pagination {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.pagination-count {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  // border-radius: 50%;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  // border-radius: 50%;    /*角を丸くする*/
+}
+
 @media screen and (max-width: 750px) {
   .login-container {
     .login-form-container {
@@ -703,7 +667,6 @@ span.optional {    //フォームの任意項目
     display: flex;
     justify-content: space-around;
     padding: 0;
-
 
     .welcome-box {
       height: 50%;
@@ -727,12 +690,17 @@ span.optional {    //フォームの任意項目
 
   .main {        //全体に適用
     width: 100%;
-    min-height: 100%;  //ページいっぱいに背景を適用
+    // min-height: 100%;  //ページいっぱいに背景を適用
     padding: 0 20px 50px;
+    height: 100%;
 
     .hamburger-menu {
       display: inline-block;
       cursor: pointer;
+      position: absolute;
+      top: 22px;
+      left: 18px;
+      height: 36px;
     }
 
     .hamburger-menu .hide {
@@ -741,6 +709,7 @@ span.optional {    //フォームの任意項目
 
     .overlay {
       position: fixed;
+      min-height: 100vh;
       top: 0;
       bottom: 0;
       right: 0;
@@ -753,15 +722,27 @@ span.optional {    //フォームの任意項目
 
       #close {
         position: absolute;
-        top: 16px;
-        right: 16px;
-        height: 32px;
+        top: 22px;
+        left: 18px;
+        height: 50px;
         cursor: pointer;
       }
 
-      // li {
-      //   opacity: 0;
-      // }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+
+        li {
+          width: 50%;
+          margin-top: 20px;
+          transform: translateY(16px);
+          transition: opacity .3s, transform .3s;
+        }
+      }
     }
 
     .show {
@@ -774,14 +755,8 @@ span.optional {    //フォームの任意項目
       display: none;
     }
 
-    .overlay .show li {
-      opacity: 1;
-      display: inline-block;
-    }
-
-
     .left-top-triangle {
-      border: 40px solid;
+      border: 55px solid;
       border-color: $blue transparent transparent $blue;
     }
 
@@ -796,7 +771,7 @@ span.optional {    //フォームの任意項目
     }
 
     .right-bottom-triangle {
-      border: 50px solid;
+      border: 65px solid;
       border-color: transparent $yellow $yellow transparent;
     }
   }
@@ -894,6 +869,10 @@ span.optional {    //フォームの任意項目
 
       h2 {
         font-size: 24px;
+      }
+
+      .post-img {
+        margin-bottom: 10px;
       }
     }
   }

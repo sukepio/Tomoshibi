@@ -6,7 +6,8 @@
 
 = render 'admin/messages/index', messages: @messages
 
-.mt-3
-  = paginate @messages
+
+= paginate @messages
+.pagination-count
   = page_entries_info @messages
 
