@@ -4,7 +4,6 @@ RSpec.describe Myevent, type: :model do
   describe 'validation' do
     subject { myevent.valid? }
 
-
     let!(:resident) { FactoryBot.create(:resident) }
     let!(:myevent) { FactoryBot.create(:myevent) }
 

@@ -6,7 +6,6 @@ RSpec.describe Resident, type: :model do
 
     let(:resident) { build(:resident) }
 
-
     context 'with a valid inputs' do
       it 'can be saved' do
         is_expected.to eq true
@@ -63,7 +62,7 @@ RSpec.describe Resident, type: :model do
 
     context 'self_message' do
       it 'is invalid with more than 25 words' do
-        resident.self_message = Faker::Lorem.characters(number:26)
+        resident.self_message = Faker::Lorem.characters(number: 26)
         is_expected.to eq false
       end
     end

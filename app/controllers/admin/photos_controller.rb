@@ -33,6 +33,6 @@ class Admin::PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit( {images: []} )
+    params.require(:photo).permit({ images: [] })
   end
 end

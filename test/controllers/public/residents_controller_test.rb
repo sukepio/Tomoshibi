@@ -5,5 +5,4 @@ class Public::ResidentsControllerTest < ActionDispatch::IntegrationTest
     get public_residents_show_url
     assert_response :success
   end
-
 end

@@ -4,10 +4,8 @@ RSpec.describe Household, type: :model do
   describe 'validation' do
     subject { household.valid? }
 
-
     let!(:other_household) { FactoryBot.create(:household) }
     let(:household) { FactoryBot.build(:household) }
-
 
     context 'with valid inputs' do
       it 'can be saved' do

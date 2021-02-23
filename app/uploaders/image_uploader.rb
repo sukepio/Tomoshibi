@@ -3,7 +3,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     storage :fog
@@ -50,5 +49,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
