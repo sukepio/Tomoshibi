@@ -1,6 +1,4 @@
 $(function () {
-    // 画面遷移を検知
-    $(document).on('turbolinks:load', function () {
         if ($('#mycalendar').length) {
 
             function Calendar() {
@@ -11,10 +9,6 @@ $(function () {
                 $('#mycalendar').html('');
             }
 
-            $(document).on('turbolinks:load', function () {
-                Calendar();
-            });
-            $(document).on('turbolinks:before-cache', clearCalendar);
 
             //events: '/admin/events.json', 以下に追加
             $('#mycalendar').fullCalendar({
@@ -57,5 +51,4 @@ $(function () {
                 },
             });
         }
-    });
 });

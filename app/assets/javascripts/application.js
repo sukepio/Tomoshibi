@@ -18,20 +18,19 @@
 //= require jquery
 //= require moment
 //= require fullcalendar
-//= require turbolinks
 //= require_tree .
 
-// $(function(){
-//   $('.op-link').mouseover(function(){
-//     $('.hide-link').show();
-//   });
-//   $('.op-link').mouseout(function(){
-//     $('.hide-link').hide();
-//   });
-// });
 
-// $(function(){
-//   $('.header-link').mouseover(function(){
-//     $(this).children('.test').animate({transform:'translateY(20px)'}, 200);
-//   });
-// })
+$(function() {
+  $('#open').on('click', function(event) {
+    $('.overlay').addClass('show');
+    // $('.overlay').fadeToggle();
+    event.preventDefault();
+  });
+
+  $('#close').on('click', function(event) {
+    $('.overlay').removeClass('show');
+    // $('.overlay').fadeToggle();
+    event.preventDefault();
+  });
+});

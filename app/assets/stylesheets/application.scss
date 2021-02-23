@@ -175,6 +175,18 @@ body {
   position: relative;
   z-index: 10;
 
+  .hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 22px;
+    left: 18px;
+    height: 36px;
+  }
+
+  .overlay {
+    display: none;
+  }
+
   // 三角形
   .left-top-triangle {
     border: 80px solid;
@@ -689,23 +701,84 @@ span.optional {    //フォームの任意項目
     height: 80px;
     margin-bottom: 50px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 0;
+
 
     .welcome-box {
       height: 50%;
       margin-top: 20px;
       padding: 10px 20px 0;
       font-size: 14px;
+
+      &:first-child {
+        display: none;
+      }
     }
+
     .resident-name {
         display: none;
     }
   }
 
+  .left-side-menu {
+    display: none;
+  }
+
   .main {        //全体に適用
-    width: 88%;
+    width: 100%;
     min-height: 100%;  //ページいっぱいに背景を適用
     padding: 0 20px 50px;
+
+    .hamburger-menu {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .hamburger-menu .hide {
+      display: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: rgba(255, 255, 255, .9);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .6s;
+      z-index: 10;
+
+      #close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        height: 32px;
+        cursor: pointer;
+      }
+
+      // li {
+      //   opacity: 0;
+      // }
+    }
+
+    .show {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .overlay .show li {
+      opacity: 1;
+      display: inline-block;
+    }
+
 
     .left-top-triangle {
       border: 40px solid;
