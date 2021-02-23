@@ -17,7 +17,7 @@
       margin: 0 auto 20px;
       background: white;
       border-radius: 15px;
-      padding: 10px 20px;
+      padding: 20px;
 
       .new-post-table {
         width: 90%;
@@ -151,9 +151,11 @@
 @media screen and (max-width: 750px) {
   .mypage-flex {
     margin-top: 20px;
+    flex-direction: column;
 
     .left-container {
-      width: 80%;
+      width: 90%;
+      margin: 0 auto;
 
       .new-post-container {
         width: 95%;
@@ -185,14 +187,32 @@
     .right-container {
       background: white;
       border-radius: 15px;
-      padding: 5px;
+      padding: 10px;
       height: 80%;
-      width: 25%;
+      width: 90%;
+      margin: 20px auto 0;
 
-      .photo-info-btn {
-        @include link-btn($red);
-        width: 100%;
-        margin-bottom: 20px;
+      p {
+        text-align: center;
+      }
+
+      .btns {
+        width: 40%;
+        margin: 0 auto;
+
+        .photo-info-btn {
+          @include link-btn($red);
+          width: 100%;
+          margin: 0 auto 20px;
+          padding: 6px 2px;
+        }
+
+        .edit-btn {
+          @include link-btn($blue);
+          width: 100%;
+          padding: 6px 2px;
+          margin: 0 auto;
+        }
       }
     }
   }

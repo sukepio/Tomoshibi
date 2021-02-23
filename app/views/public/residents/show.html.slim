@@ -23,8 +23,9 @@
 
   .right-container
     p= current_resident.self_message
-    = link_to "写真アルバムについて", confirm_path, class: 'photo-info-btn'
-    br
-    = link_to "編集する", edit_path, class: 'edit-btn'
+    .btns
+      = link_to "写真アルバムについて", confirm_path, class: 'photo-info-btn'
+      br
+      = link_to "編集する", edit_path, class: 'edit-btn'
 
 #mycalendar
