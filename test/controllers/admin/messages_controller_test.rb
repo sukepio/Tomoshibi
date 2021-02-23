@@ -5,5 +5,4 @@ class Admin::MessagesControllerTest < ActionDispatch::IntegrationTest
     get admin_messages_index_url
     assert_response :success
   end
-
 end

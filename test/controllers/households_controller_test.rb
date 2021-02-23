@@ -15,5 +15,4 @@ class HouseholdsControllerTest < ActionDispatch::IntegrationTest
     get households_update_url
     assert_response :success
   end
-
 end

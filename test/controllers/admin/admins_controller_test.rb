@@ -5,5 +5,4 @@ class Admin::AdminsControllerTest < ActionDispatch::IntegrationTest
     get admin_admins_index_url
     assert_response :success
   end
-
 end

@@ -6,7 +6,6 @@ RSpec.describe Message, type: :model do
 
     let!(:message) { create(:message) }
 
-
     context 'with valid inputs' do
       it 'can be saved' do
         is_expected.to eq true

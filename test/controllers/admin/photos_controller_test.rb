@@ -10,5 +10,4 @@ class Admin::PhotosControllerTest < ActionDispatch::IntegrationTest
     get admin_photos_new_url
     assert_response :success
   end
-
 end

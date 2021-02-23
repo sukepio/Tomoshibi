@@ -4,5 +4,4 @@ class ApplicationRecord < ActiveRecord::Base
   def time_format
     start.strftime("%H:%M")
   end
-
 end

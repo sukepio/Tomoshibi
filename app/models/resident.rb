@@ -8,7 +8,7 @@ class Resident < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :myevents, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  
+
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
@@ -17,10 +17,9 @@ class Resident < ApplicationRecord
   validates :login_id, presence: true
   validates :date_of_birth, presence: true
   validates :gender, presence: true
-  validates :self_message, length: { maximum: 25}
+  validates :self_message, length: { maximum: 25 }
 
-
-  enum gender: { 男: 0, 女: 1}
+  enum gender: { 男: 0, 女: 1 }
 
   def email_required?
     false

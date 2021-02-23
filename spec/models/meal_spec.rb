@@ -4,9 +4,7 @@ RSpec.describe Meal, type: :model do
   describe 'validation' do
     subject { meal.valid? }
 
-
     let!(:meal) { create(:meal) }
-
 
     context 'with valid inputs' do
       it 'can be saved' do
@@ -32,5 +30,4 @@ RSpec.describe Meal, type: :model do
       end
     end
   end
-
 end

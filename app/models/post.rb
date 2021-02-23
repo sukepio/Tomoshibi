@@ -1,5 +1,4 @@
 class Post < ApplicationRecord
-
   has_many :bookmarks, dependent: :destroy
   belongs_to :admin
   mount_uploaders :image, ImageUploader
