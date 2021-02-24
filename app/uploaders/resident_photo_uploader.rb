@@ -49,4 +49,7 @@ class ResidentPhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  def content_type_allowlist
+    /image\//
+  end
 end

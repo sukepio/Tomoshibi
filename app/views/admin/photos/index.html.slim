@@ -9,7 +9,8 @@
 .admin-photo-container
   - @photos.each do |photo|
     .photos
-      = link_to '削除', admin_resident_photo_path(@resident, photo), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-photo-btn'
-      - photo.images.each do |image|
+      .delete
+        = link_to '削除', admin_resident_photo_path(@resident, photo), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'delete-photo-btn'
+      - photo.image.each do |image|
         .photo
           = image_tag image.url

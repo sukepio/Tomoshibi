@@ -1,8 +1,8 @@
 class Photo < ApplicationRecord
   belongs_to :resident
-  mount_uploaders :images, ResidentPhotoUploader
-  serialize :images, JSON
+  mount_uploaders :image, ResidentPhotoUploader
+  serialize :image, JSON
 
   validates :resident_id, presence: true
-  validates :images, presence: true
+  validates :image, presence: true
 end

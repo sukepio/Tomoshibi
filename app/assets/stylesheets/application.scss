@@ -654,6 +654,11 @@ span.optional {    //フォームの任意項目
 }
 
 @media screen and (max-width: 750px) {
+
+  h2 {
+    font-size: 1.5em;
+  }
+
   .login-container {
     .login-form-container {
       width: 40%;
@@ -665,14 +670,19 @@ span.optional {    //フォームの任意項目
     height: 80px;
     margin-bottom: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     padding: 0;
 
     .welcome-box {
-      height: 50%;
+      height: 40%;
       margin-top: 20px;
-      padding: 10px 20px 0;
-      font-size: 14px;
+      padding: 0 2%;
+      font-size: .9em;
+
+      P {
+        line-height: 2.5em;
+        margin-bottom: 0;
+      }
 
       &:first-child {
         display: none;
@@ -774,11 +784,15 @@ span.optional {    //フォームの任意項目
 
   .resident-info {
     margin: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
 
     .info-box {
-      width: 100px;
+      width: 40%;
       height: 50px;
-      margin: 0 15px 15px;
+      margin: 0;
+      margin-bottom: 5%;
       border: 3px solid black;
       border-radius: 20px;
       text-align: center;
@@ -803,7 +817,7 @@ span.optional {    //フォームの任意項目
   }
 
   .myevent-container {
-    width: 95%;
+    width: 100%;
 
     .myevent-table {
       width: 95%;
@@ -811,11 +825,11 @@ span.optional {    //フォームの任意項目
 
       th, td {
         padding: 8px;
-        font-size: 12px;
+        font-size: .2em;
       }
 
       tr:first-child th {
-        font-size: 18px;
+        font-size: 1em;
       }
 
       .head:nth-child(1) {
@@ -827,13 +841,18 @@ span.optional {    //フォームの任意項目
       }
 
       .head:nth-child(3) {
-        width: 55%;
+        display: none;
       }
     }
 
     .new-event-btn {
       padding: 5px 10px;
+      font-size: .1em;
     }
+  }
+
+  .fc-center {
+    font-size: 1.4em;
   }
 
   .event-form-container {
@@ -908,6 +927,6 @@ span.optional {    //フォームの任意項目
   }
 
   .registration-form-container {
-    width: 80%;
+    width: 100%;
   }
 }

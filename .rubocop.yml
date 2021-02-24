@@ -3,12 +3,12 @@ inherit_from:
 
 # 文字数上限
 LineLength:
-  Max: 130
-  
+  Max: 230
+
 # devise
 Airbnb/ClassOrModuleDeclaredInWrongFile:
   Exclude:
-    - 'app/controllers/admin/*'
+    - 'app/controllers/admin/resident/*'
     - 'app/controllers/public/*'
 #ここにはrubocopでコード解析したくないファイルやフォルダを指定します
 AllCops:

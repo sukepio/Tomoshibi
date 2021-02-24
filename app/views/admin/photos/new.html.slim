@@ -5,8 +5,8 @@ h2 #{@resident.full_name}さんの写真を追加する
   = form_with model: [:admin, @resident, @photo], class: 'form', local: true do |f|
     .form-body
       .form-group
-        = f.label :images
+        = f.label :image
         span.required 【必須】
-        = f.file_field :images, multiple: true, class: 'form-control', id: :resident_photo
+        = f.file_field :image, multiple: true, class: 'form-control', id: :resident_photo
     = f.submit 'アップロード', class: 'new-btn'
     = link_to '戻る', :back, class: 'back-btn'

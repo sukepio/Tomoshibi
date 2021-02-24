@@ -4,6 +4,6 @@
 
 .photo-container
   - @photos.each do |photo|
-    - photo.images.each do |image|
+    - photo.image.each do |image|
       .photo-box
         = image_tag image.url, class: 'resident-photo'

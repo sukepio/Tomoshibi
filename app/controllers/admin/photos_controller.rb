@@ -3,7 +3,7 @@ class Admin::PhotosController < ApplicationController
   before_action :set_resident, only: [:index, :new, :create, :destroy]
 
   def index
-    @photos = @resident.photos
+    @photos = @resident.photos.order(created_at: :desc)
   end
 
   def new
@@ -11,7 +11,8 @@ class Admin::PhotosController < ApplicationController
   end
 
   def create
-    @photo = @resident.photos.new(photo_params)
+    @photo = Photo.new(photo_params)
+    @photo.resident_id = @resident.id
     if @photo.save
       redirect_to admin_resident_photos_path(@resident), notice: "#{@resident.full_name}の写真を追加しました。"
     else
@@ -22,7 +23,7 @@ class Admin::PhotosController < ApplicationController
   def destroy
     photos = @resident.photos
     @photo = photos.find(params[:id])
-    @photo.destroy
+    @photo.delete
     redirect_to admin_resident_photos_path(@resident)
   end
 
@@ -33,6 +34,10 @@ class Admin::PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit({ images: [] })
+    if params[:photo].present?
+      params.require(:photo).permit({ image: [] })
+    else
+      params.permit({ image: [] })
+    end
   end
 end

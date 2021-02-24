@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_120946) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "resident_id", null: false
-    t.string "images", null: false
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

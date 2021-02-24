@@ -11,11 +11,11 @@
 }
 
 .new-photo-btn {
-  @include link-btn($blue);
+  @include link-btn($orange);
   margin: 30px 0;
 
   &:hover {
-    @include link-btn-hover($blue);
+    @include link-btn-hover($orange);
   }
 }
 
@@ -77,5 +77,56 @@
         @include link-btn-hover($blue);
       }
     }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .new-photo-btn {
+    margin: 30px 0;
+    padding: 3% 5%;
+    font-size: .8em;
+
+    &:hover {
+      @include link-btn-hover($blue);
+    }
+  }
+
+  .admin-photo-container {
+
+    .delete {
+      width: 100%;
+      margin-bottom: 2%;
+
+      .delete-photo-btn {
+        padding: 1% 3%;
+        font-size: .5em;
+      }
+    }
+
+    .photos {
+      justify-content: space-between;
+
+      .photo {
+        width: 49%;
+        margin-bottom: 2%;
+        margin-right: 0;
+
+        &:nth-child(2) {
+          margin-right: 0;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .new-photo-container {
+    width: 95%;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+
   }
 }
