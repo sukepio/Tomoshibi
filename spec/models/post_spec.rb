@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
     let!(:admin) { create(:admin) }
     let(:post) { build(:post) }
 
-    context 'when a title and a body are valid' do
+    context 'when valid inputs' do
       it 'can be saved' do
         post.admin_id = admin.id
         is_expected.to eq true

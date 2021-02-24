@@ -30,6 +30,16 @@ RSpec.describe Admin, type: :model do
     end
   end
 
+  describe 'instance' do
+    let!(:admin) { build(:admin) }
+
+    describe 'full_name' do
+      it 'returns a conbined string of last_name and first_name' do
+        expect(admin.full_name).to eq '山田太郎'
+      end
+    end
+  end
+
   describe 'association' do
     it 'has many posts' do
       expect(Admin.reflect_on_association(:posts).macro).to eq :has_many

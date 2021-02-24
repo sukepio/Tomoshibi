@@ -4,8 +4,8 @@ RSpec.describe Household, type: :model do
   describe 'validation' do
     subject { household.valid? }
 
-    let!(:other_household) { FactoryBot.create(:household) }
-    let(:household) { FactoryBot.build(:household) }
+    let!(:other_household) { create(:household, address: Faker::Lorem.characters(number: 5)) }
+    let(:household) { build(:household) }
 
     context 'with valid inputs' do
       it 'can be saved' do
@@ -48,6 +48,22 @@ RSpec.describe Household, type: :model do
       it 'is invalid with an email that already exists' do
         household.address = other_household.address
         is_expected.to eq false
+      end
+    end
+  end
+
+  describe 'instance' do
+    let!(:household) { build(:household) }
+
+    describe 'information' do
+      it 'returns a conbined string of head_last_name, head_first_name and address' do
+        expect(household.information).to eq "日本博　#{household.address}"
+      end
+    end
+
+    describe 'full_name' do
+      it 'returns a conbined string of head_last_name and head_first_name' do
+        expect(household.full_name).to eq '日本 博'
       end
     end
   end

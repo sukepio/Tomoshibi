@@ -68,6 +68,28 @@ RSpec.describe Resident, type: :model do
     end
   end
 
+  describe 'instance' do
+    let!(:resident) { build(:resident) }
+
+    describe 'full_name' do
+      it 'returns a conbined string of last_name and first_name' do
+        expect(resident.full_name).to eq '山田 花子'
+      end
+    end
+
+    describe 'full_name_kana' do
+      it 'returns a conbined string of last_name_kana and first_name_kana' do
+        expect(resident.full_name_kana).to eq 'ヤマダ ハナコ'
+      end
+    end
+
+    describe 'birthday' do
+      it 'returns a date format of Y/-m/-d' do
+        expect(resident.birthday).to eq '2000/1/1'
+      end
+    end
+  end
+
   describe 'association' do
     it 'has many myevents' do
       expect(Resident.reflect_on_association(:myevents).macro).to eq :has_many

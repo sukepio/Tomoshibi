@@ -4,4 +4,5 @@ class Photo < ApplicationRecord
   serialize :images, JSON
 
   validates :resident_id, presence: true
+  validates :images, presence: true
 end
