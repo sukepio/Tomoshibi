@@ -563,15 +563,19 @@ td.fc-sun {         //日曜日の色設定
   flex-wrap: wrap;
   width: 100%;
   align-items: start;
-  justify-content: space-between;
   margin-top: 40px;
 
   .message-item {
     width: 31%;
-    margin-bottom: 40px;
+    margin-bottom: 3.5%;
+    margin-right: 3.5%;
     border-radius: 10px;
     background: #fff;
     position: relative;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
 
     .message-img {
       width: 100%;
