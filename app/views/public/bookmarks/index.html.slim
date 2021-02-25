@@ -8,7 +8,7 @@
       - @bookmarks.each do |bookmark|
         tbody
           tr
-            th.time= bookmark.post.title
+            th.time= bookmark.post.time_format
           tr
             th= link_to bookmark.post.title, post_path(bookmark.post), class: 'post-title'
           tr
