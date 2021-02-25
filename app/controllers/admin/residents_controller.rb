@@ -4,7 +4,7 @@ class Admin::ResidentsController < ApplicationController
   def index
     @q = Resident.ransack(params[:q])
     @households = Household.all
-    @residents = @q.result.includes(:household).page(params[:page]).per(10)
+    @residents = @q.result.includes(:household).page(params[:page]).per(20)
   end
 
   def show
