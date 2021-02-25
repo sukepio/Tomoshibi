@@ -26,7 +26,7 @@ h2 避難者新規登録
         = f.label :phone_number
         span.required 【必須】
         = f.text_field :phone_number, autofocus: true, class:'form-control'
-        
+
       .form-group
         = f.label :login_id
         span.required 【必須】
@@ -36,7 +36,7 @@ h2 避難者新規登録
         = f.label :date_of_birth
         span.required 【必須】
         br
-        = f.date_select :date_of_birth, {use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1981, 1, 1)}, {class: 'form-control', style: 'display: inline-block;width: auto;' }
+        = f.date_select :date_of_birth, {use_birth_numbers: true, start_year: 1930, end_year: (Time.now.year - 4), default: Date.new(1981, 1, 1)}, {class: 'form-control', style: 'display: inline-block;width: auto;' }
 
       .form-group
         = f.label :gender, "性別", { class: 'form-check-label' }

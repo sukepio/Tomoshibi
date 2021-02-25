@@ -353,7 +353,7 @@ td.fc-sun {         //日曜日の色設定
   background: #fff;
   border-radius: 15px;
   padding: 10px 0;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -779,40 +779,6 @@ span.optional {    //フォームの任意項目
     .right-bottom-triangle {
       border: 65px solid;
       border-color: transparent $yellow $yellow transparent;
-    }
-  }
-
-  .resident-info {
-    margin: 20px;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-
-    .info-box {
-      width: 40%;
-      height: 50px;
-      margin: 0;
-      margin-bottom: 5%;
-      border: 3px solid black;
-      border-radius: 20px;
-      text-align: center;
-      background: #fff;
-
-      .box-title {
-        font-size: 12px;
-        margin-bottom: 0;
-      }
-
-      .box-body {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 0;
-      }
-
-      .today {
-        line-height: 50px;
-        font-size: 16px;
-      }
     }
   }
 
