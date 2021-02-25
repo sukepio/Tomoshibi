@@ -20,7 +20,7 @@
     - @posts.each do |post|
       tbody
         tr
-          th.time= post.time_format
+          th.time= post.time
         tr
           th= link_to post.title, post_path(post), class: "post-title"
         tr

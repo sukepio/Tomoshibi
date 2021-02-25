@@ -2,7 +2,7 @@
 
   .post-show
     .show-top
-      p.time= @post.time_format
+      p.time= @post.time
       #bookmark-btn
         = render 'public/posts/bookmark_btn', post: @post
     h2= @post.title
