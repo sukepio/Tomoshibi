@@ -1,0 +1,12 @@
+.post-search-container
+  = search_form_for q, url: posts_path, class: 'search-form' do |f|
+    .input-container
+      .form-group.row
+        = f.label :title_cont, 'タイトル', class: 'col-sm-4 col-form-label search-label'
+        .col-sm-4
+          = f.search_field :title_cont, class: 'form-control'
+      .form-group.row
+        = f.label :body_cont, '内容', class: 'col-sm-4 col-form-label search-label'
+        .col-sm-4
+          = f.search_field :body_cont, class: 'form-control'
+    = f.submit class: 'submit-btn'

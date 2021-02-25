@@ -2,18 +2,7 @@
   = image_tag 'icon-news.png', width: '80px', height: '80px', class: 'photo-icon'
   h2 避難所通信
 
-.post-search-container
-  = search_form_for @q, url: admin_posts_path, class: 'search-form' do |f|
-    .input-container
-      .form-group.row
-        = f.label :title_cont, 'タイトル', class: 'col-lg-3 col-md-4 form-label search-label'
-        .col-md-8.col-lg-7
-          = f.search_field :title_cont, class: 'form-control'
-      .form-group.row
-        = f.label :body_cont, '内容', class: 'col-lg-3 col-md-4 col-form-label search-label'
-        .col-md-8.col-lg-7
-          = f.search_field :body_cont, class: 'form-control'
-    = f.submit class: 'submit-btn'
+= render 'admin/posts/search', q: @q
 
 .post-table-container
   table.post-table
