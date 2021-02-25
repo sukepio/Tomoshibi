@@ -4,13 +4,12 @@ RSpec.describe Photo, type: :model do
   describe 'validation' do
     subject { photo.valid? }
 
-    let!(:resident) { create(:resident) }
-    let(:photo) { create(:photo) }
+    let(:photo) { build(:photo) }
 
-    describe 'images' do
-      context 'with an empty images' do
+    describe 'image' do
+      context 'with an empty image' do
         it 'is invalid' do
-          photo.images = ''
+          photo.image = ''
           is_expected.to eq false
         end
       end

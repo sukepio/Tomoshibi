@@ -20,7 +20,7 @@
     - @posts.each do |post|
       tbody
         tr
-          th.time= post.time_format
+          th.time= post.time
           td= "投稿者: #{post.admin.full_name}"
         tr
           th= link_to post.title, admin_post_path(post), class: "post-title"

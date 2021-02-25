@@ -33,5 +33,38 @@ describe 'login', type: :system do
         end
       end
     end
+
+    describe 'log in to resident' do
+      let(:resident) { create(:resident) }
+      let!(:post) { create(:post) }
+
+      context 'with valid inputs' do
+        before do
+          fill_in 'ログインID', with: resident.login_id
+          fill_in 'パスワード', with: resident.password
+          click_button 'ログイン'
+        end
+
+        it 'succeeds and redirects to mypage' do
+          expect(current_path).to eq '/mypage'
+        end
+      end
+
+      context 'with invalid inputs' do
+        before do
+          fill_in 'ログインID', with: ''
+          fill_in 'パスワード', with: ''
+          click_button 'ログイン'
+        end
+
+        it 'fails and redirects to resident login page' do
+          expect(current_path).to eq '/residents/sign_in'
+        end
+      end
+    end
+
+    # describe 'admin login' do
+    #   let(:admin) { create(:admin) }
+    # end
   end
 end
