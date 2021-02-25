@@ -9,13 +9,11 @@ class Public::BookmarksController < ApplicationController
   def create
     @bookmark = current_resident.bookmarks.new(post_id: @post.id)
     @bookmark.save
-    # redirect_to post_path(@post)
   end
 
   def destroy
     @bookmark = current_resident.bookmarks.find_by(post_id: @post.id)
     @bookmark.destroy
-    # redirect_to post_path(@post)
   end
 
   private
