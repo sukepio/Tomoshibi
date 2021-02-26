@@ -84,6 +84,24 @@ body {
   display: flex;
   justify-content: space-between;
 
+  @include mq('tab') {
+    justify-content: space-around;
+    padding: 0 10px;
+
+    .resident-name {
+      display: none;
+    }
+  }
+
+  @include mq('sp') {
+    justify-content: flex-end;
+    padding: 0;
+
+    .resident-name {
+      display: none;
+    }
+  }
+
   .welcome-box {
     height: 60%;
     margin-top: 20px;
@@ -92,6 +110,31 @@ body {
     border-radius: 20px;
     position: relative;
     background: #fff;
+
+    @include mq('tab') {
+      padding: 0 2%;
+
+      P {
+        line-height: 2.8em;
+        margin-bottom: 0;
+      }
+    }
+
+    @include mq('sp') {
+      height: 50%;
+      margin-top: 20px;
+      padding: 0 2%;
+      font-size: .8em;
+
+      P {
+        line-height: 3em;
+        margin-bottom: 0;
+      }
+
+      &:first-child {
+        display: none;
+      }
+    }
 
     .left-bar {
       position: absolute;
@@ -110,7 +153,6 @@ body {
     }
   }
 }
-
 // メインここから
 .main {        //全体に適用
   width: 88%;
@@ -775,34 +817,6 @@ span.optional {    //フォームの任意項目
     .login-form-container {
       width: 40%;
       margin-top: 20px;
-    }
-  }
-
-  .welcome-container {
-    height: 80px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0;
-
-    .welcome-box {
-      height: 40%;
-      margin-top: 20px;
-      padding: 0 2%;
-      font-size: .9em;
-
-      P {
-        line-height: 2.5em;
-        margin-bottom: 0;
-      }
-
-      &:first-child {
-        display: none;
-      }
-    }
-
-    .resident-name {
-        display: none;
     }
   }
 
