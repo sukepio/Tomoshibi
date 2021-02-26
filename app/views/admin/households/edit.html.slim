@@ -6,10 +6,10 @@ h2 世帯情報の編集
   = form_with model: [:admin, @resident, @household], class: 'household-form', local: true do |f|
     .form-body
       .form-row
-        .form-group.col-md-6
+        .form-group.col-md-6.col-md-6.col-sm-6
           = f.label :head_last_name
           = f.text_field :head_last_name, autofocus: true, class:'form-control'
-        .form-group.col-md-6
+        .form-group.col-md-6.col-md-6.col-sm-6
           = f.label :head_first_name
           span.required 【必須】
           = f.text_field :head_first_name, autofocus: true, class:'form-control'
