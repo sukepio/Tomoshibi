@@ -37,6 +37,10 @@ body {
   height: 100%;
   background-color: #fff;
   position: relative;
+
+  @include mq('tab') {
+    display: none;
+  }
 }
 
   .logo {
@@ -117,10 +121,74 @@ body {
   position: relative;
   z-index: 10;
 
+  @include mq('tab') {
+    width: 100%;
+    padding: 0 20px 50px;
+    height: 100%;
+  }
+
   .hamburger-menu {
     display: none;
+
+    @include mq('tab') {
+      display: inline-block;
+      cursor: pointer;
+      position: absolute;
+      top: 22px;
+      left: 18px;
+      height: 36px;
+    }
   }
+
+  .hamburger-menu .hide {
+    display: none;
+  }
+
   .overlay {
+    display: none;
+
+    @include mq('tab') {
+      position: fixed;
+      min-height: 100vh;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: rgba(255, 255, 255, .9);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+
+     #close {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        height: 50px;
+        cursor: pointer;
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 70%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+
+        li {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  .show {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hide {
     display: none;
   }
 
@@ -735,74 +803,6 @@ span.optional {    //フォームの任意項目
 
     .resident-name {
         display: none;
-    }
-  }
-
-  .left-side-menu {
-    display: none;
-  }
-
-  .main {        //全体に適用
-    width: 100%;
-    // min-height: 100%;  //ページいっぱいに背景を適用
-    padding: 0 20px 50px;
-    height: 100%;
-
-    .hamburger-menu {
-      display: inline-block;
-      cursor: pointer;
-      position: absolute;
-      top: 22px;
-      left: 18px;
-      height: 36px;
-    }
-
-    .hamburger-menu .hide {
-      display: none;
-    }
-
-    .overlay {
-      position: fixed;
-      min-height: 100vh;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      background: rgba(255, 255, 255, .9);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 10;
-
-      #close {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        height: 50px;
-        cursor: pointer;
-      }
-
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        width: 70%;
-        margin: 0 auto;
-        justify-content: center;
-        align-items: center;
-
-        li {
-          width: 50%;
-        }
-      }
-    }
-
-    .show {
-      display: block;
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .hide {
-      display: none;
     }
   }
 
