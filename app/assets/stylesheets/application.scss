@@ -630,10 +630,6 @@ td.fc-sun {         //日曜日の色設定
     }
   }
 
-  // .fc-center {
-  //   font-size: 1.4em;
-  // }
-
   .event-form-container {
     width: 90%;
     margin: 40px auto;
@@ -659,6 +655,11 @@ td.fc-sun {         //日曜日の色設定
   background: #fff;
   border-radius: 15px;
 
+  @include mq('sp') {
+    width: 70%;
+    font-size: 14px;
+  }
+
   .search-form {
     display: flex;
     flex-direction: column;
@@ -678,12 +679,14 @@ td.fc-sun {         //日曜日の色設定
     .submit-btn {
       @include link-btn($blue);
       margin: 0 auto;
+      width: 30%;
 
       &:hover {
         @include link-btn-hover($blue);
       }
     }
   }
+
 }
 
 // 避難所通信一覧画面CSS共通
@@ -712,7 +715,7 @@ td.fc-sun {         //日曜日の色設定
     }
 
     tr:nth-child(1n) td {
-      width: 20%;
+      width: 30%;
     }
 
     .time {
@@ -733,6 +736,24 @@ td.fc-sun {         //日曜日の色設定
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
+    @include mq('sp') {
+      width: 100%;
+      padding: 0 20px;
+
+      .post-title {
+        font-size: 14px;
+      }
+
+      .time {
+        font-size: 14px;
+        padding: 10px 0 0 10px;
+      }
+
+      td {
+        font-size: 10px;
+      }
+    }
   }
 
   .new-posts-btn {
@@ -742,7 +763,12 @@ td.fc-sun {         //日曜日の色設定
     &:hover {
       @include link-btn-hover($orange);
     }
+
+    @include mq('sp') {
+      font-size: 14px;
+    }
   }
+
 }
 
 // 避難所通信詳細共通
@@ -882,6 +908,7 @@ span.optional {    //フォームの任意項目
   margin-top: 20px;
 }
 
+
 .pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
@@ -899,11 +926,6 @@ span.optional {    //フォームの任意項目
 }
 
 @media screen and (max-width: 750px) {
-
-
-  .post-search-container {
-    width: 70%;
-  }
 
   .post-show-container {
     width: 90%;
