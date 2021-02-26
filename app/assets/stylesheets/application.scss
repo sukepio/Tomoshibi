@@ -601,10 +601,6 @@ td.fc-sun {         //日曜日の色設定
       .head:nth-child(2) {
         width: 33%;
       }
-
-      .head:nth-child(3) {
-        // display: none;
-      }
     }
 
     .new-event-btn {
@@ -614,9 +610,29 @@ td.fc-sun {         //日曜日の色設定
     }
   }
 
-  .fc-center {
-    font-size: 1.4em;
+  @include mq('sp') {
+
+    .myevent-table {
+
+      th, td {
+        font-size: 10px;
+      }
+
+      tr:first-child th {
+        font-size: 14px;
+      }
+    }
+
+    .new-event-btn {
+      width: 25%;
+      padding: 4px 8px;
+      font-size: 10px;
+    }
   }
+
+  // .fc-center {
+  //   font-size: 1.4em;
+  // }
 
   .event-form-container {
     width: 90%;

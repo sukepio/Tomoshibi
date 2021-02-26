@@ -90,6 +90,32 @@
         }
       }
     }
+
+    @include mq('sp') {
+      width: 100%;
+
+      .new-post-container {
+
+        .new-post-table {
+
+          .title {
+            font-size: 12px;
+          }
+
+          .time {
+            font-size: 12px;
+          }
+
+          tr:first-child th {
+            font-size: 14px;
+          }
+
+          td {
+            font-size: 10px;
+          }
+        }
+      }
+    }
   }
 
   .right-container {
@@ -134,19 +160,14 @@
     }
 
     @include mq('tab') {
-      background: white;
-      border-radius: 15px;
       padding: 10px;
-      height: 80%;
       width: 90%;
       margin: 20px auto 0;
-
 
       .btns {
         width: 40%;
 
         .photo-info-btn {
-          @include link-btn($red);
           width: 65%;
           margin: 0 auto 20px;
           padding: 6px 10px;
@@ -154,11 +175,32 @@
         }
 
         .edit-btn {
-          @include link-btn($blue);
           width: 65%;
           padding: 6px 10px;
           margin: 0 auto;
           font-size: 12px;
+        }
+      }
+    }
+
+    @include mq('sp') {
+      width: 100%;
+
+      p {
+        font-size: 14px;
+      }
+
+      .btns {
+        width: 50%;
+
+        .photo-info-btn {
+          width: 80%;
+          font-size: 10px;
+        }
+
+        .edit-btn {
+          width: 80%;
+          font-size: 10px;
         }
       }
     }
@@ -231,13 +273,6 @@
 
 // レスポンシブ
 @media screen and (max-width: 750px) {
-  .mypage-flex {
-
-
-
-
-
-  }
 
   .photo-explanation {
     width: 100%;
