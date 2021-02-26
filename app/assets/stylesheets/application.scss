@@ -577,6 +577,62 @@ td.fc-sun {         //日曜日の色設定
       @include link-btn-hover($orange);
     }
   }
+
+  @include mq('tab') {
+    width: 100%;
+
+    .myevent-table {
+      width: 95%;
+      margin: 0 auto 15px;
+
+      th, td {
+        padding: 8px;
+        font-size: 14px;
+      }
+
+      tr:first-child th {
+        font-size: 16px;
+      }
+
+      .head:nth-child(1) {
+        width: 12%;
+      }
+
+      .head:nth-child(2) {
+        width: 33%;
+      }
+
+      .head:nth-child(3) {
+        // display: none;
+      }
+    }
+
+    .new-event-btn {
+      width: 25%;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+  }
+
+  .fc-center {
+    font-size: 1.4em;
+  }
+
+  .event-form-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .event-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
 
 // 避難所通信検索
@@ -827,60 +883,7 @@ span.optional {    //フォームの任意項目
 }
 
 @media screen and (max-width: 750px) {
-  .myevent-container {
-    width: 100%;
 
-    .myevent-table {
-      width: 95%;
-      margin: 0 auto 15px;
-
-      th, td {
-        padding: 8px;
-        font-size: .2em;
-      }
-
-      tr:first-child th {
-        font-size: 1em;
-      }
-
-      .head:nth-child(1) {
-        width: 12%;
-      }
-
-      .head:nth-child(2) {
-        width: 33%;
-      }
-
-      .head:nth-child(3) {
-        display: none;
-      }
-    }
-
-    .new-event-btn {
-      padding: 5px 10px;
-      font-size: .1em;
-    }
-  }
-
-  .fc-center {
-    font-size: 1.4em;
-  }
-
-  .event-form-container {
-    width: 90%;
-    margin: 40px auto;
-    padding: 30px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .event-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
 
   .post-search-container {
     width: 70%;
