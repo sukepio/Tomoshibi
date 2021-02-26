@@ -6,13 +6,15 @@
   table.admin-table
     tbody
       tr
-        th 管理者名
+        th 名前
+        th 年齢
         th ログインID
         th 連絡先
         th メールアドレス
       - @admins.each do |admin|
         tr
-          td= admin.full_name
+          td= link_to admin.full_name, admin_info_path(admin)
+          td= admin.age
           td= admin.login_id
           td= admin.phone_number
           td= admin.email

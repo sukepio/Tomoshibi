@@ -3,14 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
-// 管理者新規登録
+// 管理者一覧
 .admin-table-container {
-  width: 80%;
+  width: 90%;
   background: #fff;
   margin: 40px auto;
   padding: 20px 0;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
 
   .admin-table {
     width: 90%;
@@ -36,13 +37,10 @@
     &:hover {
       @include link-btn-hover($orange);
     }
-
   }
-}
 
-@media screen and (max-width: 750px) {
-  .admin-table-container {
-    width: 90%;
+  @include mq('tab') {
+    width: 100%;
 
     .admin-table {
       width: 90%;
@@ -51,6 +49,108 @@
       th, td {
         padding: 15px;
         font-size: 14px;
+      }
+    }
+
+    .new-admin-btn {
+      font-size: 14px;
+    }
+  }
+
+  @include mq('sp') {
+
+    .admin-table {
+      width: 90%;
+      margin: 0 auto 30px;
+
+      th, td {
+        padding: 15px;
+        font-size: 10px;
+      }
+
+      th:nth-child(2) {
+        display: none;
+      }
+
+      th:nth-child(3) {
+        display: none;
+      }
+
+      th:last-child {
+        display: none;
+      }
+
+      td:nth-child(2) {
+        display: none;
+      }
+
+      td:nth-child(3) {
+        display: none;
+      }
+
+      td:last-child {
+        display: none;
+      }
+    }
+
+    .new-admin-btn {
+      font-size: 12px;
+    }
+  }
+}
+
+// 管理者詳細画面
+.admin-show-container {
+  width: 70%;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .admin-show-table {
+    width: 90%;
+    margin-bottom: 30px;
+
+    th, td {
+      padding: 15px;
+    }
+
+    th {
+      width: 40%;
+      color: $orange;
+    }
+
+    tr {
+      border-bottom: 1px dotted #000;
+    }
+  }
+
+  .admin-edit-btn {
+    @include link-btn($blue);
+
+    &:hover {
+      @include link-btn-hover($blue);
+    }
+  }
+
+  @include mq('tab') {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  @include mq('sp') {
+    width: 100%;
+    font-size: 12px;
+
+    .admin-show-table {
+      width: 95%;
+      margin-bottom: 30px;
+
+      th, td {
+        padding: 10px;
       }
     }
   }

@@ -11,8 +11,12 @@
   background: #fff;
   border-radius: 10px;
 
-  @include mq('sp'){
+  @include mq('tab'){
     width: 70%;
+    font-size: 14px;
+  }
+
+  @include mq('sp'){
     font-size: 12px;
   }
 
@@ -92,14 +96,14 @@
     }
   }
 
-  @include mq('sp') {
+  @include mq('tab') {
     width: 100%;
 
     .resident-table {
-      width: 100%;
+      width: 90%;
 
       th, td {
-        font-size: 10px;
+        font-size: 14px;
         display: none;
         border: none;
       }
@@ -150,6 +154,21 @@
     }
 
     .new-resident-btn {
+      font-size: 14px;
+    }
+  }
+
+  @include mq('sp') {
+
+    .resident-table {
+      width: 100%;
+
+      th, td {
+        font-size: 10px;
+      }
+    }
+
+    .new-resident-btn {
       font-size: 12px;
     }
   }
@@ -164,6 +183,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 
   .resident-show-table {
     width: 90%;
@@ -176,8 +196,8 @@
     th {
       width: 25%;
       color: $orange;
-
     }
+    
     .title {
       text-align: center;
       color: #000;
@@ -206,23 +226,8 @@
       @include link-btn-hover($yellow);
     }
   }
-}
 
-.edit-btn {
-  @include link-btn($blue);
-  margin: 0 auto;
-
-  &:hover {
-    @include link-btn-hover($blue);
-  }
-}
-
-// レスポンシブ
-@media screen and (max-width: 750px) {
-
-
-
-  .resident-container {
+  @include mq('tab') {
     width: 100%;
 
     .resident-show-table {
@@ -230,7 +235,7 @@
       margin-bottom: 30px;
 
       th, td {
-        font-size: .8em;
+        font-size: 14px;
       }
 
       th {
@@ -238,7 +243,7 @@
       }
 
       .title {
-        font-size: 1.2em;
+        font-size: 14px;
       }
 
     }
@@ -249,11 +254,56 @@
       .resident-edit-btn {
         margin-right: 0;
         margin-bottom: 5%;
+        font-size: 14px;
       }
 
       .photo-btn {
         margin-right: 0;
+        font-size: 14px;
       }
     }
+  }
+
+  @include mq('sp') {
+
+    .resident-show-table {
+
+      th, td {
+        font-size: 12px;
+      }
+
+      .title {
+        font-size: 12px;
+      }
+    }
+
+    .btn-link {
+
+      .resident-edit-btn {
+        font-size: 12px;
+      }
+
+      .photo-btn {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+.edit-btn {
+  @include link-btn($blue);
+  margin: 0 auto;
+
+  @include mq('tab') {
+    font-size: 14px;
+  }
+
+  @include mq('sp') {
+    font-size: 12px;
+  }
+
+  &:hover {
+    @include link-btn-hover($blue);
   }
 }

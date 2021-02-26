@@ -402,13 +402,22 @@ h2 {
 
     .new-btn {
       @include link-btn($orange);
-      width: 30%;
+      // width: 30%;
       margin: 0 auto;
 
       &:hover {
         @include link-btn-hover($orange);
       }
     }
+  }
+
+  @include mq('tab') {
+    width: 70%;
+  }
+
+  @include mq('sp') {
+    width: 90%;
+    font-size: 14px;
   }
 }
 
@@ -434,6 +443,15 @@ h2 {
       }
     }
   }
+
+  @include mq('tab') {
+    width: 70%;
+  }
+
+  @include mq('sp') {
+    width: 90%;
+    font-size: 14px;
+  }
 }
 
 
@@ -456,7 +474,7 @@ td.fc-sun {         //日曜日の色設定
   background-color: #ffeaea;
 }
 
-// カレンダー新規・編集画面
+// カレンダー、献立新規・編集画面
 .event-form-container {
   width: 40%;
   margin: 40px auto;
@@ -501,11 +519,12 @@ td.fc-sun {         //日曜日の色設定
 
   @include mq('tab') {
     width: 70%;
+    font-size: 14px;
   }
 
   @include mq('sp') {
-    width: 80%;
-    font-size: 14px;
+    width: 90%;
+    font-size: 12px;
   }
 }
 
@@ -1001,9 +1020,5 @@ span.optional {    //フォームの任意項目
         margin: 0;
       }
     }
-  }
-
-  .registration-form-container {
-    width: 100%;
   }
 }

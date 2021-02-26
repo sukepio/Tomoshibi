@@ -35,6 +35,7 @@ Rails.application.routes.draw do
 
   scope module: :admin do
     resources :admins, only: [:index]
+    get '/admins/:id', to: 'admins#show', as: 'admin_info'
     resources :meals, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 

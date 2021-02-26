@@ -5,13 +5,14 @@
 
 //世帯情報フォーム
 .household-form-container {
-  width: 40%;
+  width: 50%;
   margin: 40px auto;
   padding: 30px;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 
   .household-form {
     display: flex;
@@ -34,10 +35,14 @@
       }
     }
   }
-}
 
-@media screen and (max-width: 750px) {
-  .household-form-container {
-    width: 100%;
+  @include mq('tab') {
+    width: 70%;
+    font-size: 14px;
+  }
+
+  @include mq('sp') {
+    width: 95%;
+    font-size: 12px;
   }
 }
