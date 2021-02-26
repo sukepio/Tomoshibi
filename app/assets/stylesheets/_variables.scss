@@ -21,3 +21,18 @@ $red: #de1919;
   color: $color;
   border: 1px solid $color;
 }
+
+$layout-width-inner: 1150px;
+
+$breakpoints: (
+  "sp": "screen and (max-width: 767px)",
+  "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+  "pc": "screen and (max-width: #{$layout-width-inner})",
+);
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+
+    @content;
+  }
+}

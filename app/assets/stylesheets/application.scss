@@ -134,6 +134,16 @@ body {
     left: 0;
     top: 0;
     z-index: -1;
+
+    @include mq('tab') {
+      border: 70px solid;
+      border-color: $blue transparent transparent $blue;
+    }
+
+    @include mq('sp') {
+      border: 55px solid;
+      border-color: $blue transparent transparent $blue;
+    }
   }
 
   .right-top-triangle {
@@ -145,6 +155,16 @@ body {
     right: 0;
     top: 0;
     z-index: -1;
+
+    @include mq('tab') {
+      border: 90px solid;
+      border-color: $green $green transparent transparent;
+    }
+
+    @include mq('sp') {
+      border: 60px solid;
+      border-color: $green $green transparent transparent;
+    }
   }
 
   .right-bottom-triangle {
@@ -156,6 +176,16 @@ body {
     right: 0;
     bottom: 0;
     z-index: -1;
+
+    @include mq('tab') {
+      border: 80px solid;
+      border-color: transparent $yellow $yellow transparent;
+    }
+
+    @include mq('sp') {
+      border: 65px solid;
+      border-color: transparent $yellow $yellow transparent;
+    }
   }
 
   .left-bottom-triangle {
@@ -167,6 +197,16 @@ body {
     left: 0;
     bottom: 0;
     z-index: -1;
+
+    @include mq('tab') {
+      border: 80px solid;
+      border-color: transparent transparent $red $red;
+    }
+
+    @include mq('sp') {
+      border: 55px solid;
+      border-color: transparent transparent $red $red;
+    }
   }
 }
 
@@ -763,26 +803,6 @@ span.optional {    //フォームの任意項目
 
     .hide {
       display: none;
-    }
-
-    .left-top-triangle {
-      border: 55px solid;
-      border-color: $blue transparent transparent $blue;
-    }
-
-    .left-bottom-triangle {
-      border: 55px solid;
-      border-color: transparent transparent $red $red;
-    }
-
-    .right-top-triangle {
-      border: 60px solid;
-      border-color: $green $green transparent transparent;
-    }
-
-    .right-bottom-triangle {
-      border: 65px solid;
-      border-color: transparent $yellow $yellow transparent;
     }
   }
 
