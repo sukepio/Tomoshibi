@@ -21,7 +21,7 @@
       padding: 15px;
     }
 
-    tr:first-child th {
+    .title {
       font-size: 24px;
       text-align: center;
     }
@@ -31,7 +31,7 @@
     }
 
     .head:nth-child(1) {
-      width: 15%;
+      width: 20%;
     }
 
     .head:nth-child(2) {
@@ -39,7 +39,7 @@
     }
 
     .head:nth-child(3) {
-      width: 30%;
+      width: 25%;
     }
 
     .head:nth-child(4) {
@@ -67,14 +67,20 @@
       @include link-btn-hover($orange);
     }
   }
-}
 
-@media screen and (max-width: 750px) {
-  .today-meal-container {
-    width: 95%;
+  @include mq('tab') {
+    width: 100%;
 
     .todays-meal-table {
-      width: 100%;
+      width: 90%;
+
+      .title {
+        font-size: 16px;
+      }
+
+      th, td {
+        font-size: 14px;
+      }
 
       .head:nth-child(1) {
         width: 10%;
@@ -83,6 +89,37 @@
       .head:nth-child(4) {
         width: 15%;
       }
+    }
+
+    .new-meal-btn {
+      font-size: 14px;
+    }
+  }
+  @include mq('sp') {
+
+    .todays-meal-table {
+      width: 100%;
+
+      .title {
+        font-size: 14px;
+      }
+
+      th, td {
+        font-size: 10px;
+      }
+
+      .head:nth-child(1) {
+        width: 10%;
+      }
+
+      .head:nth-child(4) {
+        width: 15%;
+      }
+    }
+
+    .new-meal-btn {
+      font-size: 12px;
+      padding: 6px 12px;
     }
   }
 }
