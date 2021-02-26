@@ -11,6 +11,11 @@
   background: #fff;
   border-radius: 10px;
 
+  @include mq('sp'){
+    width: 70%;
+    font-size: 12px;
+  }
+
   .search-form {
     display: flex;
     flex-direction: column;
@@ -30,6 +35,7 @@
     .submit-btn {
       @include link-btn($blue);
       margin: 0 auto;
+      width: 30%;
 
       &:hover {
         @include link-btn-hover($blue);
@@ -46,6 +52,7 @@
   background: #fff;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
 
   .resident-table {
     width: 90%;
@@ -82,6 +89,68 @@
 
     &:hover {
       @include link-btn-hover($orange);
+    }
+  }
+
+  @include mq('sp') {
+    width: 100%;
+
+    .resident-table {
+      width: 100%;
+
+      th, td {
+        font-size: 10px;
+        display: none;
+        border: none;
+      }
+
+      tr {
+        border-bottom: 1px dotted #666;
+      }
+
+      th:nth-child(1) {
+        display: inline-block;
+        width: 25%;
+      }
+
+      th:nth-child(2) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      th:nth-child(3) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      th:nth-child(4) {
+        display: inline-block;
+        width: 45%;
+      }
+
+      td:nth-child(1) {
+        display: inline-block;
+        width: 25%;
+      }
+
+      td:nth-child(2) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      td:nth-child(3) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      td:nth-child(4) {
+        display: inline-block;
+        width: 45%;
+      }
+    }
+
+    .new-resident-btn {
+      font-size: 12px;
     }
   }
 }
@@ -150,49 +219,8 @@
 
 // レスポンシブ
 @media screen and (max-width: 750px) {
-  .resident-search-container {
-    width: 80%;
-  }
 
-  .resident-table-container {
-    width: 100%;
 
-    .resident-table {
-      width: 100%;
-
-      th, td {
-        font-size: 14px;
-        display: none;
-        border: none;
-      }
-
-      tr {
-        border-bottom: 1px dotted #666;
-      }
-
-      th:nth-child(1) {
-        display: inline-block;
-        width: 45%;
-      }
-
-      th:nth-child(4) {
-        display: inline-block;
-        width: 50%;
-        text-align: right;
-      }
-
-      td:nth-child(1) {
-        display: inline-block;
-        width: 45%;
-      }
-
-      td:nth-child(4) {
-        display: inline-block;
-        width: 50%;
-        text-align: right;
-      }
-    }
-  }
 
   .resident-container {
     width: 100%;
