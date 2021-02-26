@@ -473,7 +473,6 @@ td.fc-sun {         //日曜日の色設定
 
     .new-btn {
       @include link-btn($orange);
-      width: 30%;
 
       &:hover {
         @include link-btn-hover($orange);
@@ -498,6 +497,15 @@ td.fc-sun {         //日曜日の色設定
         @include link-btn-hover($red);
       }
     }
+  }
+
+  @include mq('tab') {
+    width: 70%;
+  }
+
+  @include mq('sp') {
+    width: 80%;
+    font-size: 14px;
   }
 }
 
@@ -626,21 +634,29 @@ td.fc-sun {         //日曜日の色設定
     }
   }
 
-  .event-form-container {
-    width: 90%;
-    margin: 40px auto;
-    padding: 30px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  // .event-form-container {
+  //   width: 90%;
+  //   margin: 40px auto;
+  //   padding: 30px;
+  //   background: #fff;
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
 
-    .event-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+  //   .event-form {
+  //     display: flex;
+  //     flex-direction: column;
+  //     align-items: center;
+  //   }
+
+  //   @include mq('tab') {
+  //     width: 90%;
+
+  //     .event-form {
+  //       width: 80%;
+  //     }
+  //   }
+  // }
 }
 
 // 避難所通信検索
@@ -986,12 +1002,6 @@ span.optional {    //フォームの任意項目
       }
     }
   }
-
-  .form-container {
-    width: 80%;
-  }
-
-
 
   .registration-form-container {
     width: 100%;
