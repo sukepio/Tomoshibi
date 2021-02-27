@@ -1,7 +1,7 @@
 class Admin::ResidentsController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_resident, only: [:show, :edit, :update]
-  
+
   def index
     @q = Resident.ransack(params[:q])
     @households = Household.all
@@ -29,7 +29,7 @@ class Admin::ResidentsController < ApplicationController
   end
 
   private
-  
+
   def set_resident
     @resident = Resident.find(params[:id])
   end
