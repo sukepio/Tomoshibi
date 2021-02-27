@@ -39,7 +39,6 @@
     .submit-btn {
       @include link-btn($blue);
       margin: 0 auto;
-      width: 30%;
 
       &:hover {
         @include link-btn-hover($blue);

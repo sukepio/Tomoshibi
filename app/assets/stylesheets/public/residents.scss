@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
-.mypage-flex {
+.mypage-flex {  //PC画面では横並び、TABLET以下では縦並び
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -207,6 +207,7 @@
   }
 }
 
+
 // 避難者カレンダー
 #mycalendar {
   margin-top: 30px;
@@ -222,6 +223,7 @@
   display: flex;
   flex-direction: column;
   align-itmes: center;
+  border-radius: 10px;
 
   .important {
     text-align: center;
@@ -240,6 +242,39 @@
 
     &:hover {
       @include link-btn-hover($green);
+    }
+  }
+
+  @include mq('tab') {
+    width: 80%;
+
+    .important {
+      font-size: 18px;
+    }
+
+    .explanation-body {
+      font-size: 12px;
+    }
+
+    .photo-btn {
+      padding: 4px 20px;
+      font-size: 14px;
+    }
+  }
+
+  @include mq('tab') {
+   width: 100%;
+
+   .important {
+      font-size: 16px;
+    }
+
+    .explanation-body {
+      font-size: 10px;
+    }
+
+    .photo-btn {
+      font-size: 12px;
     }
   }
 }
@@ -269,32 +304,14 @@
       }
     }
   }
-}
 
-// レスポンシブ
-@media screen and (max-width: 750px) {
-
-  .photo-explanation {
-    width: 100%;
-    margin: 30px auto;
-
-    .important {
-      font-size: 18px;
-    }
-
-    .explanation-body {
-      font-size: 12px;
-    }
-
-    .photo-btn {
-      padding: 4px 20px;
-    }
+  @include mq('tab'){
+    width: 80%;
+    font-size: 14px;
   }
 
-  .resident-edit-form {
-    width: 80%;
-    margin: 40px auto;
-    background: #fff;
-    padding: 30px;
+  @include mq('sp'){
+    width: 100%;
+    font-size: 12px;
   }
 }

@@ -6,12 +6,12 @@ h2= "#{@admin.full_name}さん"
       tr
         th 名前
         td
-          = @admin.full_name
+          = @admin.full_name_kana
           br
           = @admin.full_name
       tr
         th 年齢
-        td= @admin.age
+        td= "#{@admin.age}才"
       tr
         th 連絡先
         td= @admin.phone_number
