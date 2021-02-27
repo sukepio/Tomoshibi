@@ -17,9 +17,9 @@ class Resident < ApplicationRecord
   validates :login_id, presence: true
   validates :date_of_birth, presence: true
   validates :gender, presence: true
-  validates :self_message, length: { maximum: 25 }
+  validates :self_message, length: { maximum: 20 }
 
-  enum gender: { 男: 0, 女: 1 }
+  enum gender: { 男性: 0, 女性: 1 }
 
   def email_required?
     false
@@ -31,26 +31,6 @@ class Resident < ApplicationRecord
 
   def will_save_change_to_email?
     false
-  end
-
-  def full_name
-    last_name + " " + first_name
-  end
-
-  def full_name_kana
-    last_name_kana + " " + first_name_kana
-  end
-
-  def date_format
-    '%Y/%-m/%-d'
-  end
-
-  def birthday
-    date_of_birth.strftime(date_format)
-  end
-
-  def age
-    (Date.today.strftime(date_format).to_i - birthday.to_i)
   end
 
   # ゲストログインメソッド

@@ -1,0 +1,23 @@
+h2= "#{@admin.full_name}さん"
+
+.admin-show-container
+  table.admin-show-table
+    tbody
+      tr
+        th 名前
+        td
+          = @admin.full_name_kana
+          br
+          = @admin.full_name
+      tr
+        th 年齢
+        td= "#{@admin.age}才"
+      tr
+        th 連絡先
+        td= @admin.phone_number
+      tr
+        th ログインID
+        td= @admin.login_id
+      tr
+        th メールアドレス
+        td= @admin.email

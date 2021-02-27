@@ -3,12 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
-// 避難者統計情報
+// 避難者情報
 .resident-info {
   display: flex;
   justify-content: space-around;
   margin: 40px;
   max-height: 150px;
+
+  @include mq('sp') {
+    margin: 20px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   .info-box {
     width: 20%;
@@ -21,18 +28,46 @@
     text-align: center;
     background: #fff;
 
+    @include mq('sp') {
+      width: 40%;
+      max-width: 100px;
+      height: 50px;
+      margin: 0 4px;
+      margin-bottom: 6%;
+      border: 3px solid black;
+      border-radius: 20px;
+      text-align: center;
+      background: #fff;
+    }
+
     .box-title {
       font-size: 1.6vw;
-    }
+
+      @include mq('sp') {
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+     }
 
     .box-body {
       font-size: 1.8vw;
       font-weight: bold;
+
+      @include mq('sp') {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
     }
 
     .today {
       line-height: 3em;
       font-size: 1.8vw;
+
+      @include mq('sp') {
+        line-height: 50px;
+        font-size: 16px;
+      }
     }
   }
 
@@ -60,40 +95,4 @@
 .admin-calendar {
   width: 100%;
   margin-top: 30px;
-}
-
-@media screen and (max-width: 750px) {
-.resident-info {
-    margin: 20px;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-
-    .info-box {
-      width: 40%;
-      height: 50px;
-      margin: 0;
-      margin-bottom: 5%;
-      border: 3px solid black;
-      border-radius: 20px;
-      text-align: center;
-      background: #fff;
-
-      .box-title {
-        font-size: 12px;
-        margin-bottom: 0;
-      }
-
-      .box-body {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 0;
-      }
-
-      .today {
-        line-height: 50px;
-        font-size: 16px;
-      }
-    }
-  }
 }

@@ -9,6 +9,11 @@
   float: right;
   margin: 30px 0;
 
+  @include mq('sp') {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
   &:hover {
     @include link-btn-hover($blue);
   }

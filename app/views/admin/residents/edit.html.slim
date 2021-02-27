@@ -5,19 +5,19 @@ h2 編集する
   = form_with model: [:admin, @resident], class: 'registration-form', local: true do |f|
     .form-body
       .form-row
-        .form-group.col-lg-6
+        .form-group.col-lg-6.col-md-6.col-sm-6
           = f.label :last_name
           = f.text_field :last_name, autofocus: true, class:'form-control'
-        .form-group.col-lg-6
+        .form-group.col-lg-6.col-md-6.col-sm-6
           = f.label :first_name
           span.required 【必須】
           = f.text_field :first_name, autofocus: true, class:'form-control'
 
       .form-row
-        .form-group.col-lg-6
+        .form-group.col-lg-6.col-md-6.col-sm-6
           = f.label :last_name_kana
           = f.text_field :last_name_kana, autofocus: true, class:'form-control'
-        .form-group.col-lg-6
+        .form-group.col-lg-6.col-md-6.col-sm-6
           = f.label :first_name_kana
           span.required 【必須】
           = f.text_field :first_name_kana, autofocus: true, class:'form-control'

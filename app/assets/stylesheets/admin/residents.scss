@@ -11,6 +11,15 @@
   background: #fff;
   border-radius: 10px;
 
+  @include mq('tab'){
+    width: 70%;
+    font-size: 14px;
+  }
+
+  @include mq('sp'){
+    font-size: 12px;
+  }
+
   .search-form {
     display: flex;
     flex-direction: column;
@@ -46,6 +55,7 @@
   background: #fff;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
 
   .resident-table {
     width: 90%;
@@ -84,6 +94,83 @@
       @include link-btn-hover($orange);
     }
   }
+
+  @include mq('tab') {
+    width: 100%;
+
+    .resident-table {
+      width: 90%;
+
+      th, td {
+        font-size: 14px;
+        display: none;
+        border: none;
+      }
+
+      tr {
+        border-bottom: 1px dotted #666;
+      }
+
+      th:nth-child(1) {
+        display: inline-block;
+        width: 25%;
+      }
+
+      th:nth-child(2) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      th:nth-child(3) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      th:nth-child(4) {
+        display: inline-block;
+        width: 45%;
+      }
+
+      td:nth-child(1) {
+        display: inline-block;
+        width: 25%;
+      }
+
+      td:nth-child(2) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      td:nth-child(3) {
+        display: inline-block;
+        width: 15%;
+      }
+
+      td:nth-child(4) {
+        display: inline-block;
+        width: 45%;
+      }
+    }
+
+    .new-resident-btn {
+      font-size: 14px;
+    }
+  }
+
+  @include mq('sp') {
+
+    .resident-table {
+      width: 100%;
+
+      th, td {
+        font-size: 10px;
+      }
+    }
+
+    .new-resident-btn {
+      font-size: 12px;
+    }
+  }
 }
 
 // 避難者詳細画面
@@ -95,6 +182,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 
   .resident-show-table {
     width: 90%;
@@ -107,8 +195,8 @@
     th {
       width: 25%;
       color: $orange;
-
     }
+
     .title {
       text-align: center;
       color: #000;
@@ -137,64 +225,8 @@
       @include link-btn-hover($yellow);
     }
   }
-}
 
-.edit-btn {
-  @include link-btn($blue);
-  margin: 0 auto;
-
-  &:hover {
-    @include link-btn-hover($blue);
-  }
-}
-
-// レスポンシブ
-@media screen and (max-width: 750px) {
-  .resident-search-container {
-    width: 80%;
-  }
-
-  .resident-table-container {
-    width: 100%;
-
-    .resident-table {
-      width: 100%;
-
-      th, td {
-        font-size: 14px;
-        display: none;
-        border: none;
-      }
-
-      tr {
-        border-bottom: 1px dotted #666;
-      }
-
-      th:nth-child(1) {
-        display: inline-block;
-        width: 45%;
-      }
-
-      th:nth-child(4) {
-        display: inline-block;
-        width: 50%;
-        text-align: right;
-      }
-
-      td:nth-child(1) {
-        display: inline-block;
-        width: 45%;
-      }
-
-      td:nth-child(4) {
-        display: inline-block;
-        width: 50%;
-        text-align: right;
-      }
-    }
-  }
-
-  .resident-container {
+  @include mq('tab') {
     width: 100%;
 
     .resident-show-table {
@@ -202,7 +234,7 @@
       margin-bottom: 30px;
 
       th, td {
-        font-size: .8em;
+        font-size: 14px;
       }
 
       th {
@@ -210,7 +242,7 @@
       }
 
       .title {
-        font-size: 1.2em;
+        font-size: 14px;
       }
 
     }
@@ -219,13 +251,58 @@
       text-align: center;
 
       .resident-edit-btn {
-        margin-right: 0;
+        margin-right: 20px;
         margin-bottom: 5%;
+        font-size: 14px;
       }
 
       .photo-btn {
         margin-right: 0;
+        font-size: 14px;
       }
     }
+  }
+
+  @include mq('sp') {
+
+    .resident-show-table {
+
+      th, td {
+        font-size: 12px;
+      }
+
+      .title {
+        font-size: 12px;
+      }
+    }
+
+    .btn-link {
+
+      .resident-edit-btn {
+        font-size: 12px;
+      }
+
+      .photo-btn {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+.edit-btn {
+  @include link-btn($blue);
+  margin: 0 auto;
+
+  @include mq('tab') {
+    font-size: 14px;
+  }
+
+  @include mq('sp') {
+    font-size: 12px;
+  }
+
+  &:hover {
+    @include link-btn-hover($blue);
   }
 }

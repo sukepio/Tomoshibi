@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
+//ボタンのCSS
 .btn-container {
   display: flex;
   justify-content: center;
@@ -12,6 +13,14 @@
   @include link-btn($green);
   margin-right: 20px;
 
+  @include mq('tab') {
+    font-size: 14px;
+  }
+
+  @include mq('sp') {
+    font-size: 12px;
+  }
+
   &:hover {
     @include link-btn-hover($green);
   }
@@ -20,11 +29,20 @@
 .post-delete-btn {
   @include link-btn($red);
 
+  @include mq('tab') {
+    font-size: 14px;
+  }
+
+  @include mq('sp') {
+    font-size: 12px;
+  }
+
   &:hover {
     @include link-btn-hover($red);
   }
 }
 
+//避難所通信編集画面
 .post-edit-form {
   width: 50%;
   margin: 40px auto;
@@ -51,20 +69,32 @@
       }
     }
   }
+
+  @include mq('tab') {
+    width: 80%;
+    font-size: 14px;
+  }
+
+  @include mq('sp') {
+    width: 100%;
+    font-size: 12px;
+  }
 }
 
-// 画像をプレビュー
+// 画像のプレビュー
 #image_prev {
   width: auto;
-  height: 400px;
+  height: 350px;
+
+   @include mq('tab') {
+    height: 300px;
+  }
+
+   @include mq('sp') {
+    height: 200px;
+  }
 }
 
 .center {
   text-align: center;
-}
-
-@media screen and (max-width: 750px) {
-  .post-edit-form {
-    width: 80%;
-  }
 }

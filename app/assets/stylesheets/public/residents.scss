@@ -3,14 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
-.mypage-flex {
+.mypage-flex {  //PC画面では横並び、TABLET以下では縦並び
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
 
+  @include mq('tab') {
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .left-container {
-    width: 73%;
+    width: 60%;
     marign-right: 2%;
 
     .new-post-container {
@@ -53,19 +59,84 @@
         }
       }
     }
+
+    @include mq('tab') {
+      width: 90%;
+      margin: 0 auto;
+
+      .new-post-container {
+        width: 100%;
+        padding: 5px 10px;
+
+        .new-post-table {
+          width: 95%;
+          margin: 0 auto;
+
+          .title {
+            font-size: 14px;
+          }
+
+          tr:first-child th {
+            font-size: 16px;
+          }
+
+          th, td {
+            padding: 5px;
+          }
+
+          td {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    @include mq('sp') {
+      width: 100%;
+
+      .new-post-container {
+
+        .new-post-table {
+
+          .title {
+            font-size: 12px;
+          }
+
+          .time {
+            font-size: 12px;
+          }
+
+          tr:first-child th {
+            font-size: 14px;
+          }
+
+          td {
+            font-size: 10px;
+          }
+        }
+      }
+    }
   }
 
   .right-container {
     background: white;
     border-radius: 15px;
-    padding: 10px;
+    padding: 20px;
     height: 80%;
-    width: 25%;
+    width: 37%;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      text-align: center;
+      padding-bottom: 2px;
+      border-bottom: 1px dashed #666;
+    }
 
     .photo-info-btn {
       @include link-btn($red);
       width: 100%;
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
 
       &:hover {
         @include link-btn-hover($red);
@@ -73,16 +144,69 @@
       }
     }
 
+    .btns {
+      text-align: center;
+      margin: 0 auto;
+    }
+
     .edit-btn {
       @include link-btn($blue);
       width: 100%;
+      margin: 0 auto;
 
       &:hover {
         @include link-btn-hover($blue);
       }
     }
+
+    @include mq('tab') {
+      padding: 10px;
+      width: 90%;
+      margin: 20px auto 0;
+
+      .btns {
+        width: 40%;
+
+        .photo-info-btn {
+          width: 65%;
+          margin: 0 auto 20px;
+          padding: 6px 10px;
+          font-size: 12px;
+        }
+
+        .edit-btn {
+          width: 65%;
+          padding: 6px 10px;
+          margin: 0 auto;
+          font-size: 12px;
+        }
+      }
+    }
+
+    @include mq('sp') {
+      width: 100%;
+
+      p {
+        font-size: 14px;
+      }
+
+      .btns {
+        width: 50%;
+
+        .photo-info-btn {
+          width: 80%;
+          font-size: 10px;
+        }
+
+        .edit-btn {
+          width: 80%;
+          font-size: 10px;
+        }
+      }
+    }
   }
 }
+
 
 // 避難者カレンダー
 #mycalendar {
@@ -99,6 +223,7 @@
   display: flex;
   flex-direction: column;
   align-itmes: center;
+  border-radius: 10px;
 
   .important {
     text-align: center;
@@ -117,6 +242,39 @@
 
     &:hover {
       @include link-btn-hover($green);
+    }
+  }
+
+  @include mq('tab') {
+    width: 80%;
+
+    .important {
+      font-size: 18px;
+    }
+
+    .explanation-body {
+      font-size: 12px;
+    }
+
+    .photo-btn {
+      padding: 4px 20px;
+      font-size: 14px;
+    }
+  }
+
+  @include mq('tab') {
+   width: 100%;
+
+   .important {
+      font-size: 16px;
+    }
+
+    .explanation-body {
+      font-size: 10px;
+    }
+
+    .photo-btn {
+      font-size: 12px;
     }
   }
 }
@@ -146,99 +304,14 @@
       }
     }
   }
-}
 
-// レスポンシブ
-@media screen and (max-width: 750px) {
-  .mypage-flex {
-    margin-top: 20px;
-    flex-direction: column;
-
-    .left-container {
-      width: 90%;
-      margin: 0 auto;
-
-      .new-post-container {
-        width: 95%;
-        padding: 5px 10px;
-
-        .new-post-table {
-          width: 95%;
-          margin: 0 auto;
-
-          .title {
-            font-size: 16px;
-          }
-
-          tr:first-child th {
-            font-size: 18px;
-          }
-
-          th, td {
-            padding: 5px;
-          }
-
-          td {
-            font-size: 12px;
-          }
-        }
-      }
-    }
-
-    .right-container {
-      background: white;
-      border-radius: 15px;
-      padding: 10px;
-      height: 80%;
-      width: 90%;
-      margin: 20px auto 0;
-
-      p {
-        text-align: center;
-      }
-
-      .btns {
-        width: 40%;
-        margin: 0 auto;
-
-        .photo-info-btn {
-          @include link-btn($red);
-          width: 100%;
-          margin: 0 auto 20px;
-          padding: 6px 2px;
-        }
-
-        .edit-btn {
-          @include link-btn($blue);
-          width: 100%;
-          padding: 6px 2px;
-          margin: 0 auto;
-        }
-      }
-    }
-  }
-
-  .photo-explanation {
-    width: 100%;
-    margin: 30px auto;
-
-    .important {
-      font-size: 18px;
-    }
-
-    .explanation-body {
-      font-size: 12px;
-    }
-
-    .photo-btn {
-      padding: 4px 20px;
-    }
-  }
-
-  .resident-edit-form {
+  @include mq('tab'){
     width: 80%;
-    margin: 40px auto;
-    background: #fff;
-    padding: 30px;
+    font-size: 14px;
+  }
+
+  @include mq('sp'){
+    width: 100%;
+    font-size: 12px;
   }
 }

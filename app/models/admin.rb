@@ -15,10 +15,6 @@ class Admin < ApplicationRecord
   validates :date_of_birth, presence: true
   validates :email, presence: true, uniqueness: true
 
-  def full_name
-    last_name + first_name
-  end
-
   # ゲストログインメソッド
   def self.guest
     find_or_create_by!(first_name: '太郎', last_name: '管理', first_name_kana: 'タロウ', last_name_kana: 'カンリ', email: 'guest@admin.com', phone_number: '00011112222', date_of_birth: '2000-01-01', login_id: 'guest.login') do |admin|

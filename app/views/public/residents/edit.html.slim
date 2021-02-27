@@ -15,5 +15,5 @@ h2 写真許可と一言メッセージ
 
       .form-group
         = f.label :self_message, '自分に一言！'
-        = f.text_field :self_message, class: 'form-control'
+        = f.text_field :self_message, placeholder: '20文字以内で入力してください', class: 'form-control'
     = f.submit '更新', class: 'update-btn'
