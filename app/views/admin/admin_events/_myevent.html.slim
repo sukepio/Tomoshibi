@@ -8,6 +8,6 @@ table.myevent-table
       th.head スケジュール内容
     - today_events.each do |event|
       tr
-        th.body= event.time_format
+        th.body= event.time
         th.body= event.title
         td.body= event.body
