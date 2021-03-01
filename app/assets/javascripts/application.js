@@ -35,3 +35,15 @@ $(function() {
     event.preventDefault();
   });
 });
+
+$(function() {
+  $('.op-modal').on('click', function(event) {
+    $('.modal-form').addClass('show-modal');
+    event.preventDefault();
+  });
+
+  $('.close-modal').on('click', function(event) {
+    $('.modal-form').removeClass('show-modal');
+    event.preventDefault();
+  });
+});

@@ -644,9 +644,16 @@ td.fc-sun {         //日曜日の色設定
 // 避難所通信新規投稿・メッセージ投稿画面共通CSS
 .form-container {
   width: 50%;
-  margin: 40px auto;
-  padding: 30px;
+  margin: 100px auto 0;
+  padding: 80px 30px 30px;
   background: #fff;
+  position: relative;
+
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
 
   .form {
     display: flex;
@@ -669,7 +676,7 @@ td.fc-sun {         //日曜日の色設定
   }
 
   @include mq('sp') {
-    width: 100%;
+    width: 90%;
     font-size: 12px;
   }
 }

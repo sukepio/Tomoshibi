@@ -3,6 +3,7 @@ class Admin::MessagesController < ApplicationController
 
   def index
     @messages = Message.page(params[:page]).per(6).order(created_at: :desc)
+    @message = Message.new
   end
 
   def new
@@ -10,11 +11,12 @@ class Admin::MessagesController < ApplicationController
   end
 
   def create
+    @messages = Message.page(params[:page]).per(6).order(created_at: :desc)
     @message = Message.new(message_params)
     if @message.save
       redirect_to admin_messages_path, notice: "メッセージを追加しました。"
     else
-      render :new
+      render :index
     end
   end
 
