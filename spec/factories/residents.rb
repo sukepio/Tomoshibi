@@ -11,7 +11,7 @@ FactoryBot.define do
     has_left { false }
     photo_accepted { false }
     information { Faker::Lorem.characters(number: 30) }
-    self_message { Faker::Lorem.characters(number: 25) }
+    self_message { Faker::Lorem.characters(number: 20) }
     password { 'password' }
     password_confirmation { 'password' }
     household

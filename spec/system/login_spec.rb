@@ -7,14 +7,14 @@ describe 'login', type: :system do
     end
 
     describe 'resident login page(root_path)' do
-      describe 'correct page display' do
-        it 'has a URL' do
+      describe 'page display' do
+        it 'has a correct URL' do
           expect(current_path).to eq '/'
         end
 
         it 'has resident_login link' do
           log_in_link = find_all('a')[1].native.inner_text
-          expect(log_in_link).to match(/住民ログイン/i)
+          expect(log_in_link).to match(/住民さんログイン/i)
         end
 
         it 'has a correct resident_login link' do
@@ -62,9 +62,45 @@ describe 'login', type: :system do
         end
       end
     end
+  end
 
-    # describe 'admin login' do
-    #   let(:admin) { create(:admin) }
-    # end
+  describe 'admin login' do
+    before do
+      visit new_admin_session_path
+    end
+
+    describe 'page display' do
+      it 'has a correct URL' do
+        expect(current_path).to eq '/admins/sign_in'
+      end
+    end
+
+    describe 'log in to admin' do
+      let(:admin) { create(:admin) }
+
+      context 'with valid inputs' do
+        before do
+          fill_in 'ログインID', with: admin.login_id
+          fill_in 'パスワード', with: admin.password
+          click_button 'ログイン'
+        end
+
+        it 'succeeds and redirects to mypage' do
+          expect(current_path).to eq '/admin/events'
+        end
+      end
+
+      context 'with invalid inputs' do
+        before do
+          fill_in 'ログインID', with: ''
+          fill_in 'パスワード', with: ''
+          click_button 'ログイン'
+        end
+
+        it 'fails and redirects to resident login page' do
+          expect(current_path).to eq '/admins/sign_in'
+        end
+      end
+    end
   end
 end

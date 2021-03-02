@@ -35,7 +35,7 @@ RSpec.describe Admin, type: :model do
 
     describe 'full_name' do
       it 'returns a conbined string of last_name and first_name' do
-        expect(admin.full_name).to eq '山田太郎'
+        expect(admin.full_name).to eq '山田 太郎'
       end
     end
   end

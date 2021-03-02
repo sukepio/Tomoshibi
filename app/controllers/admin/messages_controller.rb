@@ -3,6 +3,7 @@ class Admin::MessagesController < ApplicationController
 
   def index
     @messages = Message.page(params[:page]).per(6).order(created_at: :desc)
+    @message = Message.new
   end
 
   def new
