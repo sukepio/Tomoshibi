@@ -7,9 +7,12 @@
         = render 'public/posts/bookmark_btn', post: @post
     h2= @post.title
 
-    .img-flex
-      - if @post.image
-        - @post.image.each do |image|
-          .post-img= image_tag image.url, height: '400px'
+    .center
+      - if @post.image.present?
+        = image_tag @post.image[0].url, id: "bigimg", height: '400px'
+        ul
+          - @post.image.each do |image|
+            li
+              = image_tag image.url, height: '100px', class: 'thumb'
 
     p.body= @post.body
