@@ -1,4 +1,9 @@
 ja:
+  enums:
+    resident:
+      gender:
+        man: "男性"
+        woman: "女性"
   activerecord:
     errors:
       messages:

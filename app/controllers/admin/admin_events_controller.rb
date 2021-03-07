@@ -43,8 +43,8 @@ class Admin::AdminEventsController < ApplicationController
     @residents = Resident.where(has_left: false)
     @households = Household.all
     @today_events = AdminEvent.where(start: Time.now.in_time_zone("Tokyo").all_day).order(start: :asc)
-    @men = @residents.where(gender: 0)
-    @women = @residents.where(gender: 1)
+    @men = @residents.woman
+    @women = @residents.woman
   end
 
   def set_admin_event

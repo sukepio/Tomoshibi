@@ -81,6 +81,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'ransack'
 gem 'kaminari'
+gem 'enum_help'
 group :production do
   gem 'mysql2'
 end

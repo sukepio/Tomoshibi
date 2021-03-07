@@ -195,6 +195,7 @@ body {
 
   .overlay {
     display: none;
+    
 
     @include mq('tab') {
       position: fixed;

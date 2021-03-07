@@ -19,7 +19,7 @@ class Resident < ApplicationRecord
   validates :gender, presence: true
   validates :self_message, length: { maximum: 20 }
 
-  enum gender: { 男性: 0, 女性: 1 }
+  enum gender: { man: 0, woman: 1 }
 
   def email_required?
     false
