@@ -4,7 +4,7 @@ class Public::ResidentsController < ApplicationController
 
   def show
     @myevents = current_resident.myevents
-    @today_events = @myevents.where(start: Time.now.in_time_zone("Tokyo").all_day).order(start: :asc)
+    @today_events = @myevents.for_today.order(:start)
     @recent_post = Post.last
   end
 

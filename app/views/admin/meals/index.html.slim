@@ -15,7 +15,7 @@
           th.head 発注数
       - @today_meals.each do |meal|
         tr
-          th.body= meal.time_format
+          th.body= meal.time
           th.body= meal.menu
           td.body= meal.detail
           td.body= meal.amount if admin_signed_in?
