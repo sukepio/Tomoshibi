@@ -1,4 +1,8 @@
+require 'concerns/time'
+
 class Myevent < ApplicationRecord
+  include TimeFormat
+  
   belongs_to :resident
 
   validates :title, presence: true

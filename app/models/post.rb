@@ -1,4 +1,8 @@
+require 'concerns/time'
+
 class Post < ApplicationRecord
+  include TimeFormat
+
   has_many :bookmarks, dependent: :destroy
   belongs_to :admin
   mount_uploaders :image, ImageUploader

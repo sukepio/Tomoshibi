@@ -1,4 +1,8 @@
+require 'concerns/time'
+
 class Meal < ApplicationRecord
+  include TimeFormat
+  
   validates :menu, presence: true
   validates :amount, presence: true
   validates :start, presence: true

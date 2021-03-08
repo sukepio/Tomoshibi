@@ -1,4 +1,8 @@
+require 'concerns/time'
+
 class AdminEvent < ApplicationRecord
+  include TimeFormat
+  
   validates :title, presence: true
   validates :start, presence: true
   validates :end, presence: true
