@@ -1,8 +1,10 @@
 require 'concerns/full_name'
+require 'concerns/age'
 
 class Admin < ApplicationRecord
 
   include FullName
+  include Age
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
