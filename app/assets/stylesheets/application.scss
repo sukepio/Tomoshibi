@@ -195,7 +195,7 @@ body {
 
   .overlay {
     display: none;
-    
+
 
     @include mq('tab') {
       position: fixed;
@@ -496,12 +496,12 @@ td.fc-sun {         //日曜日の色設定
       }
     }
 
-    .delete-btn {
-      @include link-btn($red);
+  }
+  .delete-btn {
+    @include link-btn($red);
 
-      &:hover {
-        @include link-btn-hover($red);
-      }
+    &:hover {
+      @include link-btn-hover($red);
     }
   }
 
@@ -836,17 +836,6 @@ td.fc-sun {         //日曜日の色設定
         margin-left: 5px;
       }
     }
-
-    // .img-flex {
-    //   display: flex;
-    //   justify-content: center;
-    //   flex-wrap: wrap;
-    // }
-
-    // .post-img {
-    //   text-align: center;
-    //   margin-right: 10px;
-    // }
 
     .center {
       margin: 0 auto;
