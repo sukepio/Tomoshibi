@@ -1,0 +1,22 @@
+= form_with model: meal, class: 'event-form', local: true do |f|
+  .form-body
+    .form-group
+      = f.label :menu
+      span.required 【必須】
+      = f.text_field :menu, class: 'form-control'
+
+    .form-group
+      = f.label :amount
+      = f.select :amount, [*30..200], { selected: 100 }, class: 'form-control'
+
+    .form-group
+      = f.label :detail
+      span.optional 【任意】
+      = f.text_field :detail, class: 'form-control'
+
+    .form-group
+      = f.label :start, '食事日時'
+      br
+      = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
+
+  = f.submit '更新', class: yield(:btn_class)
