@@ -1,32 +1,6 @@
+- provide(:btn_class, 'update-btn')
 h2 世帯情報の編集
 
 .household-form-container
   = render 'layouts/error_messages', resource: @household
-
-  = form_with model: [:admin, @resident, @household], class: 'household-form', local: true do |f|
-    .form-body
-      .form-row
-        .form-group.col-md-6.col-md-6.col-sm-6
-          = f.label :head_last_name
-          = f.text_field :head_last_name, autofocus: true, class:'form-control'
-        .form-group.col-md-6.col-md-6.col-sm-6
-          = f.label :head_first_name
-          span.required 【必須】
-          = f.text_field :head_first_name, autofocus: true, class:'form-control'
-
-      .form-group
-        = f.label :address
-        span.required 【必須】
-        = f.text_field :address, autofocus: true, class:'form-control'
-
-      .form-group
-        = f.label :house_damage_situation
-        span.required 【必須】
-        = f.text_area :house_damage_situation, rows: 4, autofocus: true, class:'form-control'
-
-      .form-group
-        = f.label :living_space
-        span.required 【必須】
-        = f.text_field :living_space, autofocus: true, class:'form-control'
-
-    = f.submit nil, class: 'update-btn'
+  = render 'form', resident: @resident, household: @household
