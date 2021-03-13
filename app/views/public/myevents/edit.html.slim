@@ -1,24 +1,8 @@
+- provide(:btn_text, '更新')
+- provide(:btn_class, 'update-btn')
 h2 スケジュール詳細
 
 .event-form-container
   = render 'layouts/error_messages', resource: @myevent
-
-  = form_with model: @myevent, class: 'event-form', local: true do |f|
-    .form-body
-      .form-group
-        = f.label :title
-        span.required 【必須】
-        = f.text_field :title, class: 'form-control'
-
-      .form-group
-        = f.label :body
-        span.optional 【任意】
-        = f.text_area :body, rows: 2, class: 'form-control'
-
-      .form-group
-        = f.label :start
-        br
-        = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
-
-    = f.submit '更新', class: 'update-btn'
-    = link_to '削除', myevent_path(@myevent), data: { confirm: '本当に削除しますか？' }, method: :delete, class: 'delete-btn'
+  = render 'form', myevent: @myevent
+  = link_to '削除', myevent_path(@myevent), data: { confirm: '本当に削除しますか？' }, method: :delete, class: 'delete-btn'

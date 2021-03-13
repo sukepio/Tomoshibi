@@ -24,4 +24,4 @@
       span.required 【必須】
       = f.text_field :living_space, autofocus: true, class:'form-control'
 
-  = f.submit nil, class: yield(:btn_class)
+  = f.submit yield(:btn_text), class: yield(:btn_class)

@@ -19,4 +19,4 @@
       br
       = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
 
-  = f.submit '更新', class: yield(:btn_class)
+  = f.submit yield(:btn_text), class: yield(:btn_class)

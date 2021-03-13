@@ -1,23 +1,7 @@
+- provide(:btn_text, '新規登録')
+- provide(:btn_class, 'new-btn')
 h2 新規スケジュール登録
 
 .event-form-container
   = render 'layouts/error_messages', resource: @myevent
-
-  = form_with model: @myevent, class: 'event-form', local: true do |f|
-    .form-body
-      .form-group
-        = f.label :title
-        span.required 【必須】
-        = f.text_field :title, class: 'form-control'
-
-      .form-group
-        = f.label :body
-        span.optional 【任意】
-        = f.text_area :body, rows: 2, class: 'form-control'
-
-      .form-group
-        = f.label :start
-        br
-        = f.datetime_select :start, { minute_step: 30 }, class: 'form-control datetime-form'
-
-    = f.submit '新規登録', class: 'new-btn'
+  = render 'form', myevent: @myevent
