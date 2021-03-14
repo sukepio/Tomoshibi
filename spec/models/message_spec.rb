@@ -6,18 +6,14 @@ RSpec.describe Message, type: :model do
 
     let!(:message) { create(:message) }
 
-    context 'with valid inputs' do
-      it 'can be saved' do
-        is_expected.to eq true
-      end
+    it 'is valid with valid inputs' do
+      is_expected.to eq true
     end
 
     describe 'sender' do
-      context 'with a empty sender' do
-        it 'is valid' do
-          message.sender = ''
-          is_expected.to eq false
-        end
+      it 'is valid without a sender' do
+        message.sender = ''
+        is_expected.to eq false
       end
     end
   end

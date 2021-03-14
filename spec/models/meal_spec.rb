@@ -6,27 +6,21 @@ RSpec.describe Meal, type: :model do
 
     let!(:meal) { create(:meal) }
 
-    context 'with valid inputs' do
-      it 'can be saved' do
-        is_expected.to eq true
-      end
+    it 'can be saved with valid inputs' do
+      is_expected.to eq true
     end
 
     describe 'menu' do
-      context 'with am empty menu' do
-        it 'is invalid' do
-          meal.menu = ''
-          is_expected.to eq false
-        end
+      it 'is invalid without a menu' do
+        meal.menu = ''
+        is_expected.to eq false
       end
     end
 
     describe 'amount' do
-      context 'with am empty amount' do
-        it 'is invalid' do
-          meal.amount = ''
-          is_expected.to eq false
-        end
+      it 'is invalid without an amount' do
+        meal.amount = ''
+        is_expected.to eq false
       end
     end
   end

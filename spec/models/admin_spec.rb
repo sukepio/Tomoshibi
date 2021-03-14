@@ -7,25 +7,62 @@ RSpec.describe Admin, type: :model do
     let!(:other_admin) { create(:admin) }
     let(:admin) { build(:admin) }
 
-    context 'with valid inputs' do
-      it 'can be saved' do
-        is_expected.to eq true
+    it 'is valid with a valid inputs' do
+      is_expected.to eq true
+    end
+
+    describe 'name' do
+      it 'is invalid without a first name' do
+        admin.first_name = ''
+        is_expected.to eq false
+      end
+
+      it 'is invalid without a last name' do
+        admin.last_name = ''
+        is_expected.to eq false
+      end
+
+      it 'is invalid without a first name in kana' do
+        admin.first_name_kana = ''
+        is_expected.to eq false
+      end
+
+      it 'is invalid without a last name in kana' do
+        admin.last_name_kana = ''
+        is_expected.to eq false
+      end
+    end
+
+    describe 'phone_number' do
+      it 'is invalid without a phone number' do
+        admin.phone_number = ''
+        is_expected.to eq false
+      end
+    end
+
+    describe 'login_id' do
+      it 'is invalid without a login id' do
+        admin.login_id = ''
+        is_expected.to eq false
+      end
+    end
+
+    describe 'date_of_birth' do
+      it 'is invalid without a date of birth' do
+        admin.date_of_birth = ''
+        is_expected.to eq false
       end
     end
 
     describe 'email' do
-      context 'when an email is empty' do
-        it 'is invalid' do
-          admin.email = ''
-          is_expected.to eq false
-        end
+      it 'is invalid without an email' do
+        admin.email = ''
+        is_expected.to eq false
       end
 
-      context 'when an email already exists' do
-        it 'is invalid' do
-          admin.email = other_admin.email
-          is_expected.to eq false
-        end
+      it 'is invalid with a duplicate email address' do
+        admin.email = other_admin.email
+        is_expected.to eq false
       end
     end
   end
@@ -34,14 +71,14 @@ RSpec.describe Admin, type: :model do
     let!(:admin) { build(:admin) }
 
     describe 'full_name' do
-      it 'returns a conbined string of last_name and first_name' do
+      it 'returns a resident\'s full name as a string' do
         expect(admin.full_name).to eq '山田 太郎'
       end
     end
   end
 
   describe 'association' do
-    it 'has many posts' do
+    it 'can have many posts' do
       expect(Admin.reflect_on_association(:posts).macro).to eq :has_many
     end
   end

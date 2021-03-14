@@ -7,27 +7,21 @@ RSpec.describe Myevent, type: :model do
     let!(:resident) { FactoryBot.create(:resident) }
     let!(:myevent) { FactoryBot.create(:myevent) }
 
-    context 'with valid inputs' do
-      it 'can be saved' do
-        is_expected.to eq true
-      end
+    it 'is valid with valid inputs' do
+      is_expected.to eq true
     end
 
     describe 'title' do
-      context 'with am empty title' do
-        it 'is invalid' do
-          myevent.title = ''
-          is_expected.to eq false
-        end
+      it 'is invalid without a title' do
+        myevent.title = ''
+        is_expected.to eq false
       end
     end
 
     describe 'resident_id' do
-      context 'with am empty resident_id' do
-        it 'is invalid' do
-          myevent.resident_id = ''
-          is_expected.to eq false
-        end
+      it 'is invalid without a resident_id' do
+        myevent.resident_id = ''
+        is_expected.to eq false
       end
     end
   end
