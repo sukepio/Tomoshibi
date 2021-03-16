@@ -23,5 +23,12 @@ RSpec.describe Meal, type: :model do
         is_expected.to eq false
       end
     end
+
+    describe 'start' do
+      it 'is invalid without a start time' do
+        meal.start = ''
+        is_expected.to eq false
+      end
+    end
   end
 end

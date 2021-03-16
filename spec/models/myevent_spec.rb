@@ -24,6 +24,13 @@ RSpec.describe Myevent, type: :model do
         is_expected.to eq false
       end
     end
+
+    describe 'start' do
+      it 'is invalid without a start time' do
+        myevent.start = ''
+        is_expected.to eq false
+      end
+    end
   end
 
   describe 'association' do
