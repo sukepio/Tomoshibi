@@ -4,6 +4,8 @@ describe 'After login as a resident', type: :system do
   let(:resident) { create(:resident) }
   let!(:myevent) { create(:myevent, resident: resident) }
   let!(:post) { create(:post) }
+  let!(:other_post) { create(:post, created_at: 2.days.ago) }
+  let!(:bookmark) { create(:bookmark, resident: resident, post: post) }
 
   before do
     visit new_resident_session_path
@@ -81,9 +83,9 @@ describe 'After login as a resident', type: :system do
         end
       end
 
-      it 'does not show other day\'s event' do
+      it 'does not show other day\'s event in today\'s events'do
         within ".myevent-container" do
-        other_event = create(:myevent, resident: resident, start: 1.day.ago)
+        other_event = create(:myevent, resident: resident, start: 2.days.ago)
           is_expected.to have_no_content other_event.time
           is_expected.to have_no_content other_event.title
           is_expected.to have_no_content other_event.body
@@ -91,9 +93,9 @@ describe 'After login as a resident', type: :system do
       end
 
       it 'shows the most recent post' do
-        is_expected.to have_content post.time_format
-        is_expected.to have_content post.title
-        is_expected.to have_content post.body
+        is_expected.to have_content other_post.time_format
+        is_expected.to have_content other_post.title
+        is_expected.to have_content other_post.body
       end
 
       it 'shows "イベント作成ボタン" and redirects new myevent page' do
@@ -118,11 +120,11 @@ describe 'After login as a resident', type: :system do
       visit new_myevent_path
     end
 
-    it 'shows a correct page' do
+    it 'shows a correct url' do
       expect(current_path).to eq '/myevents/new'
     end
 
-    describe 'form display' do
+    describe 'Form display' do
       it 'show a title form' do
         expect(page).to have_field 'myevent[title]'
       end
@@ -143,6 +145,101 @@ describe 'After login as a resident', type: :system do
         expect(find_field('myevent[body]').text).to be_blank
       end
 
+      it 'shows "新規登録" button' do
+        expect(page).to have_button '新規登録'
+      end
+    end
+
+    describe 'Successfull post' do
+      before do
+        fill_in 'myevent[title]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'myevent[body]', with: Faker::Lorem.characters(number: 20)
+      end
+
+      it 'is saved successfully' do
+        expect { click_button '新規登録' }.to change(resident.myevents, :count).by(1)
+      end
+
+      it 'redirects mypage' do
+        click_button '新規登録'
+        expect(current_path).to eq '/mypage'
+      end
+
+      it 'shows a success message' do
+        click_button '新規登録'
+        expect(page).to have_content "#{Myevent.last.title}を追加しました。"
+      end
+    end
+  end
+
+  describe 'Post index page' do
+    before do
+      visit posts_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/posts'
+    end
+
+    it 'has a correct link of a post' do
+      expect(page).to have_link '', href: post_path(post)
+      expect(page).to have_link '', href: post_path(other_post)
+    end
+
+    it 'shows multiple posts' do
+      expect(page).to have_content post.time_format
+      expect(page).to have_content post.title
+      expect(page).to have_content post.body
+      expect(page).to have_content other_post.time_format
+      expect(page).to have_content other_post.title
+      expect(page).to have_content other_post.body
+    end
+
+    it 'does not show "新規投稿" button' do
+      expect(page).to have_no_link '新規投稿'
+    end
+  end
+
+  describe 'Post show page' do
+    before do
+      visit post_path(post)
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/posts/' + post.id.to_s
+    end
+
+    it 'shows a specific post' do
+      expect(page).to have_content post.time_format
+      expect(page).to have_content post.title
+      # expect(page).to have_css("img[src$='apple_pie.jpg']")
+      expect(page).to have_content post.body
+    end
+  end
+
+  describe 'Bookmark page' do
+    before do
+      visit bookmarks_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/bookmarks'
+    end
+
+    it 'shows a bookmarked post' do
+      expect(page).to have_content post.time_format
+      expect(page).to have_content post.title
+      expect(page).to have_content post.body
+    end
+
+    it 'does not show a not bookmarked post' do
+      expect(page).to have_no_content other_post.time_format
+      expect(page).to have_no_content other_post.title
+      expect(page).to have_no_content other_post.body
+    end
+
+    it 'has a correct link of a post' do
+      expect(page).to have_link '', href: post_path(post)
     end
   end
 end
