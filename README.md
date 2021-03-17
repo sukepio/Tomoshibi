@@ -42,8 +42,14 @@
 ## 設計書
 
 ## 機能一覧
+
 機能は下記ページでご覧ください。
 https://docs.google.com/spreadsheets/d/1yRvz7K_TcK8flEND_ogDKc6u7fAo_7pFnXaiycGL-2M/edit#gid=382966821
+
+## Rspecによるテスト（拡充中）
+
+- システムテスト： 84項目
+- モデルテスト： 61項目
 
 ## 開発環境
 
