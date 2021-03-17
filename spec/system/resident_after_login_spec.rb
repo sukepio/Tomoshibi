@@ -85,7 +85,7 @@ describe 'After login as a resident', type: :system do
 
       it 'does not show other day\'s event in today\'s events'do
         within ".myevent-container" do
-        other_event = create(:myevent, resident: resident, start: 2.days.ago)
+          other_event = create(:myevent, resident: resident, start: 2.days.ago)
           is_expected.to have_no_content other_event.time
           is_expected.to have_no_content other_event.title
           is_expected.to have_no_content other_event.body
@@ -115,12 +115,56 @@ describe 'After login as a resident', type: :system do
     end
   end
 
+  describe 'Photo confirmation page' do
+    before do
+      visit confirm_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/confirm'
+    end
+
+    it 'shows "編集画面へ" button and redirects resident\'s edit page ' do
+      find_link('編集画面へ').click
+      expect(current_path).to eq '/edit'
+    end
+  end
+
+  describe 'Self message edit page' do
+    before do
+      visit edit_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/edit'
+    end
+
+    it 'show a self message form' do
+      expect(page).to have_field 'resident[self_message]', with: resident.self_message
+    end
+
+    it 'shows a radio butotn' do
+      expect(page).to have_field 'resident[photo_accepted]'
+    end
+
+    describe 'Successfull post' do
+      before do
+        fill_in 'resident[self_message]', with: Faker::Lorem.characters(number: 20)
+        click_button '更新'
+      end
+
+      it 'is saved successfully' do
+        expect(current_path).to eq '/mypage'
+      end
+    end
+  end
+
   describe 'Myevent' do
     before do
       visit new_myevent_path
     end
 
-    it 'shows a correct url' do
+    it 'has a correct url' do
       expect(current_path).to eq '/myevents/new'
     end
 
@@ -212,7 +256,6 @@ describe 'After login as a resident', type: :system do
     it 'shows a specific post' do
       expect(page).to have_content post.time_format
       expect(page).to have_content post.title
-      # expect(page).to have_css("img[src$='apple_pie.jpg']")
       expect(page).to have_content post.body
     end
   end
@@ -238,8 +281,65 @@ describe 'After login as a resident', type: :system do
       expect(page).to have_no_content other_post.body
     end
 
-    it 'has a correct link of a post' do
+    it 'has a correct post\'s link' do
       expect(page).to have_link '', href: post_path(post)
+    end
+  end
+
+  describe 'Message page' do
+    let!(:message) { create(:message) }
+
+    before do
+      visit messages_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/messages'
+    end
+
+    it 'shows a sender name' do
+      expect(page).to have_content message.sender
+    end
+
+    it 'shows a content' do
+      expect(page).to have_content message.content
+    end
+
+    it 'shows an image if any' do
+      expect(page).to have_css("img[src$='apple_pie.jpg']")
+    end
+  end
+
+  describe 'Meal page' do
+    let!(:meal) { create(:meal) }
+
+    before do
+      visit meals_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/meals'
+    end
+
+    it 'shows a meal' do
+      within '.today-meal-container' do
+        expect(page).to have_content meal.time
+        expect(page).to have_content meal.menu
+      end
+    end
+  end
+
+  describe 'Information page' do
+    before do
+      visit information_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/information'
+    end
+
+    it 'has a map' do
+      expect(page).to have_selector '#map'
     end
   end
 end
