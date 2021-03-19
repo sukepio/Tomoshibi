@@ -5,7 +5,6 @@ describe 'After login as a resident', type: :system do
   let!(:myevent) { create(:myevent, resident: resident) }
   let!(:post) { create(:post) }
   let!(:other_post) { create(:post, created_at: 2.days.ago) }
-  let!(:bookmark) { create(:bookmark, resident: resident, post: post) }
 
   before do
     visit new_resident_session_path
@@ -261,6 +260,8 @@ describe 'After login as a resident', type: :system do
   end
 
   describe 'Bookmark page' do
+    let!(:bookmark) { create(:bookmark, resident: resident, post: post) }
+    
     before do
       visit bookmarks_path
     end
