@@ -176,10 +176,6 @@ describe 'After login as a resident', type: :system do
         expect(page).to have_field 'myevent[body]'
       end
 
-      # it 'show a start form' do
-      #   expect(page).to have_field 'myevent[start]'
-      # end
-
       it 'does not have any value in the title form' do
         expect(find_field('myevent[title]').text).to be_blank
       end
