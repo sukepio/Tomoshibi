@@ -64,6 +64,10 @@ describe 'After login as a resident', type: :system do
       visit mypage_path
     end
 
+    it 'has a correct url' do
+      expect(current_path).to eq '/mypage'
+    end
+    
     describe 'Display' do
       subject { page }
 

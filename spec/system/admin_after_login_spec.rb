@@ -64,4 +64,46 @@ describe 'After login as an admin', type: :system do
       is_expected.to eq '/information'
     end
   end
+  
+  describe 'Admin top page' do
+    before do
+      visit admin_events_path
+    end
+    
+    it 'has a correct url' do
+      expect(current_path).to eq '/admin/events'
+    end
+    
+    describe 'Display' do
+      subject { page }
+
+      it 'shows correct welcome container' do
+        is_expected.to have_content "こんにちは、#{admin.full_name}さん！"
+        is_expected.to have_content "ともしび避難所"
+
+      end
+
+      it 'shows today\'s admin\'s event' do
+        within ".myevent-container" do
+          is_expected.to have_content admin_event.time
+          is_expected.to have_content admin_event.title
+          is_expected.to have_content admin_event.body
+        end
+      end
+
+      # it 'does not show other day\'s event in today\'s events'do
+      #   within ".myevent-container" do
+      #     other_event = create(:admin_event, start: 2.days.ago, end: 2.days.ago)
+      #     is_expected.to have_no_content other_event.time
+      #     is_expected.to have_no_content other_event.title
+      #     is_expected.to have_no_content other_event.body
+      #   end
+      # end
+
+      it 'shows "イベント作成ボタン" and redirects new admin event page' do
+        find_link('イベント作成').click
+        expect(current_path).to eq '/admin/events/new'
+      end
+    end
+  end
 end
