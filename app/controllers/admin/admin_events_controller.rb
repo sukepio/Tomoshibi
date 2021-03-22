@@ -43,7 +43,7 @@ class Admin::AdminEventsController < ApplicationController
     @residents = Resident.where(has_left: false)
     @households = Household.all
     @today_events = AdminEvent.for_today.order(:start)
-    @men = @residents.woman
+    @men = @residents.man
     @women = @residents.woman
   end
 
