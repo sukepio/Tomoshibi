@@ -139,6 +139,10 @@ describe 'After login as an admin', type: :system do
       expect(page).to have_content other_post.title
       expect(page).to have_content other_post.body
     end
+    
+    it 'shows an image if any' do
+      expect(page).to have_css("img")
+    end
 
     it 'show "新規投稿" button' do
       expect(page).to have_link '新規投稿'
@@ -181,6 +185,67 @@ describe 'After login as an admin', type: :system do
     end
   end
 
+  describe 'New post page' do
+    before do
+      visit new_admin_post_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/admin/posts/new'
+    end
+
+    describe 'Form Display' do
+      it 'show a title form' do
+        expect(page).to have_field 'post[title]'
+      end
+      
+      it 'shows a body form' do
+        expect(page).to have_field 'post[body]'
+      end
+      
+      it 'shows an image form' do
+        expect(page).to have_field 'post[image][]'
+      end
+      
+      it 'does not have any value in the title form' do
+        expect(find('input[name="post[title]"]').text).to be_blank
+      end
+
+      it 'does not have any value in the body form' do
+        expect(find('textarea[name="post[body]"]').text).to be_blank
+      end
+      
+      it 'does not have any value in the image form' do
+        expect(find('input[name="post[image][]"]').text).to be_blank
+      end
+      
+      it 'shows "投稿" button' do
+        expect(page).to have_button '投稿'
+      end
+    end
+    
+    describe 'Successfull post' do
+      before do
+        fill_in 'post[title]', with: '新規投稿'
+        fill_in 'post[body]', with: 'この投稿は新規投稿ができているかのテストです。'
+        click_button '投稿'
+      end
+         
+      it 'is saved successfully' do
+        expect(page).to have_content '新規投稿'
+        expect(page).to have_content 'この投稿は新規投稿ができているかのテストです。'
+      end
+         
+      it 'redirects show page' do
+        expect(current_path).to eq '/admin/posts'
+      end
+      
+      it 'shows a success message' do
+        expect(page).to have_content "避難所通信「新規投稿」を投稿しました。"
+      end
+    end
+  end
+    
   describe 'Post edit page' do
     before do
       visit edit_admin_post_path(post)

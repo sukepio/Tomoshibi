@@ -307,7 +307,7 @@ describe 'After login as a resident', type: :system do
     end
 
     it 'shows an image if any' do
-      expect(page).to have_css("img[src$='apple_pie.jpg']")
+      expect(page).to have_css("img")
     end
   end
 
