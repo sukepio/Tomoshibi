@@ -114,6 +114,59 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
+  
+  describe 'Admin event' do
+    before do
+      visit admin_new_events_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/admin/events/new'
+    end
+
+    describe 'Form display' do
+      it 'show a title form' do
+        expect(page).to have_field 'admin_event[title]'
+      end
+
+      it 'show a body form' do
+        expect(page).to have_field 'admin_event[body]'
+      end
+
+      it 'does not have any value in the title form' do
+        expect(find_field('admin_event[title]').text).to be_blank
+      end
+
+      it 'does not have any value in the body form' do
+        expect(find_field('admin_event[body]').text).to be_blank
+      end
+
+      it 'shows "新規登録" button' do
+        expect(page).to have_button '新規登録'
+      end
+    end
+
+    describe 'Successfull post' do
+      before do
+        fill_in 'admin_event[title]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'admin_event[body]', with: Faker::Lorem.characters(number: 20)
+      end
+
+      it 'is saved successfully' do
+        expect { click_button '新規登録' }.to change(AdminEvent, :count).by(1)
+      end
+
+      it 'redirects admin top page' do
+        click_button '新規登録'
+        expect(current_path).to eq '/admin/events'
+      end
+
+      it 'shows a success message' do
+        click_button '新規登録'
+        expect(page).to have_content "「#{AdminEvent.last.title}」を作成しました。"
+      end
+    end
+  end
 
   describe 'Post index page' do
     let!(:other_post) { create(:post) }
