@@ -210,7 +210,7 @@ describe 'After login as a resident', type: :system do
 
       it 'shows a success message' do
         click_button '新規登録'
-        expect(page).to have_content "#{Myevent.last.title}を追加しました。"
+        expect(page).to have_content "「#{Myevent.last.title}」を作成しました。"
       end
     end
   end
