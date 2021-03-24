@@ -14,7 +14,7 @@ class Admin::PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.resident_id = @resident.id
     if @photo.save
-      redirect_to admin_resident_photos_path(@resident), notice: "#{@resident.full_name}の写真を追加しました。"
+      redirect_to admin_resident_photos_path(@resident), notice: "「#{@resident.full_name}」さんの写真を追加しました。"
     else
       render :new
     end
