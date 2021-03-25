@@ -167,6 +167,62 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
+  
+  describe 'Admin event edit page' do
+    before do
+      visit admin_edit_event_path(admin_event)
+    end
+    
+    it 'has a correct url' do
+      expect(current_path).to eq "/admin/events/#{admin_event.id}/edit"
+    end
+    
+    describe 'Form display' do
+      it 'has the value in the title content' do
+        expect(page).to have_field 'admin_event[title]', with: admin_event.title
+      end
+
+      it 'has the value in the body form' do
+        expect(page).to have_field 'admin_event[body]', with: admin_event.body
+      end
+
+      it 'shows "更新" button' do
+        expect(page).to have_button '更新'
+      end
+    end
+    
+    describe 'Successfull update' do
+      before do
+        fill_in 'admin_event[title]', with: "イベント更新"
+        fill_in 'admin_event[body]', with: "イベントの編集"
+      end
+
+      it 'redirects admin top page' do
+        click_button '更新'
+        expect(current_path).to eq '/admin/events'
+      end
+
+      it 'shows a success message' do
+        click_button '更新'
+        expect(page).to have_content "「#{AdminEvent.first.title}」を更新しました。"
+      end
+    end
+    
+    describe 'Delete an admin event' do
+      it 'shows "削除" button' do
+        expect(page).to have_link '削除'
+      end
+    
+      it 'is deleted successfully' do
+        expect { click_link '削除' }.to change(AdminEvent, :count).by(-1)
+      end
+      
+      it 'shows a success message' do
+        click_link '削除'
+        expect(page).to have_content "「#{admin_event.title}」を削除しました。"
+      end
+    end
+  end
 
   describe 'Post index page' do
     let!(:other_post) { create(:post) }
