@@ -399,4 +399,49 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
+  
+  describe 'Resident index page' do
+    let!(:household) { create(:household)}
+    let!(:taro) { create(:resident, first_name: "太郎", last_name: "田中", gender: 0, household: household)}
+    
+    before do
+      visit admin_residents_path
+    end
+    
+    it 'has a correct page' do
+      expect(current_path).to eq '/admin/residents'
+    end
+    
+    describe 'Page display' do
+      it 'shows multiple residents' do
+        expect(page).to have_content resident.full_name
+        expect(page).to have_content taro.full_name
+      end
+      
+      it 'redirects taro\'s show page when clickling on his name' do
+        find_link('田中 太郎').click
+        expect(current_path).to eq "/admin/residents/#{taro.id}"
+      end
+      
+      it 'shows resident\'s age'do
+        expect(page).to have_content taro.age
+      end
+      
+      it 'shows resident\'s address'do
+        expect(page).to have_content taro.household.address
+      end
+      
+      it 'shows resident\'s living_space'do
+        expect(page).to have_content taro.household.living_space
+      end
+      
+      it 'shows resident\'s photo accepeted'do
+        expect(page).to have_content '許可しない'
+      end
+      
+      it 'shows "新規登録" link'do
+        expect(page).to have_link '新規登録へ'
+      end
+    end
+  end
 end
