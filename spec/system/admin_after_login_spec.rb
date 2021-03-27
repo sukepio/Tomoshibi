@@ -516,4 +516,52 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
+  
+  describe 'Resident edit page' do
+    before do 
+      visit edit_admin_resident_path(resident)
+    end
+    
+    it 'has a correct url' do
+      expect(current_path).to eq "/admin/residents/#{resident.id}/edit"
+    end
+    
+    describe 'Form Display' do
+      it 'show a first name form and has the value in it' do
+        expect(page).to have_field 'resident[first_name]', with: resident.first_name
+      end
+      
+      it 'show a last name form and has the value in it' do
+        expect(page).to have_field 'resident[last_name]', with: resident.last_name
+      end
+      
+      it 'show a first kana name form and has the value in it' do
+        expect(page).to have_field 'resident[first_name_kana]', with: resident.first_name_kana
+      end
+      
+      it 'show a last kana name form and has the value in it' do
+        expect(page).to have_field 'resident[last_name_kana]', with: resident.last_name_kana
+      end
+      
+      it 'show a phone number form and has the value in it' do
+        expect(page).to have_field 'resident[phone_number]', with: resident.phone_number
+      end
+      
+      it 'show a login id form and has the value in it' do
+        expect(page).to have_field 'resident[login_id]', with: resident.login_id
+      end
+      
+      # it 'show a date of birth form and has the value in it' do
+      #   expect(find('select[name="resident[date_of_birth][1i]"]'))
+      # end
+      
+      # it 'show a gender radio box and checks male' do
+      #   expect(page).to have_checked_field('男')
+      # end
+      
+      it 'shows "変更" button' do
+        expect(page).to have_button '変更'
+      end
+    end
+  end
 end
