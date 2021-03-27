@@ -444,4 +444,76 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
+  
+  describe 'Resident show page' do
+    before do
+      visit admin_resident_path(resident)
+    end
+    
+    it 'has a correct url' do
+      expect(current_path).to eq "/admin/residents/#{resident.id}"
+    end
+    
+    it 'shows resident\'s name' do
+      expect(page).to have_content resident.full_name
+    end
+    
+    it 'shows resident\'s age' do
+      expect(page).to have_content resident.age
+    end
+    
+    it 'shows resident\'s date of birth' do
+      expect(page).to have_content resident.birthday
+    end
+    
+    it 'shows resident\'s gender' do
+      expect(page).to have_content '男性'
+    end
+    
+    it 'shows if photo is accepeted or not' do
+      expect(page).to have_content '許可しない'
+    end
+    
+    it 'shows resident\'s phone number' do
+      expect(page).to have_content resident.phone_number
+    end
+    
+    it 'shows resident\'s login id' do
+      expect(page).to have_content resident.login_id
+    end
+    
+    it 'shows "編集する" button and redirects edit page' do
+      within '.btn-link' do
+        click_link '編集する'
+        expect(current_path).to eq "/admin/residents/#{resident.id}/edit"
+      end
+    end
+    
+    it 'does not show "写真アルバムへ" button' do
+      expect(page).to have_no_link '写真アルバムへ'
+    end
+    
+    describe 'Household information' do
+      it 'shows household\'s name' do
+        expect(page).to have_content resident.household.full_name
+      end
+      
+      it 'shows household\'s address' do
+        expect(page).to have_content resident.household.address
+      end
+      
+      it 'shows household\'s living space' do
+        expect(page).to have_content resident.household.living_space
+      end
+      
+      it 'shows household\'s house damage situation' do
+        expect(page).to have_content resident.household.house_damage_situation
+      end
+      
+      it 'shows "世帯情報を編集する" button for household' do
+        click_link '世帯情報を編集する'
+        expect(current_path).to eq "/admin/residents/#{resident.id}/households/#{resident.household_id}/edit"
+      end
+    end
+  end
 end
