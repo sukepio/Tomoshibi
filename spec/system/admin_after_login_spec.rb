@@ -482,6 +482,10 @@ describe 'After login as an admin', type: :system do
       expect(page).to have_content resident.login_id
     end
     
+    it 'shows resident\'s information' do
+      expect(page).to have_content resident.information
+    end
+    
     it 'shows "編集する" button and redirects edit page' do
       within '.btn-link' do
         click_link '編集する'
@@ -556,11 +560,40 @@ describe 'After login as an admin', type: :system do
       # end
       
       # it 'show a gender radio box and checks male' do
-      #   expect(page).to have_checked_field('男')
+      #   expect(page).to have_checked_field('man')
       # end
       
       it 'shows "変更" button' do
         expect(page).to have_button '変更'
+      end
+      
+      describe 'Successfull edit' do
+        before do
+          fill_in 'resident[first_name]', with: '一郎'
+          fill_in 'resident[last_name]', with: '鈴木'
+          fill_in 'resident[first_name_kana]', with: 'イチロウ'
+          fill_in 'resident[last_name_kana]', with: 'スズキ'
+          fill_in 'resident[phone_number]', with: '000-1234-5678'
+          fill_in 'resident[login_id]', with: 'ichiro123'
+          fill_in 'resident[information]', with: '自宅にて被災'
+          click_button '変更'
+        end
+
+        it 'redirects resident show page' do
+          expect(current_path).to eq "/admin/residents/#{resident.id}"
+        end
+
+        it 'shows a success message' do
+          expect(page).to have_content "鈴木 一郎さんの情報を更新しました。"
+        end
+        
+        it 'shows updated information' do
+          expect(page).to have_content '鈴木 一郎'
+          expect(page).to have_content 'スズキ イチロウ'
+          expect(page).to have_content '000-1234-5678'
+          expect(page).to have_content 'ichiro123'
+          expect(page).to have_content '自宅にて被災'
+        end
       end
     end
   end

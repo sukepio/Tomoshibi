@@ -42,9 +42,9 @@ h2 編集する
         = f.label :gender, "性別", { class: 'form-check-label' }
         span.required 【必須】
         br
-        = f.radio_button :gender, '男', :checked => true
+        = f.radio_button :gender, 'man', :checked => true
         = f.label :gender, "男性", { class: 'form-check-label mr-2' }
-        = f.radio_button :gender, '女'
+        = f.radio_button :gender, 'woman'
         = f.label :gender, "女性", { class: 'form-check-label' }
 
       .form-group
