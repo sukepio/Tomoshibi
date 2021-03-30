@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'After login as an admin', type: :system do
   let(:admin) { create(:admin) }
   let!(:admin_event) { create(:admin_event, end: DateTime.now) }
-  let!(:resident) { create(:resident, gender: 0)}
+  let!(:household) { create(:household)}
+  let!(:resident) { create(:resident, gender: 0, household: household)}
   let!(:other_resident) { create(:resident, gender: 1)}
   let!(:post) { create(:post) }
 
@@ -114,7 +115,7 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
-  
+
   describe 'Admin event' do
     before do
       visit admin_new_events_path
@@ -167,16 +168,16 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
-  
+
   describe 'Admin event edit page' do
     before do
       visit admin_edit_event_path(admin_event)
     end
-    
+
     it 'has a correct url' do
       expect(current_path).to eq "/admin/events/#{admin_event.id}/edit"
     end
-    
+
     describe 'Form display' do
       it 'has the value in the title content' do
         expect(page).to have_field 'admin_event[title]', with: admin_event.title
@@ -190,7 +191,7 @@ describe 'After login as an admin', type: :system do
         expect(page).to have_button '更新'
       end
     end
-    
+
     describe 'Successfull update' do
       before do
         fill_in 'admin_event[title]', with: "イベント更新"
@@ -207,16 +208,16 @@ describe 'After login as an admin', type: :system do
         expect(page).to have_content "「#{AdminEvent.first.title}」を更新しました。"
       end
     end
-    
+
     describe 'Delete an admin event' do
       it 'shows "削除" button' do
         expect(page).to have_link '削除'
       end
-    
+
       it 'is deleted successfully' do
         expect { click_link '削除' }.to change(AdminEvent, :count).by(-1)
       end
-      
+
       it 'shows a success message' do
         click_link '削除'
         expect(page).to have_content "「#{admin_event.title}」を削除しました。"
@@ -248,7 +249,7 @@ describe 'After login as an admin', type: :system do
       expect(page).to have_content other_post.title
       expect(page).to have_content other_post.body
     end
-    
+
     it 'shows an image if any' do
       expect(page).to have_css("img")
     end
@@ -277,16 +278,16 @@ describe 'After login as an admin', type: :system do
     it 'shows "編集する" button' do
       expect(page).to have_link '編集する'
     end
-    
+
     describe 'Delete a post' do
       it 'shows "削除" button' do
         expect(page).to have_link '削除'
       end
-    
+
       it 'is deleted successfully' do
         expect { click_link '削除' }.to change(Post, :count).by(-1)
       end
-      
+
       it 'shows a success message' do
         click_link '削除'
         expect(page).to have_content "「#{post.title}」を削除しました。"
@@ -307,15 +308,15 @@ describe 'After login as an admin', type: :system do
       it 'show a title form' do
         expect(page).to have_field 'post[title]'
       end
-      
+
       it 'shows a body form' do
         expect(page).to have_field 'post[body]'
       end
-      
+
       it 'shows an image form' do
         expect(page).to have_field 'post[image][]'
       end
-      
+
       it 'does not have any value in the title form' do
         expect(find('input[name="post[title]"]').text).to be_blank
       end
@@ -323,38 +324,38 @@ describe 'After login as an admin', type: :system do
       it 'does not have any value in the body form' do
         expect(find('textarea[name="post[body]"]').text).to be_blank
       end
-      
+
       it 'does not have any value in the image form' do
         expect(find('input[name="post[image][]"]').text).to be_blank
       end
-      
+
       it 'shows "投稿" button' do
         expect(page).to have_button '投稿'
       end
     end
-    
+
     describe 'Successfull post' do
       before do
         fill_in 'post[title]', with: '新規投稿'
         fill_in 'post[body]', with: 'この投稿は新規投稿ができているかのテストです。'
         click_button '投稿'
       end
-         
+
       it 'is saved successfully' do
         expect(page).to have_content '新規投稿'
         expect(page).to have_content 'この投稿は新規投稿ができているかのテストです。'
       end
-         
+
       it 'redirects show page' do
         expect(current_path).to eq '/admin/posts'
       end
-      
+
       it 'shows a success message' do
         expect(page).to have_content "避難所通信「新規投稿」を投稿しました。"
       end
     end
   end
-    
+
   describe 'Post edit page' do
     before do
       visit edit_admin_post_path(post)
@@ -372,12 +373,12 @@ describe 'After login as an admin', type: :system do
       it 'shows a body form' do
         expect(page).to have_field 'post[body]', with: post.body
       end
-      
+
       it 'shows "更新" button' do
         expect(page).to have_button '更新'
       end
     end
-    
+
     describe 'Successfull update' do
       before do
         fill_in 'post[title]', with: '投稿編集'
@@ -399,174 +400,173 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
-  
+
   describe 'Resident index page' do
-    let!(:household) { create(:household)}
     let!(:taro) { create(:resident, first_name: "太郎", last_name: "田中", gender: 0, household: household)}
-    
+
     before do
       visit admin_residents_path
     end
-    
+
     it 'has a correct page' do
       expect(current_path).to eq '/admin/residents'
     end
-    
+
     describe 'Page display' do
       it 'shows multiple residents' do
         expect(page).to have_content resident.full_name
         expect(page).to have_content taro.full_name
       end
-      
+
       it 'redirects taro\'s show page when clickling on his name' do
         find_link('田中 太郎').click
         expect(current_path).to eq "/admin/residents/#{taro.id}"
       end
-      
+
       it 'shows resident\'s age'do
         expect(page).to have_content taro.age
       end
-      
+
       it 'shows resident\'s address'do
         expect(page).to have_content taro.household.address
       end
-      
+
       it 'shows resident\'s living_space'do
         expect(page).to have_content taro.household.living_space
       end
-      
+
       it 'shows resident\'s photo accepeted'do
         expect(page).to have_content '許可しない'
       end
-      
+
       it 'shows "新規登録" link'do
         expect(page).to have_link '新規登録へ'
       end
     end
   end
-  
+
   describe 'Resident show page' do
     before do
       visit admin_resident_path(resident)
     end
-    
+
     it 'has a correct url' do
       expect(current_path).to eq "/admin/residents/#{resident.id}"
     end
-    
+
     it 'shows resident\'s name' do
       expect(page).to have_content resident.full_name
     end
-    
+
     it 'shows resident\'s age' do
       expect(page).to have_content resident.age
     end
-    
+
     it 'shows resident\'s date of birth' do
       expect(page).to have_content resident.birthday
     end
-    
+
     it 'shows resident\'s gender' do
       expect(page).to have_content '男性'
     end
-    
+
     it 'shows if photo is accepeted or not' do
       expect(page).to have_content '許可しない'
     end
-    
+
     it 'shows resident\'s phone number' do
       expect(page).to have_content resident.phone_number
     end
-    
+
     it 'shows resident\'s login id' do
       expect(page).to have_content resident.login_id
     end
-    
+
     it 'shows resident\'s information' do
       expect(page).to have_content resident.information
     end
-    
+
     it 'shows "編集する" button and redirects edit page' do
       within '.btn-link' do
         click_link '編集する'
         expect(current_path).to eq "/admin/residents/#{resident.id}/edit"
       end
     end
-    
+
     it 'does not show "写真アルバムへ" button' do
       expect(page).to have_no_link '写真アルバムへ'
     end
-    
+
     describe 'Household information' do
       it 'shows household\'s name' do
         expect(page).to have_content resident.household.full_name
       end
-      
+
       it 'shows household\'s address' do
         expect(page).to have_content resident.household.address
       end
-      
+
       it 'shows household\'s living space' do
         expect(page).to have_content resident.household.living_space
       end
-      
+
       it 'shows household\'s house damage situation' do
         expect(page).to have_content resident.household.house_damage_situation
       end
-      
+
       it 'shows "世帯情報を編集する" button for household' do
         click_link '世帯情報を編集する'
         expect(current_path).to eq "/admin/residents/#{resident.id}/households/#{resident.household_id}/edit"
       end
     end
   end
-  
+
   describe 'Resident edit page' do
-    before do 
+    before do
       visit edit_admin_resident_path(resident)
     end
-    
+
     it 'has a correct url' do
       expect(current_path).to eq "/admin/residents/#{resident.id}/edit"
     end
-    
+
     describe 'Form Display' do
       it 'show a first name form and has the value in it' do
         expect(page).to have_field 'resident[first_name]', with: resident.first_name
       end
-      
+
       it 'show a last name form and has the value in it' do
         expect(page).to have_field 'resident[last_name]', with: resident.last_name
       end
-      
+
       it 'show a first kana name form and has the value in it' do
         expect(page).to have_field 'resident[first_name_kana]', with: resident.first_name_kana
       end
-      
+
       it 'show a last kana name form and has the value in it' do
         expect(page).to have_field 'resident[last_name_kana]', with: resident.last_name_kana
       end
-      
+
       it 'show a phone number form and has the value in it' do
         expect(page).to have_field 'resident[phone_number]', with: resident.phone_number
       end
-      
+
       it 'show a login id form and has the value in it' do
         expect(page).to have_field 'resident[login_id]', with: resident.login_id
       end
-      
+
       # it 'show a date of birth form and has the value in it' do
       #   expect(find('select[name="resident[date_of_birth][1i]"]'))
       # end
-      
+
       # it 'show a gender radio box and checks male' do
       #   expect(page).to have_checked_field('man')
       # end
-      
+
       it 'shows "変更" button' do
         expect(page).to have_button '変更'
       end
-      
+
       describe 'Successfull edit' do
         before do
           fill_in 'resident[first_name]', with: '一郎'
@@ -586,7 +586,7 @@ describe 'After login as an admin', type: :system do
         it 'shows a success message' do
           expect(page).to have_content "鈴木 一郎さんの情報を更新しました。"
         end
-        
+
         it 'shows updated information' do
           expect(page).to have_content '鈴木 一郎'
           expect(page).to have_content 'スズキ イチロウ'
@@ -594,6 +594,42 @@ describe 'After login as an admin', type: :system do
           expect(page).to have_content 'ichiro123'
           expect(page).to have_content '自宅にて被災'
         end
+      end
+    end
+  end
+
+  describe 'Household edit page' do
+    before do
+      visit edit_admin_resident_household_path(resident, household)
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq "/admin/residents/#{resident.id}/households/#{resident.household_id}/edit"
+    end
+    
+    describe 'Form Display' do
+      it 'show a first name form and has the value in it' do
+        expect(page).to have_field 'household[head_first_name]', with: household.head_first_name
+      end
+
+      it 'show a last name form and has the value in it' do
+        expect(page).to have_field 'household[head_last_name]', with: household.head_last_name
+      end
+
+      it 'show an address form and has the value in it' do
+        expect(page).to have_field 'household[address]', with: household.address
+      end
+      
+      it 'show a living space form and has the value in it' do
+        expect(page).to have_field 'household[living_space]', with: household.living_space
+      end
+      
+      it 'show a house damage situation form and has the value in it' do
+        expect(page).to have_field 'household[house_damage_situation]', with: household.house_damage_situation
+      end
+      
+      it 'shows "更新" button' do
+        expect(page).to have_button '更新'
       end
     end
   end
