@@ -631,6 +631,32 @@ describe 'After login as an admin', type: :system do
       it 'shows "更新" button' do
         expect(page).to have_button '更新'
       end
+      
+      describe 'Successfull edit' do
+        before do
+          fill_in 'household[head_first_name]', with: '一郎'
+          fill_in 'household[head_last_name]', with: '鈴木'
+          fill_in 'household[address]', with: '東京都港区1-1'
+          fill_in 'household[living_space]', with: 'D-2'
+          fill_in 'household[house_damage_situation]', with: '半壊。公費解体予定'
+          click_button '更新'
+        end
+
+        it 'redirects resident show page' do
+          expect(current_path).to eq "/admin/residents/#{resident.id}"
+        end
+
+        it 'shows a success message' do
+          expect(page).to have_content "山田 花子さんの世帯情報を更新しました。"
+        end
+
+        it 'shows updated information' do
+          expect(page).to have_content '鈴木 一郎'
+          expect(page).to have_content '東京都港区1-1'
+          expect(page).to have_content 'D-2'
+          expect(page).to have_content '半壊。公費解体予定'
+        end
+      end
     end
   end
 end
