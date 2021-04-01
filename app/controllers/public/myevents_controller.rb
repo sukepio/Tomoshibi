@@ -9,7 +9,7 @@ class Public::MyeventsController < ApplicationController
   def create
     @myevent = current_resident.myevents.new(myevent_params)
     if @myevent.save
-      redirect_to mypage_path, notice: "「#{@myevent.title}」を作成しました。"
+      redirect_to mypage_url, notice: "「#{@myevent.title}」を作成しました。"
     else
       render :new
     end
@@ -20,7 +20,7 @@ class Public::MyeventsController < ApplicationController
 
   def update
     if @myevent.update(myevent_params)
-      redirect_to mypage_path, notice: "「#{@myevent.title}」を更新しました。"
+      redirect_to mypage_url, notice: "「#{@myevent.title}」を更新しました。"
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class Public::MyeventsController < ApplicationController
 
   def destroy
     @myevent.destroy
-    redirect_to mypage_path, notice: "「#{@myevent.title}」を削除しました。"
+    redirect_to mypage_url, notice: "「#{@myevent.title}」を削除しました。"
   end
 
   private

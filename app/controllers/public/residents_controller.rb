@@ -16,7 +16,7 @@ class Public::ResidentsController < ApplicationController
 
   def update
     if current_resident.update(resident_params)
-      redirect_to mypage_path
+      redirect_to mypage_url
     end
   end
 

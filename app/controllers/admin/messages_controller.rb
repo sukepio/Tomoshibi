@@ -13,7 +13,7 @@ class Admin::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to admin_messages_path, notice: "メッセージを追加しました。"
+      redirect_to admin_messages_url, notice: "メッセージを追加しました。"
     else
       render :new
     end
@@ -22,7 +22,7 @@ class Admin::MessagesController < ApplicationController
   def destroy
     @message = Message.find(params[:id])
     @message.destroy
-    redirect_to admin_messages_path, notice: "メッセージを削除しました。"
+    redirect_to admin_messages_url, notice: "メッセージを削除しました。"
   end
 
   private

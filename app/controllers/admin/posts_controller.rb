@@ -17,7 +17,7 @@ class Admin::PostsController < ApplicationController
   def create
     @post = current_admin.posts.new(post_params)
     if @post.save
-      redirect_to admin_posts_path, notice: "避難所通信「#{@post.title}」を投稿しました。"
+      redirect_to admin_posts_url, notice: "避難所通信「#{@post.title}」を投稿しました。"
     else
       render :new
     end
@@ -30,7 +30,7 @@ class Admin::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to admin_post_path(@post), notice: "避難所通信「#{@post.title}」を更新しました。"
+      redirect_to admin_post_url(@post), notice: "避難所通信「#{@post.title}」を更新しました。"
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to admin_posts_path, notice: "避難所通信「#{@post.title}」を削除しました。"
+    redirect_to admin_posts_url, notice: "避難所通信「#{@post.title}」を削除しました。"
   end
 
   private

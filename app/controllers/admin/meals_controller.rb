@@ -15,7 +15,7 @@ class Admin::MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     if @meal.save
-      redirect_to meals_path, notice: "「#{@meal.menu}」を追加しました。"
+      redirect_to meals_url, notice: "「#{@meal.menu}」を追加しました。"
     else
       render :new
     end
@@ -26,7 +26,7 @@ class Admin::MealsController < ApplicationController
 
   def update
     if @meal.update(meal_params)
-      redirect_to meals_path, notice: "「#{@meal.menu}」を更新しました。"
+      redirect_to meals_url, notice: "「#{@meal.menu}」を更新しました。"
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class Admin::MealsController < ApplicationController
 
   def destroy
     @meal.destroy
-    redirect_to meals_path, notice: "「#{@meal.menu}」を削除しました。"
+    redirect_to meals_url, notice: "「#{@meal.menu}」を削除しました。"
   end
 
   private

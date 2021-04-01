@@ -34,7 +34,7 @@ class Admin::AdminEventsController < ApplicationController
 
   def destroy
     @admin_event.destroy
-    redirect_to admin_events_path, notice: "「#{@admin_event.title}」を削除しました。"
+    redirect_to admin_events_url, notice: "「#{@admin_event.title}」を削除しました。"
   end
 
   private
