@@ -659,4 +659,48 @@ describe 'After login as an admin', type: :system do
       end
     end
   end
+  
+  describe 'Admin index page' do
+    let!(:shinobu) { create(:admin, first_name: "忍", last_name: "村田")}
+
+    before do
+      visit admins_path
+    end
+
+    it 'has a correct page' do
+      expect(current_path).to eq '/admins'
+    end
+
+    describe 'Page display' do
+      it 'shows multiple admins' do
+        expect(page).to have_content admin.full_name
+        expect(page).to have_content shinobu.full_name
+      end
+
+      it 'redirects taro\'s show page when clickling on his name' do
+        find_link('村田 忍').click
+        expect(current_path).to eq "/admins/#{shinobu.id}"
+      end
+
+      it 'shows admin\'s age'do
+        expect(page).to have_content shinobu.age
+      end
+
+      it 'shows admin\'s login id' do
+        expect(page).to have_content shinobu.login_id
+      end
+
+      it 'shows admin\'s phone number'do
+        expect(page).to have_content shinobu.phone_number
+      end
+
+      it 'shows admin\'s email'do
+        expect(page).to have_content shinobu.email
+      end
+
+      it 'shows "新規登録" link'do
+        expect(page).to have_link '新規登録'
+      end
+    end
+  end
 end
