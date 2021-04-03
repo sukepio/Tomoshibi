@@ -702,5 +702,60 @@ describe 'After login as an admin', type: :system do
         expect(page).to have_link '新規登録'
       end
     end
+    
+    describe 'New admin registration page' do
+      before do
+        visit new_admin_registration_path
+      end
+      
+      it 'shows a first name form and no value in it' do
+        expect(page).to have_field 'admin[first_name]'
+        expect(find_field('admin[first_name]').text).to be_blank
+      end
+      
+      it 'shows a last name form and no value in it' do
+        expect(page).to have_field 'admin[last_name]'
+        expect(find_field('admin[last_name]').text).to be_blank
+      end
+      
+      it 'shows a first name kana form and no value in it' do
+        expect(page).to have_field 'admin[first_name_kana]'
+        expect(find_field('admin[first_name_kana]').text).to be_blank
+      end
+      
+      it 'shows a last name kana form and no value in it' do
+        expect(page).to have_field 'admin[last_name_kana]'
+        expect(find_field('admin[last_name_kana]').text).to be_blank
+      end
+      
+      it 'shows a phone number form and no value in it' do
+        expect(page).to have_field 'admin[phone_number]'
+        expect(find_field('admin[phone_number]').text).to be_blank
+      end
+      
+      it 'shows a login id form and no value in it' do
+        expect(page).to have_field 'admin[login_id]'
+        expect(find_field('admin[login_id]').text).to be_blank
+      end
+      
+      it 'shows a email form and no value in it' do
+        expect(page).to have_field 'admin[email]'
+        expect(find_field('admin[email]').text).to be_blank
+      end
+      
+      it 'shows a password form and no value in it' do
+        expect(page).to have_field 'admin[password]'
+        expect(find_field('admin[password]').text).to be_blank
+      end
+      
+      it 'shows a password confirmation form and no value in it' do
+        expect(page).to have_field 'admin[password_confirmation]'
+        expect(find_field('admin[password_confirmation]').text).to be_blank
+      end
+      
+      it 'show a "新規登録" button' do
+        expect(page).to have_button '新規登録'
+      end
+    end
   end
 end
