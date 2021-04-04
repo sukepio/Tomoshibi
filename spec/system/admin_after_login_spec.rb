@@ -756,6 +756,33 @@ describe 'After login as an admin', type: :system do
       it 'show a "新規登録" button' do
         expect(page).to have_button '新規登録'
       end
+      
+      describe 'Successfull create' do
+        before do
+          fill_in 'admin[first_name]', with: '卓'
+          fill_in 'admin[last_name]', with: '大林'
+          fill_in 'admin[first_name_kana]', with: 'すぐる'
+          fill_in 'admin[last_name_kana]', with: 'おおばやし'
+          fill_in 'admin[phone_number]', with: '030-1322-1232'
+          fill_in 'admin[login_id]', with: 'admin123'
+          fill_in 'admin[email]', with: 'admin@sample.com'
+          fill_in 'admin[password]', with: 'password'
+          fill_in 'admin[password_confirmation]', with: 'password'
+        end
+        
+        it 'redirects admin\'s show page' do
+          expect { click_button '新規登録' }.to change(Admin, :count).by(1)
+        end
+        
+        it 'shows registered values' do
+          click_button '新規登録'
+          expect(page).to have_content '大林 卓'
+          expect(page).to have_content 'admin123'
+          expect(page).to have_content '030-1322-1232'
+          expect(page).to have_content 'admin@sample.com'
+        end
+      end
     end
+    
   end
 end
