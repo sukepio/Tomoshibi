@@ -48,7 +48,7 @@ https://docs.google.com/spreadsheets/d/1yRvz7K_TcK8flEND_ogDKc6u7fAo_7pFnXaiycGL
 
 ## Rspecによるテスト（拡充中）
 
-- システムテスト： 203項目
+- システムテスト： 205項目
 - モデルテスト： 61項目
 
 ## 開発環境
