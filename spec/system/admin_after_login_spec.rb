@@ -783,6 +783,19 @@ describe 'After login as an admin', type: :system do
         end
       end
     end
-    
+  end
+  
+  describe 'Information page' do
+    before do
+      visit information_path
+    end
+
+    it 'has a correct url' do
+      expect(current_path).to eq '/information'
+    end
+
+    it 'has a map' do
+      expect(page).to have_selector '#map'
+    end
   end
 end
