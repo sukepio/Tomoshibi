@@ -6,8 +6,8 @@ describe 'Login', type: :system do
       visit root_path
     end
 
-    describe 'resident login page(root_path)' do
-      describe 'page display' do
+    describe 'Resident login page(root_path)' do
+      describe 'Page display' do
         it 'has a correct URL' do
           expect(current_path).to eq '/'
         end
@@ -34,7 +34,7 @@ describe 'Login', type: :system do
       end
     end
 
-    describe 'log in to resident' do
+    describe 'Log in to resident' do
       let(:resident) { create(:resident) }
       let!(:post) { create(:post) }
 
@@ -64,7 +64,7 @@ describe 'Login', type: :system do
     end
   end
 
-  describe 'admin login' do
+  describe 'Admin login' do
     before do
       visit new_admin_session_path
     end
@@ -95,7 +95,7 @@ describe 'Login', type: :system do
       end
     end
 
-    describe 'log in to admin' do
+    describe 'Log in to admin' do
       let(:admin) { create(:admin) }
 
       context 'with valid inputs' do
