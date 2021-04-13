@@ -32,28 +32,28 @@ RSpec.describe Resident, type: :model do
       end
     end
 
-    describe 'Phone_number' do
+    describe 'Phone number' do
       it 'is invalid without a phone number' do
         resident.phone_number = ''
         is_expected.to eq false
       end
     end
 
-    describe 'Login_id' do
+    describe 'Login id' do
       it 'is invalid without a login id' do
         resident.login_id = ''
         is_expected.to eq false
       end
     end
 
-    describe 'Date_of_birth' do
+    describe 'Date of birth' do
       it 'is invalid without a date of birth' do
         resident.date_of_birth = ''
         is_expected.to eq false
       end
     end
 
-    context 'Self_message' do
+    context 'Self message' do
       it 'is invalid with more than 20 words' do
         resident.self_message = Faker::Lorem.characters(number: 21)
         is_expected.to eq false
@@ -64,13 +64,13 @@ RSpec.describe Resident, type: :model do
   describe 'Modules' do
     let!(:resident) { build(:resident) }
 
-    describe 'Full_name' do
+    describe 'Full name' do
       it 'returns a resident\'s full name as a string' do
         expect(resident.full_name).to eq '山田 花子'
       end
     end
 
-    describe 'Full_name_kana' do
+    describe 'Full name in kana' do
       it 'returns a resident\'s full name in kana as a string' do
         expect(resident.full_name_kana).to eq 'ヤマダ ハナコ'
       end

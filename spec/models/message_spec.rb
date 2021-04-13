@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Message, type: :model do
-  describe 'validation' do
+  describe 'Validation' do
     subject { message.valid? }
 
     let!(:message) { create(:message) }
@@ -10,7 +10,7 @@ RSpec.describe Message, type: :model do
       is_expected.to eq true
     end
 
-    describe 'sender' do
+    describe 'Sender' do
       it 'is valid without a sender' do
         message.sender = ''
         is_expected.to eq false

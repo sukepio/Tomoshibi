@@ -19,7 +19,7 @@ RSpec.describe Post, type: :model do
       end
     end
 
-    describe 'Admin_id' do
+    describe 'Admin id' do
       it 'is invalid without an admin id' do
         post.admin_id = ""
         is_expected.to eq false

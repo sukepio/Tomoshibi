@@ -10,21 +10,21 @@ RSpec.describe AdminEvent, type: :model do
       is_expected.to eq true
     end
 
-    describe 'title' do
+    describe 'Title' do
       it 'is invalid without a title' do
         admin_event.title = ''
         is_expected.to eq false
       end
     end
 
-    describe 'start' do
+    describe 'Start' do
       it 'is invalid without a start time' do
         admin_event.start = ''
         is_expected.to eq false
       end
     end
 
-    describe 'end' do
+    describe 'End' do
       it 'is invalid without a end time' do
         admin_event.end = ''
         is_expected.to eq false

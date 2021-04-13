@@ -30,7 +30,7 @@ RSpec.describe Household, type: :model do
       end
     end
 
-    describe 'Living_space' do
+    describe 'Living space' do
       it 'is invalid without a living space' do
         household.living_space = ''
         is_expected.to eq false
